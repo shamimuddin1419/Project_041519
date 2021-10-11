@@ -1,4 +1,5 @@
 using Dos4PeopleApp.DA;
+using Dos4PeopleApp.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,8 +24,8 @@ namespace Dos4PeopleApp
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews();
+        {            
+            services.AddControllersWithViews();            
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
             });
