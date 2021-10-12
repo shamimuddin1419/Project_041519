@@ -4,9 +4,45 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Dos4PeopleApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/Content/Theme/app-assets/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/toastr/css/toastr.min.css" rel="stylesheet" />
+
+
+    <!-- BEGIN: Vendor CSS-->
+    <link href="~/Content/Theme/app-assets/vendors/css/vendors.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/extensions/unslider.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/weather-icons/climacons.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/fonts/meteocons/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/charts/morris.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/toggle/switchery.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/selects/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link href="~/Content/Theme/app-assets/css/jquery-ui.css" rel="stylesheet" />
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/fonts/simple-line-icons/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/pages/timeline.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/plugins/forms/switch.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/plugins/forms/extended/form-extended.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/assets/css/style.css">
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/select.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -41,8 +77,9 @@
             &copy; 2021 - Dos4PeopleApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/Content/Theme/app-assets/js/core/libraries/jquery.min.js"></script>
+    <script src="~/Content/Theme/app-assets/js/core/libraries/bootstrap.min.js"></script>
     <script src="~/toastr/js/toastr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
