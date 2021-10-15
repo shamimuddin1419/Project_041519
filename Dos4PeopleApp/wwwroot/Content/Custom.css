@@ -1,0 +1,20 @@
+﻿:root {
+    --baseColor: #702C91;
+}
+
+.jumbotron {
+    background-color: #dcdfe5 !important;
+}
+.form-control:focus {
+    border-color: var(--baseColor) !important;
+}
+.btn-outline-secondary {
+    border-color: var(--baseColor) !important;
+}
+    .btn-outline-secondary:hover {
+        background-color: var(--baseColor) !important;
+    }
+.custom-control-input:checked, .custom-control-label::before {
+    border-color: var(--baseColor) !important;
+    background-color: var(--baseColor) !important;
+}
