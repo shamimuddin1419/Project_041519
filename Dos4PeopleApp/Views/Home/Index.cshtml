@@ -1,8 +1,646 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- Mirrored from droitthemes.com/html/DOP/demo/home_software.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Oct 2021 07:32:00 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DOP</title>
+    <link rel="shortcut icon" href="~/Content/FrontUITheme/assets/images/logo/d.png">
+    
+    <!-- css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/bootstrap.min.css">
+  
+    <!-- icons - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/fontawesome-all.css">
+
+    <!-- slider & carousel - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/owl.theme.default.min.css">
+
+    <!-- animation - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/splitting.css">
+
+    <!-- magnific popup - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/magnific-popup.css">
+
+    <!-- custom - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/style.css">
+</head>
+
+<body class="home_software no-scroll-y">
+    <div class="body_wrap">
+
+        <!-- backtotop - start -->
+        <div id="backtotop"> <a href="#" id="scroll"> <i class="fal fa-arrow-up"></i> <i class="fal fa-arrow-up"></i> </a> </div>
+        <!-- backtotop - end -->
+        <!-- preloader - start -->
+
+        <div id="preloader">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="Dos 4 People" class="letters-loading">
+                            Dos 4 People
+                        </span>                        
+
+                    </div>
+                    <p class="text-center">Loading</p>
+                </div>
+                <div class="loader">
+                    <div class="row">
+                        <div class="col-3 loader-section section-left">
+                            <div class="bg"></div>
+                        </div>
+                        <div class="col-3 loader-section section-left">
+                            <div class="bg"></div>
+                        </div>
+                        <div class="col-3 loader-section section-right">
+                            <div class="bg"></div>
+                        </div>
+                        <div class="col-3 loader-section section-right">
+                            <div class="bg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- preloader - end -->
+        <span class="scene d-none"></span>
+        <!-- header_section - start
+                    ================================================== -->
+        <header id="header_section" class="header_section sticky_header d-flex align-items-center text-white border_bottom clearfix">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="brand_logo">
+                            <a href="index.html" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOP"> <img src="/Content/Images/Logo.png" alt="DOP"> </a>
+                            <button type="button" class="menu_btn"> <i class="fal fa-bars"></i> </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <nav class="main_menu ul_li_right clearfix">
+                            <ul class="clearfix">
+                                <li class="active menu_item"> <a href="#!">Home</a> </li>
+                                <li class="menu_item"> <a href="#">HOW IT WORKS</a> </li>
+                                <li class="menu_item"> <a href="#">PLANS</a> </li>
+                                <li class="menu_item"> <a href="#!">RECENT PAYOUTS</a> </li>
+                                <li class="menu_item"> <a href="#!">FAQ</a> </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2"> <a href="/Login" class="btn btn_border border_white float-right">Sign In</a> </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- mobile sidebar menu - start -->
+        <div class="sidebar-menu-wrapper">
+            <div id="mobile_menu" class="mobile_menu">
+                <div class="brand_logo mb-50 clearfix"> <a href="index.html" class="brand_link"> <img src="~/Content/FrontUITheme/assets/images/logo/logo_2.png" alt="DOP"> </a> <span class="close_btn"><i class="fal fa-times"></i></span> </div>
+                <div class="mobile_menu_dropdown menu_list ul_li_block mp_balancing mb-50 clearfix">
+                    <ul class="clearfix">
+                        <li> <a href="#">Home</a> </li>
+                        <li><a href="#">HOW IT WORKS</a></li>
+                        <li><a href="#">Plans</a></li>
+                        <li><a href="#">RECENT PAYOUTS</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <a href="sign_up.html" class="btn bg_default_blue">Get Started</a>
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <!-- mobile sidebar menu - end -->
+        <!-- header_section - end
+                    ================================================== -->
+        <!-- main body - start
+                    ================================================== -->
+        <main>
+            <!-- banner_section - start
+                          ================================================== -->
+            <section id="banner_section" class="banner_section payment_banner bg_gradient_blue text-white d-flex align-items-center deco_wrap clearfix">
+                <div class="container">
+                    <div class="row justify-content-lg-between text-center justify-content-md-center">
+                        <div class="col-lg-12 col-md-10">
+                            <div class="banner_content">
+                                <h1 class="title_text mb-30 text_effect_wrap is_show">
+                                    <span class="text_effect text_effect_bottom">Dos 4 People</span>
+                                    <!--<span class="text_effect text_effect_bottom"><strong>Everyone Deserves a Better Job</strong></span>-->
+                                </h1>
+                                <p class="mb-50 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200"> Everyone Deserves a Better Job </p>
+                                <div class="btns_group mb-80 ul_li_center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                    <ul class="clearfix">
+                                        <li><a href="/Login" class="btn btn_border border_white">Get Started</a></li>
+                                        <li><a href="/User" class="btn bg_white">Register</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-10 justify-content-md-center">
+                            <div class="banner_image aos-init aos-animate newsletter_section banner-form-group ehead" data-aos="fade-up" data-aos-delay="400">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-4 col-sm-12">
+                                        <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+
+                                            <h2 class="title_text mb-0">0001</h2>
+                                            <p class="mb-0 c_slide_in_wrap1">
+                                                Total works completed successfully
+                                            </p>
+
+                                        </div>
+                                    </div><div class="col-lg-5 col-md-4 col-sm-12">
+                                        <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+
+                                            <h2 class="title_text mb-0">0001</h2>
+                                            <p class="mb-0 c_slide_in_wrap1">
+                                                Total works completed successfully
+                                            </p>
+
+                                        </div>
+                                    </div><div class="col-lg-2 col-md-2 col-sm-12"><a href="#" class="btn btn_border border_blue">View Plans</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="deco_image bg_shape_2" data-background="~/Content/FrontUITheme/assets/images/banner/10_software/bg_2.png"></div>
+                <div class="deco_image bg_shape_3" data-background="~/Content/FrontUITheme/assets/images/banner/10_software/bg_3.png" data-aos="zoom-out" data-aos-delay="100">-->
+                <div class="deco_image cloud_1" data-aos="fade-up" data-aos-delay="500"> <img src="~/Content/FrontUITheme/assets/images/banner/10_software/cloud_1.png" alt="shape_not_found"> </div>
+                <div class="deco_image cloud_2" data-aos="fade-up" data-aos-delay="700"> <img src="~/Content/FrontUITheme/assets/images/banner/10_software/cloud_1.png" alt="shape_not_found"> </div>
+                <!--</div>-->
+                <!--<div class="sec_deco_shape shap_botto"> <img src="~/Content/FrontUITheme/assets/images/banner/10_software/banner-shape.png" alt="shape_not_found"> </div>-->
+                <!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 160.74" style="enable-background:new 0 0 1920 160.74;" xml:space="preserve" class="sec_deco_shape shap_bottom">
+<style type="text/css">
+    .st0 {
+        fill: #FFFFFF;
+    }
+</style>
+<path class="st0" d="M0,0c0,0,71.3,72.95,960,72.95C1842.07,72.95,1920,0,1920,0v160.12H0V0z" />
+</svg>
+
+            </section>
+            <!-- banner_section - end
+                          ================================================== -->
+            <!-- feature_section - start
+                          ================================================== -->
+            <section id="feature_section" class="feature_section sec_ptb_60 deco_wrap clearfix">
+                <div class="container">
+                    <div class="feature_item">
+                        <div class="row align-items-top justify-content-lg-between justify-content-md-center justify-content-sm-center">
+                            <div class="col-lg-6 col-md-7 col-sm-9">
+                                <div class="section_title ml--30 sticky-heade">
+
+                                    <h2 class="title_text mb-30 c_slide_in is_shown">
+                                        <span class="c_slide_in_wrap1">
+                                            <span class="c_slide_in_wrap2">
+                                                <span class="c_slide_in_wrap3">
+                                                    Why Join Us?
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </h2>
+                                    <p class="mb-50 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                                        WorksOnline is an honorary world-class data-driven marketing and insights platfrom that that leverages its global audience of reward program members to power its business solutions.
+                                    </p>
+                                    <p class="mb-50 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                                        These innovative offerings enable leading brands and agencies to gather insights and market to their target audiences. Through deep consumer profiling, our partners can more effectively acquire new customers, boost engagement, increase revenue, and drive brand loyalty and product adoption.
+                                    </p>
+                                    <div data-aos="fade-up" data-aos-delay="300" class="aos-init aos-animate">
+                                        <a href="#!" class="btn btn_border border_blue">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-7 col-sm-9">
+                                <div class="is_shown">
+                                    <div class="col-sm-12">
+                                        <div class="service_primary_2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                            <div class="item_icon icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_1.png" alt="icon_not_found"> </div>
+                                            <h3 class="item_title">JOIN OUR NETWORK</h3>
+                                            <p> Signup for an account in just one minute, join our most vibratant and active community base to help you work form anywhere in the world. </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="service_primary_2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                                            <div class="item_icon icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_2.png" alt="icon_not_found"> </div>
+                                            <h3 class="item_title">HIGHEST PAYOUT RATES</h3>
+                                            <p> Make the most out of your feedback, and enable you make up to ৳21414.23 on a daily basis </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="service_primary_2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="700">
+                                            <div class="item_icon icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </div>
+                                            <h3 class="item_title">INSTANT DAILY PAYMENTS.</h3>
+                                            <p> We provide full mobile supports, you can even shorten the URL, control your account and view the stats on a mobile device. </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="service_primary_2 aos-init aos-animate" data-aos="fade-up" data-aos-delay="700">
+                                            <div class="item_icon icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </div>
+                                            <h3 class="item_title">FAST SERVICE</h3>
+                                            <p> WorksOnline Values your time, which's why we have our customer team online 24/7 to tive you support. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- feature_section - end
+                          ================================================== -->
+            <!-- service_section - start
+                       ================================================== -->
+            <section class="service_section feature_section bg_gradient_blue sec_ptb_120 clearfix text-white">
+                <div class="container">
+                    <div class="section_title text-center mb-30 c_slide_in">
+
+                        <h2 class="title_text  mb-10 c_slide_in_wrap1"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3"> All Features </span> </span> </h2>
+                        <p class="mb-15 c_slide_in_wrap1"> WorksOnline various has plans, from free to paid, that scale with your needs. Subscribe to a plan that fits the size of your business.</p>
+                    </div>
+                    <div class="tabs_nav ul_li" data-aos="fade-up" data-aos-delay="300">
+                        <ul class="nav" role="tablist">
+                            <li> <a class="active" data-toggle="tab" href="#one_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>WorldWide Membership</strong> </a> </li>
+                            <li> <a data-toggle="tab" href="#two_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>Easy To Complete Tasks</strong> </a> </li>
+                            <li> <a data-toggle="tab" href="#three_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>20% Referral Commmission</strong> </a> </li>
+                            <li> <a data-toggle="tab" href="#four_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>1 CLICK Tasks</strong> </a> </li>
+                            <li> <a data-toggle="tab" href="#five_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>274/7 Customer care Support</strong> </a> </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content text-white" data-aos="fade-up" data-aos-delay="500">
+                        <div id="one_tab" class="tab-pane active col-md-12 col-md-10 justify-content-md-center">
+                            <div class="section_title text-center mb-30 c_slide_in">
+
+                                <h2 class="subtitle_text mb-10 c_slide_in_wrap1 text-white"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3"> Reliable Uptime</span> </span> </h2>
+                                <p class="mb-15 c_slide_in_wrap1"> We guarantee that our network will be up and functioning althrough month. Whenever there is a scheduled maintanance, we shall give make an official prior communication.</p>
+                            </div>
+                        </div>
+                        <div id="two_tab" class="tab-pane fade col-md-12 col-md-10 justify-content-md-center ">
+                            <div class="section_title text-center mb-30 c_slide_in">
+
+                                <h2 class="subtitle_text mb-10 c_slide_in_wrap1 text-white"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3"> Easy Dashboard </span> </span> </h2>
+                                <p class="mb-15 c_slide_in_wrap1"> WorksOnline various has plans, from free to paid, that scale with your needs. Subscribe to a plan that fits the size of your business.</p>
+                            </div>
+
+                        </div>
+                        <div id="three_tab" class="tab-pane fade col-md-12 col-md-10 justify-content-md-center">
+                            <div class="section_title text-center mb-30 c_slide_in">
+
+                                <h2 class="subtitle_text mb-10 c_slide_in_wrap1 text-white"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3">Referral Program </span> </span> </h2>
+                                <p class="mb-15 c_slide_in_wrap1"> We award our usera an affiliate commission of 20% of the new member who signs up under their Link. The 10% is credited instantly, to their main balance after the merbshership purchase, and they shhalll be earning a commission of 10% daily of their Referrals' daily earnings</p>
+                            </div>
+                        </div>
+                        <div id="four_tab" class="tab-pane fade col-md-12 col-md-10 justify-content-md-center">
+                            <div class="section_title text-center mb-30 c_slide_in">
+
+                                <h2 class="subtitle_text mb-10 c_slide_in_wrap1 text-white"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3">1CLICK Script Installs</span> </span> </h2>
+                                <p class="mb-15 c_slide_in_wrap1">We guarantee that our network will be up and functioning 99.9% of the time per month. We feel a safety net of .1% each month allows us time for repairs and unforeseen events that may arise. Furthermore, you can view our network status 24 hours a day 365 days a year.</p>
+                            </div>
+                        </div>
+                        <div id="five_tab" class="tab-pane fade col-md-12 col-md-10 justify-content-md-center">
+                            <div class="section_title text-center mb-30 c_slide_in">
+
+                                <h2 class="subtitle_text mb-10 c_slide_in_wrap1 text-white"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3">Support </span> </span> </h2>
+                                <p class="mb-15 c_slide_in_wrap1"> We guarantee that our network will be up and functioning 99.9% of the time per month. We feel a safety net of .1% each month allows us time for repairs and unforeseen events that may arise. Furthermore, you can view our network status 24 hours a day 365 days a year.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- service_section - end
+                          ================================================== -->
+            <!-- start_section - start
+                       ================================================== -->
+            <section id="partner_section" class="partner_section text-center sec_ptb_120 clearfix">
+                <div class="container">
+
+                    <div class="section_title text-center mb-50 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+
+                        <h2 class="title_text mb-0">How to start</h2>
+                    </div>
+
+                    <div class="row mb-80">
+                        <div class="col-lg-4 col-md-4 col-sm-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                            <div class="service_boxed_1">
+                                <div class="icon_wrap">
+                                    <div class="item_icon bg_gradient_blue">
+                                        <i class="icon-graph"></i>
+                                    </div>
+                                    <span class="icon_deco icon_deco_1">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_3.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_2">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_4.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_3">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_5.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_4">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_6.png" alt="shape_not_found">
+                                    </span>
+                                </div>
+                                <h3 class="item_title">
+                                    <a href="case_study_details.html">Digital Analytics</a>
+                                </h3>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                            <div class="service_boxed_1">
+                                <div class="icon_wrap">
+                                    <div class="item_icon bg_gradient_green">
+                                        <i class="icon-marketing"></i>
+                                    </div>
+                                    <span class="icon_deco icon_deco_1">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_3.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_2">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_4.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_3">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_5.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_4">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_6.png" alt="shape_not_found">
+                                    </span>
+                                </div>
+                                <h3 class="item_title">
+                                    <a href="case_study_details.html">Digital Marketing</a>
+                                </h3>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                            <div class="service_boxed_1">
+                                <div class="icon_wrap">
+                                    <div class="item_icon bg_gradient_orange">
+                                        <i class="icon-paper-plane"></i>
+                                    </div>
+                                    <span class="icon_deco icon_deco_1">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_3.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_2">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_4.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_3">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_5.png" alt="shape_not_found">
+                                    </span>
+                                    <span class="icon_deco icon_deco_4">
+                                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_6.png" alt="shape_not_found">
+                                    </span>
+                                </div>
+                                <h3 class="item_title">
+                                    <a href="case_study_details.html">Email Marketing</a>
+                                </h3>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+            <!-- testimonial_section - start
+                        ================================================== -->
+            <section id="testimonial_section" class="testimonial_section sec_ptb_120 pt-0 clearfix">
+                <div class="bg_area bg_gradient_blue sec_ptb_120 pb-0 clearfix">
+                    <div class="container">
+                        <div class="section_title increase_size text-white mb-80">
+                            <h2 class="title_text mb-0 c_slide_in"> <span class="c_slide_in_wrap1"> <span class="c_slide_in_wrap2"> <span class="c_slide_in_wrap3">Love from our clients</span> </span> </span> </h2>
+                        </div>
+                        <div id="testimonial_carousel_2" class="testimonial_carousel_2 owl-carousel arrow_top_right owl-theme" data-aos="fade-up" data-aos-delay="300">
+                            <div class="item">
+                                <div class="testimonial_item" data-background="~/Content/FrontUITheme/assets/images/shapes/shape_20.png">
+                                    <div class="admin_wrap mb-30 clearfix">
+                                        <div class="rating_star ul_li_right">
+                                            <ul class="clearfix">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="thumbnail_image"> <img src="~/Content/FrontUITheme/assets/images/meta/img_1.png" alt="image_not_found"> </div>
+                                        <div class="admin_content">
+                                            <h3 class="admin_name">Mr. Ridoy Rock</h3>
+                                            <span class="admin_title">UI/UX designer</span>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0"> Why say old chap that is spiffing barney nancy boys bleeder and chimney pot Richard cheers the little rotter so I said, easy peasy buggered blower bevvy A bit of how's your father. </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial_item" data-background="~/Content/FrontUITheme/assets/images/shapes/shape_20.png">
+                                    <div class="admin_wrap mb-30 clearfix">
+                                        <div class="rating_star ul_li_right">
+                                            <ul class="clearfix">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="thumbnail_image"> <img src="~/Content/FrontUITheme/assets/images/meta/img_1.png" alt="image_not_found"> </div>
+                                        <div class="admin_content">
+                                            <h3 class="admin_name">Mr. Ridoy Rock</h3>
+                                            <span class="admin_title">UI/UX designer</span>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0"> Why say old chap that is spiffing barney nancy boys bleeder and chimney pot Richard cheers the little rotter so I said, easy peasy buggered blower bevvy A bit of how's your father. </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimonial_item" data-background="~/Content/FrontUITheme/assets/images/shapes/shape_20.png">
+                                    <div class="admin_wrap mb-30 clearfix">
+                                        <div class="rating_star ul_li_right">
+                                            <ul class="clearfix">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="thumbnail_image"> <img src="~/Content/FrontUITheme/assets/images/meta/img_1.png" alt="image_not_found"> </div>
+                                        <div class="admin_content">
+                                            <h3 class="admin_name">Mr. Ridoy Rock</h3>
+                                            <span class="admin_title">UI/UX designer</span>
+                                        </div>
+                                    </div>
+                                    <p class="mb-0"> Why say old chap that is spiffing barney nancy boys bleeder and chimney pot Richard cheers the little rotter so I said, easy peasy buggered blower bevvy A bit of how's your father. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- testimonial_section - end
+                          ================================================== -->
+            <!-- start_section - end
+                          ================================================== -->
+            <section class="service_section sec_ptb_120 bg_gray deco_wrap clearfix">
+                <div class="container w-1520">
+
+                    <div class="section_title text-center mb-80 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="sub_title mb-15">Build your Netwok</h3>
+                        <h2 class="title_text mb-0">Secure your Financial Freedom</h2>
+                        <p class="mb-15 c_slide_in_wrap1">
+                            Sign up for free and become one of the millions of people around the world who earn from WorksOnline
+                        </p>
+                        <a href="#" class="btn btn_border border_blue">START EARNING NOW!</a>
+                    </div>
+
+
+
+                    <div class="deco_image spahe_1 aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
+                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_8.png" alt="spahe_not_found">
+                    </div>
+                    <div class="deco_image spahe_2 aos-init aos-animate" data-aos="fade-left" data-aos-delay="300">
+                        <img src="~/Content/FrontUITheme/assets/images/shapes/shape_9.png" alt="spahe_not_found">
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <!-- newsletter_section - start
+                          ================================================== -->
+            <section id="newsletter_section" class="newsletter_section text-white clearfix">
+                <div class="container">
+                    <div class="newsletter_boxed p-60 bg_gradient_blue deco_wrap" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row align-items-center justify-content-lg-between justify-content-md-center">
+                            <div class="col-lg-5 col-md-7">
+                                <div class="section_title decrease_size">
+                                    <h2 class="title_text mb-15">Subscribe Newsletter</h2>
+                                    <p class="mb-0"> The free demo comes with no commitments and <span class="d-block">no credit card required.</span> </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-7">
+                                <form action="#">
+                                    <div class="form_item mb-0">
+                                        <input class="text-left" type="email" name="email" placeholder="Your email">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-2 col-md-12">
+                                <button type="submit" class="btn btn_border border_white float-right">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- newsletter_section - end
+                          ================================================== -->
+        </main>
+        <!-- main body - end
+                    ================================================== -->
+        <!-- footer_section - start
+                    ================================================== -->
+        <footer id="footer_section" class="footer_section bg_dark_blue text-white deco_wrap sec_ptb_120 pb-0 clearfix">
+            <div class="widget_area">
+                <div class="container position-relative">
+                    <div class="row justify-content-lg-between">
+                        <div class="col-lg-3 col-md-12">
+                            <div class="widget about_content pr-0">
+                                <div class="brand_logo mb-30"> <a href="index.html" class="brand_link"> <img src="/Content/Images/Logo.png" alt="Dos 4 People"> </a> </div>
+                                <div class="copyright_text">
+                                    <p class="mb-0"> Copyright © 2021 Desing by <a href="#" class="author_link">DOP</a> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="widget useful_links ul_li_block">
+                                <h3 class="widget_title mb-50">DOP Homes</h3>
+                                <ul class="clearfix">
+                                    <li><a href="#">Agency</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="widget useful_links ul_li_block">
+                                <h3 class="widget_title mb-50">Useful Pages</h3>
+                                <ul class="clearfix">
+                                    <li><a href="#">About Us</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="social_icon_rounded ul_li ml--30">
+                                <h3 class="widget_title mb-50">Follow Us</h3>
+                                <ul class="clearfix">
+                                    <li> <a href="#!"> <i class="icon-facebook"></i> <i class="icon-facebook"></i> </a> </li>
+                                    <li> <a href="#!"> <i class="icon-twitter"></i> <i class="icon-twitter"></i> </a> </li>
+                                    <li> <a href="#!"> <i class="icon-vimeo"></i> <i class="icon-vimeo"></i> </a> </li>
+                                    <li> <a href="#!"> <i class="icon-linkedin"></i> <i class="icon-linkedin"></i> </a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer_section - end
+                    ================================================== -->
+    </div>
+
+    <!-- jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/popper.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/bootstrap.min.js"></script>
+
+    <!-- slider & carousel - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/owl.carousel.min.js"></script>
+
+    <!-- animation - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/aos.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/splitting.js"></script>
+
+    <!-- magnific popup - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/magnific-popup.min.js"></script>
+
+    <!-- isotope filter - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/isotope.pkgd.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/masonry.pkgd.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/imagesloaded.pkgd.min.js"></script>
+
+    <!-- mouse move & scroll parallax  - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/parallax.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/parallax-scroll.js"></script>
+
+    <!-- google map - jquery include -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrdEzlfpnsnfq4MgU1e1CCsrvVx2d59s"></script>
+    <script src="~/Content/FrontUITheme/assets/js/gmaps.js"></script>
+
+    <!-- mobile menu - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/mCustomScrollbar.js"></script>
+
+    <!-- custom - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="https://cpwebassets.codepen.io/~/Content/FrontUITheme/assets/embed/ei.js"></script>
+</body>
+
+<!-- Mirrored from droitthemes.com/html/DOP/demo/home_software.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Oct 2021 07:33:00 GMT -->
+</html>

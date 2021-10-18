@@ -1,52 +1,121 @@
-﻿<link href="~/Content/Custom/LoginRegistation.css" rel="stylesheet" />
-<div class="row" >
-    <div class="col-4" style="display:flex;" >
-        <h2 class="mt-auto mb-auto" >
-            <a href="#" style="color:white;">
-                    <i class="fa fa-chevron-left"></i>
-                    <span>Back <span class="d-none d-sm-inline-block">To Home</span></span>
-            </a>
-        </h2>
-    </div>
-    <div class="col-4" style="display:flex">
-        <div class=" mr-auto ml-auto" >
-            <a href="/default" class="logo">
-                <img src="~/Content/Images/Logo.png" style="height: 100px;" alt="logo"/>
-                @*<img src="https://worksonline.co.uk/Images/Global/45255622237ea89ee2f67a740a9a2c58.png" style="height: 100px;" alt="logo">*@
-            </a>
-        </div>
-    </div>
-    
-</div>
-<div class="row" style="margin-top:5%;" >
-    <div class="card bg-darken-2 p-md-3 w-50 login-registration-card" >
-        <div class="card-header login-registration-card-header">
-            <center> <h1>Login</h1> </center>
-            <hr />
-        </div>
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control-lg" id="UserName" style="" placeholder="Username or Email" />
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control-lg" id="Password" placeholder="Password" />
-                </div>
-                <div class="form-group">
-                    <center><button type="button" class="form-control-lg btn btn-success btn-lg pl-3 pr-3" id="btnLogin">Log In</button></center>
-                </div>
-            </form>
-            <div class="mt-2 login-registration-link-div">
-                <a href="#">I Forget My Password</a>
-            </div>
-            <div class="login-registration-link-div">
-                Not a member yet? Click @Html.ActionLink("Here","","User") To Register
-            </div>
-        </div>
-    </div>
-</div>
-
-@section Scripts {
-    <script src="~/Application_Scripts/Login.js"></script>
+﻿@{
+    Layout = null;
 }
+<html lang="en" class="loading" data-textdirection="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BEGIN: Vendor CSS-->
+    <link href="~/Content/Theme/app-assets/vendors/css/vendors.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/extensions/unslider.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/weather-icons/climacons.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/fonts/meteocons/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/charts/morris.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/toggle/switchery.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/selects/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link href="~/Content/Theme/app-assets/css/jquery-ui.css" rel="stylesheet" />
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/fonts/simple-line-icons/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/pages/timeline.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/plugins/forms/switch.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/css/plugins/forms/extended/form-extended.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/assets/css/style.css">
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/select.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/toastr/css/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/Custom/LoginRegistation.css" rel="stylesheet" />
+</head>
+
+<body class="vertical-layout ">
+    <div class="app-content container">
+        <div class="row">
+            <div class="col-4" style="display:flex;">
+                <h2 class="mt-auto mb-auto">
+                    <a href="/Home" style="color:white;">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>Back <span class="d-none d-sm-inline-block">To Home</span></span>
+                    </a>
+                </h2>
+            </div>
+            <div class="col-4" style="display:flex">
+                <div class=" mr-auto ml-auto">
+                    <a href="/User" class="logo">
+                        <img src="~/Content/Images/Logo.png" style="height: 100px;" alt="logo" />
+                        @*<img src="https://worksonline.co.uk/Images/Global/45255622237ea89ee2f67a740a9a2c58.png" style="height: 100px;" alt="logo">*@
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" style="margin-top:5%;">
+            <div class="card bg-darken-2 p-md-3 w-50 login-registration-card">
+                <div class="card-header login-registration-card-header">
+                    <center> <h1>Login</h1> </center>
+                    <hr />
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control-lg" id="UserName" style="" placeholder="Username or Email" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control-lg" id="Password" placeholder="Password" />
+                        </div>
+                        <div class="form-group">
+                            <center><button type="button" class="form-control-lg btn btn-success btn-lg pl-3 pr-3" id="btnLogin">Log In</button></center>
+                        </div>
+                    </form>
+                    <div class="mt-2 login-registration-link-div">
+                        <a href="#">I Forget My Password</a>
+                    </div>
+                    <div class="login-registration-link-div">
+                        Not a member yet? Click @Html.ActionLink("Here","","User") To Register
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="~/Content/Theme/app-assets/js/core/libraries/jquery.min.js"></script>
+<script src="~/Content/Theme/app-assets/js/core/libraries/bootstrap.min.js"></script>
+<script src="~/toastr/js/toastr.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<!-- BEGIN: Vendor JS-->
+<script src="~/Content/Theme/app-assets/vendors/js/vendors.min.js"></script>
+<!-- BEGIN Vendor JS-->
+<!-- BEGIN: Page Vendor JS-->
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBgjNW0WA93qphgZW-joXVR6VC3IiYFjfo"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/charts/gmaps.min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/forms/icheck/icheck.min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/extensions/jquery.knob.min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/charts/raphael-min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/charts/morris.min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/charts/jquery.sparkline.min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/extensions/unslider-min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/charts/echarts/echarts.js"></script>
+<!-- END: Page Vendor JS-->
+<!-- BEGIN: Theme JS-->
+<script src="~/Content/Theme/app-assets/js/core/app-menu.js"></script>
+<script src="~/Content/Theme/app-assets/js/core/app.js"></script>
+
+<script src="~/Application_Scripts/Login.js"></script>
+</html>
 
