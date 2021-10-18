@@ -16,6 +16,7 @@ namespace Dos4PeopleApp.Models
         public string ReferrelUserName { get; set; }
         public string Status { set; get; }
         public string ImagePath { set; get; }
+        public string RequestedIP { set; get; }
 
     }
 }

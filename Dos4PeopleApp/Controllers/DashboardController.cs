@@ -1,5 +1,6 @@
 ﻿using Dos4PeopleApp.Models;
 using Dos4PeopleApp.Utility;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,17 @@ namespace Dos4PeopleApp.Controllers
 {
     public class DashboardController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public DashboardController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
+
         public IActionResult Index()
         {
-            VmUser _objSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
-            if (_objSession != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index", "Login");
-            }
-          
+
+            return View();
+
         }
     }
 }
