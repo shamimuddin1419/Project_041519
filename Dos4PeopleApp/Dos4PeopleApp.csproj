@@ -11,6 +11,33 @@
   <ItemGroup>
     <None Include="wwwroot\Application_Scripts\User.js" />
     <None Include="wwwroot\Application_Scripts\Login.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\icomoon\icomoon46a0.svg" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\sofia_pro\SofiaProBold.woff2" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\sofia_pro\SofiaProExtraLight.woff2" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\sofia_pro\SofiaProLight.woff2" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\sofia_pro\SofiaProMedium.woff2" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\sofia_pro\SofiaProSemiBold.woff2" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\sofia_pro\SofiaProUltraLight.woff2" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\fonts\themify\themify9f24.svg" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\aos.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\custom.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\gmaps.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\imagesloaded.pkgd.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\isotope.pkgd.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\magnific-popup.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\masonry.pkgd.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\mCustomScrollbar.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\owl.carousel.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\parallax-scroll.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\parallax.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\popper.min.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\popper.min.js.map" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\splitting.js" />
+    <None Include="wwwroot\Content\FrontUITheme\assets\js\swiper.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +47,12 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Content\FrontUITheme\assets\images\blogs\" />
+    <Folder Include="wwwroot\Content\FrontUITheme\assets\images\logo\" />
+    <Folder Include="wwwroot\Content\FrontUITheme\assets\images\team\" />
   </ItemGroup>
 
 </Project>
