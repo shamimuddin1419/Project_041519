@@ -50,11 +50,11 @@
   </ItemGroup>
 
   <ItemGroup>
+
+    <Folder Include="wwwroot\Content\Images\" />
     <Folder Include="wwwroot\Content\FrontUITheme\assets\images\blogs\" />
     <Folder Include="wwwroot\Content\FrontUITheme\assets\images\logo\" />
     <Folder Include="wwwroot\Content\FrontUITheme\assets\images\team\" />
-
-    <Folder Include="wwwroot\Content\Images\" />
   </ItemGroup>
 
 </Project>

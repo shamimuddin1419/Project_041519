@@ -8,5 +8,5 @@
     navigator.clipboard.writeText(copyText);
 
     /* Alert the copied text */
-    toastr.info("Copied the text: " + copyText);
+    toastr.info("Copied");
 })
