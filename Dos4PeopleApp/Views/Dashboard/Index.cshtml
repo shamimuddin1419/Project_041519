@@ -1,1 +1,35 @@
-﻿<h1>I am Dashbord</h1>
+﻿<div class="content-wrapper">
+    <div class="row cardHolder">
+        <div class="card referrel-card mt-2 ml-2 mr-2">
+            <div class="card-header  ">
+                <h4>My Referral Link:</h4>
+            </div>
+            <div class="card-body">
+                <div class="input-group">
+                    <pre class="form-control m-0 bg-silver" id="refferelId">https://worksonline.co.uk/register?u=samadahmed</pre>
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-success cs-button" id="copyBtn">Copy</button>
+                        <a href="/user/deposit" class="btn btn-info cs-button"><i class="fa fa-plus"></i> Deposit</a>
+                        <a href="/user/cashout" class="btn btn-warning cs-button"><i class="fa fa-arrow-up"></i> Withdraw</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .referrel-card {
+        width: 100%;
+        border-radius: 2rem !important;
+    }
+    
+    .cs-button {
+        box-shadow: 2.419px 9.703px 12.48px 0.52px rgb(156 62 236 / 50%);
+    }
+    .cardHolder {
+        background-color: #5F5AF0;
+        border-radius:2rem;
+    }
+    
+</style>
+<script src="~/Application_Scripts/Dashboard.js"></script>

@@ -47,9 +47,11 @@
     <link href="~/Content/select.dataTables.min.css" rel="stylesheet" />
 
     <link href="~/Content/Site.css" rel="stylesheet" />
-    
+
+    <script src="~/Content/Theme/app-assets/js/core/libraries/jquery.min.js"></script>
+    <script src="~/Content/Theme/app-assets/js/core/libraries/bootstrap.min.js"></script>
 </head>
-<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+<body class="vertical-layout vertical-menu 2-columns fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
     @{ var user = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<VmUser>("VmUser"); }
     @if (user != null)
     {
@@ -1313,7 +1315,7 @@
         </div>
     }
     @{var content = user != null ? "content" : "";}
-    <div class="app-content @content container">
+    <div class="app-content @content">
         <main role="main">
             @RenderBody()
         </main>
@@ -1325,9 +1327,8 @@
                 &copy; 2021 - Dos4PeopleApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>*@
+    
 
-    <script src="~/Content/Theme/app-assets/js/core/libraries/jquery.min.js"></script>
-    <script src="~/Content/Theme/app-assets/js/core/libraries/bootstrap.min.js"></script>
     <script src="~/toastr/js/toastr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- BEGIN: Vendor JS-->
