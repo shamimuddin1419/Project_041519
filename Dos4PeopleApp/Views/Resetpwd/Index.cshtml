@@ -68,27 +68,18 @@
         <div class="row" style="margin-top:5%;">
             <div class="card bg-darken-2 p-md-3 w-50 login-registration-card">
                 <div class="card-header login-registration-card-header">
-                    <center> <h1>Login</h1> </center>
+                    <center> <h1>Reset my password</h1> </center>
                     <hr />
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control-lg" id="UserName" style="" placeholder="Username or Email" />
-                        </div>
+                            <input type="text" class="form-control-lg"  id="Email" placeholder="Email" />
+                        </div>                        
                         <div class="form-group">
-                            <input type="password" class="form-control-lg" id="Password" placeholder="Password" />
+                            <center><button type="button" class="form-control-lg btn btn-success btn-lg pl-3 pr-3" id="btnSendEmail">Send</button></center>
                         </div>
-                        <div class="form-group">
-                            <center><button type="button" class="form-control-lg btn btn-success btn-lg pl-3 pr-3" id="btnLogin">Log In</button></center>
-                        </div>
-                    </form>
-                    <div class="mt-2 login-registration-link-div">
-                        <a href="/Resetpwd">I Forget My Password</a>
-                    </div>
-                    <div class="login-registration-link-div">
-                        Not a member yet? Click @Html.ActionLink("Here","","User") To Register
-                    </div>
+                    </form>                    
                 </div>
             </div>
         </div>
@@ -116,6 +107,6 @@
 <script src="~/Content/Theme/app-assets/js/core/app-menu.js"></script>
 <script src="~/Content/Theme/app-assets/js/core/app.js"></script>
 
-<script src="~/Application_Scripts/Login.js"></script>
+<script src="~/Application_Scripts/ResetPwd.js"></script>
 </html>
 

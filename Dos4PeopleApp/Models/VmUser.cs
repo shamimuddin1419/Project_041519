@@ -13,6 +13,7 @@ namespace Dos4PeopleApp.Models
         public string FullName { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { set; get; }
+        public string CurrentPassword { set; get; }
         public string ReferrelUserName { get; set; }
         public string Status { set; get; }
         public string ImagePath { set; get; }

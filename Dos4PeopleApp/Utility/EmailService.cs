@@ -20,7 +20,7 @@ namespace Dos4PeopleApp.Utility
         public async Task<int> PasswordRecovery(VmUser model, IWebHostEnvironment _webHostEnvironment)
         {
             int result = 0;
-            string sender = "mmm@gmail.com";
+            string sender = "s@gmail.com";
             string receiver = model.Email;
             MailMessage Msg = new MailMessage();
 
@@ -33,11 +33,10 @@ namespace Dos4PeopleApp.Utility
                 string readFile = reader.ReadToEnd();
                 string StrContent = "";
                 StrContent = readFile;
-                StrContent = StrContent.Replace("[FullName]", model.UserName);
+                StrContent = StrContent.Replace("[FullName]", model.FullName);
                 StrContent = StrContent.Replace("[LoginID]", model.UserName);
                 StrContent = StrContent.Replace("[LoginEmail]", model.Email);
-                StrContent = StrContent.Replace("[Password]", model.Password);
-                StrContent = StrContent.Replace("[RequestedIP]", model.RequestedIP);   
+                StrContent = StrContent.Replace("[Password]", model.Password);               
                 Msg.Subject = model.UserName + " - Password Recovery";
                 Msg.Body = StrContent.ToString();
                 Msg.IsBodyHtml = true;
@@ -45,8 +44,8 @@ namespace Dos4PeopleApp.Utility
                 {
                     var credential = new NetworkCredential
                     {
-                        UserName = "mm@gmail.com",
-                        Password = "6555555"
+                        UserName = "s@gmail.com",
+                        Password = "6666666"
                     };
                     smtp.Credentials = credential;
 
