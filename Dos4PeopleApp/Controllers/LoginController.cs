@@ -27,7 +27,7 @@ namespace Dos4PeopleApp.Controllers
             string TargetPath = "";
             bool status = false;
             try
-            {               
+            {
                 VmUser _objUser = await _objUserDa.CheckAutehtication(objVmUser);
                 if (_objUser != null)
                 {
@@ -45,19 +45,25 @@ namespace Dos4PeopleApp.Controllers
             {
                 return Json(new { status = status, TargetUrl = TargetPath });
             }
-           
+
 
         }
-        public ActionResult Logout()
+        public IActionResult Logout()
         {
+
+           
+            string TargetPath = "";
+            bool status = false;
             try
             {
+                    TargetPath = "/";
+                    status = true;
                 HttpContext.Session.SetObjectAsJson("VmUser", null);
-                return RedirectToAction("Index","");
+                return Json(new { status = status, TargetUrl = TargetPath });               
             }
             catch (Exception ex)
             {
-                return Json(new { status = false, message = ex.Message });
+                return Json(new { status = false, TargetUrl = ex.Message });
             }
 
 

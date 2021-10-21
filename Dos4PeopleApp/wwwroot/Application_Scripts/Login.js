@@ -37,7 +37,14 @@ $('#lblLogout').click(function () {
             url: "/Login/Logout",           
             type: "POST",
             contentType: "application/json;charset=utf-8",
-            success: function (response) {},        
+            success: function (response) {
+                debugger;
+                if (response.status == true) {
+                    window.location.href = response.targetUrl;
+                } else {
+                    toastr.error(response.targetUrl);
+                }
+            },        
             error: function (response) {
                 toastr.error("error!");
             }
