@@ -48,5 +48,19 @@ namespace Dos4PeopleApp.Controllers
            
 
         }
+        public ActionResult Logout()
+        {
+            try
+            {
+                HttpContext.Session.SetObjectAsJson("VmUser", null);
+                return RedirectToAction("Index","");
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, message = ex.Message });
+            }
+
+
+        }
     }
 }

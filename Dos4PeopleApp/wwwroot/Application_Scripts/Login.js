@@ -31,3 +31,15 @@ $('#btnLogin').click(function () {
         });
     }
 });
+
+$('#lblLogout').click(function () {
+        $.ajax({
+            url: "/Login/Logout",           
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            success: function (response) {},        
+            error: function (response) {
+                toastr.error("error!");
+            }
+        });    
+});
