@@ -47,7 +47,7 @@
 
             </div>
         </div>
-        <div class="card mt-1 ml-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
@@ -64,7 +64,45 @@
             </div>
         </div>
     </div>
+    
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="card mt-1 ml-1 mr-1" style="border-radius:2rem;">
+                <div class="card-header" style="border-radius:2rem;">
+                    <h4 class="card-title">Direct Referrals Count</h4>
+                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="height-400">
+                            <canvas id="column-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="card mt-1  ml-1 mr-1" style="border-radius:2rem;">
+                <div class="card-header" style="border-radius:2rem;">
+                    <h4 class="card-title">Money Credited To Your Account</h4>
+                    <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="height-400">
+                            <canvas id="column-money-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>
+
 <style>
     .referrel-card {
         width: 100%;
@@ -86,5 +124,18 @@
         border-right: none !important;
         background-color: aliceblue !important;
     }
+  
 </style>
+
+<!-- BEGIN: Page Vendor JS-->
+<script src="/Content/Theme/app-assets/vendors/js/charts/chart.min.js"></script>
+<!-- END: Page Vendor JS-->
+<!-- BEGIN: Page JS-->
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar-stacked.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar-multi-axis.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column-stacked.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column-multi-axis.js"></script>
+<!-- END: Page JS-->
 <script src="~/Application_Scripts/Dashboard.js"></script>

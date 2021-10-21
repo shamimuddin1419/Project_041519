@@ -14,6 +14,7 @@ $(window).on("load", function(){
 
     //Get the context of the Chart canvas element we want to select
     var ctx = $("#column-chart");
+    var ctxMoney = $("#column-money-chart");
 
     // Chart Options
     var chartOptions = {
@@ -26,6 +27,14 @@ $(window).on("load", function(){
                 borderSkipped: 'bottom'
             }
         },
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'probability'
+                }
+            }]
+        },
         responsive: true,
         maintainAspectRatio: false,
         responsiveAnimationDuration:500,
@@ -36,7 +45,7 @@ $(window).on("load", function(){
             xAxes: [{
                 display: true,
                 gridLines: {
-                    color: "#f3f3f3",
+                    color: "#5F5AF0",
                     drawTicks: false,
                 },
                 scaleLabel: {
@@ -46,7 +55,7 @@ $(window).on("load", function(){
             yAxes: [{
                 display: true,
                 gridLines: {
-                    color: "#f3f3f3",
+                    color: "#5F5AF0",
                     drawTicks: false,
                 },
                 scaleLabel: {
@@ -54,26 +63,17 @@ $(window).on("load", function(){
                 }
             }]
         },
-        title: {
-            display: true,
-            text: 'Chart.js Bar Chart'
-        }
+        
     };
 
     // Chart Data
     var chartData = {
-        labels: ["January", "February", "March", "April", "May"],
+        labels: ["12", "15", "16", "17", "18"],
         datasets: [{
-            label: "My First dataset",
-            data: [65, 59, 80, 81, 56],
-            backgroundColor: "#16D39A",
+            label: "DIRECT REFERRALS COUNT",
+            data: [0, 0, 42.5, 0, 0],
+            backgroundColor: "#5F5AF0",
             hoverBackgroundColor: "rgba(22,211,154,.9)",
-            borderColor: "transparent"
-        }, {
-            label: "My Second dataset",
-            data: [28, 48, 40, 19, 86],
-            backgroundColor: "#F98E76",
-            hoverBackgroundColor: "rgba(249,142,118,.9)",
             borderColor: "transparent"
         }]
     };
@@ -89,4 +89,24 @@ $(window).on("load", function(){
 
     // Create the chart
     var lineChart = new Chart(ctx, config);
+    var chartDataForMoney = {
+        labels: ["12", "15", "16", "17", "18"],
+        datasets: [{
+            label: "MONEY CREDITED TO YOUR ACCOUNT",
+            data: [22, 0, 50, 0, 0],
+            backgroundColor: "#5F5AF0",
+            hoverBackgroundColor: "rgba(22,211,154,.9)",
+            borderColor: "transparent"
+        }]
+    };
+
+    var configForMoney = {
+        type: 'bar',
+
+        // Chart Options
+        options: chartOptions,
+
+        data: chartDataForMoney
+    };
+    var lineChartForMoney = new Chart(ctxMoney, configForMoney);
 });
