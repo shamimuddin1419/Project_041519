@@ -17,9 +17,9 @@ namespace Dos4PeopleApp.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [TypeFilter(typeof(LoginCheckActionFilter))]
         public IActionResult Index()
         {
-
             return View();
 
         }

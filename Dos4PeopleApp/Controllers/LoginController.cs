@@ -19,6 +19,11 @@ namespace Dos4PeopleApp.Controllers
         }
         public IActionResult Index()
         {
+            var user = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
+            if(user != null)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
             return View();
         }
         [HttpPost]
