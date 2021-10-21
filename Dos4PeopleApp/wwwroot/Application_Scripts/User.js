@@ -1,4 +1,10 @@
-﻿
+﻿$(document).ready(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('referrer');
+    $('#Referrer').val(myParam)
+
+});
+
 function validateEmail() {
    let email= $('#Email').val()
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
