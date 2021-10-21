@@ -50,8 +50,6 @@ namespace Dos4PeopleApp.Controllers
         }
         public IActionResult Logout()
         {
-
-           
             string TargetPath = "";
             bool status = false;
             try
