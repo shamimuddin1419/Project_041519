@@ -1,4 +1,10 @@
-﻿<div class="content-wrapper">
+﻿@using Microsoft.AspNetCore.Http
+@using Dos4PeopleApp.Utility
+@using Dos4PeopleApp.Models
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{ var user = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<VmUser>("VmUser"); }
+<div class="content-wrapper">
     <div class="row cardHolder">
         <div class="card referrel-card mt-2 ml-2 mr-2">
             <div class="card-header  ">
@@ -6,7 +12,7 @@
             </div>
             <div class="card-body">
                 <div class="input-group">
-                    <pre class="form-control m-0 bg-silver" id="refferelId">https://worksonline.co.uk/register?u=samadahmed</pre>
+                    <pre class="form-control m-0 bg-silver" id="refferelId">https://worksonline.co.uk/register?referrer=@user.UserName</pre>
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-danger  cs-button" id="copyBtn"><b>Copy</b></button>
                         <a href="/user/deposit" class="btn btn-info   cs-button"><i class="fa fa-plus"></i> Deposit</a>
@@ -64,7 +70,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <div class="card mt-1 ml-1 mr-1" style="border-radius:2rem;">
@@ -124,7 +130,6 @@
         border-right: none !important;
         background-color: aliceblue !important;
     }
-  
 </style>
 
 <!-- BEGIN: Page Vendor JS-->
