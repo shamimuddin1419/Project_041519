@@ -32,7 +32,6 @@ $('#btnLogin').click(function () {
     }
 });
 
-
 $('#lblLogout').click(function () {
         $.ajax({
             url: "/Login/Logout",           

@@ -14,14 +14,15 @@ namespace Dos4PeopleApp.Controllers
     {
         UserDA _objUserDa = null;
         VmUser ObjSession = null;
-        public IActionResult Index()
-        {           
-            return View();
-        }
+        
         public ChangePassword()
         {
             _objUserDa = new UserDA();
-
+        }
+        [TypeFilter(typeof(LoginCheckActionFilter))]
+        public IActionResult Index()
+        {
+            return View();
         }
         public async Task<JsonResult> CheckExistingPassword([FromBody] VmUser objVmUser)
         {
