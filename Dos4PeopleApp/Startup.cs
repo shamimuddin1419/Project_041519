@@ -31,6 +31,7 @@ namespace Dos4PeopleApp
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
             });
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<IConfiguration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
