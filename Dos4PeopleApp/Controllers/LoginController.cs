@@ -56,8 +56,8 @@ namespace Dos4PeopleApp.Controllers
             bool status = false;
             try
             {
-                    TargetPath = "/";
-                    status = true;
+              TargetPath = "/";
+               status = true;
                 HttpContext.Session.SetObjectAsJson("VmUser", null);
                 return Json(new { status = status, TargetUrl = TargetPath });               
             }
