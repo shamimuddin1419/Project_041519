@@ -1,6 +1,9 @@
 ﻿$(document).ready(() => {
     $('#successAlert').hide();
-})
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('referrer');
+    $('#Referrer').val(myParam)
+});
 
 function validateEmail() {
    let email= $('#Email').val()
