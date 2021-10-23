@@ -50,8 +50,6 @@ namespace Dos4PeopleApp.Controllers
             {
                 return Json(new { status = status, TargetUrl = TargetPath });
             }
-
-
         }
         public IActionResult Logout()
         {

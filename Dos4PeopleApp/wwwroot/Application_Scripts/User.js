@@ -1,4 +1,7 @@
-﻿
+﻿$(document).ready(() => {
+    $('#successAlert').hide();
+})
+
 function validateEmail() {
    let email= $('#Email').val()
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -49,7 +52,13 @@ $('#btnSave').click(function () {
             success: function (response) {
                 debugger;
                 if (response.status == true) {
-                    toastr.success(response.message);
+                    //toastr.success(response.message);
+                    $('#UserName').val('');
+                    $('#Email').val('');
+                    $('#Password').val('');
+                    $('#ConfirmPassword').val('');
+                    $('#Referrer').val('');
+                    $('#successAlert').show();
                 } else {
                     toastr.error(response.message);
                 }
