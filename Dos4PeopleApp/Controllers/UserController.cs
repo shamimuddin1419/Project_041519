@@ -16,7 +16,7 @@ namespace Dos4PeopleApp.Controllers
         {
             _objUserDa = new UserDA();
         }
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
             return View();
         }
