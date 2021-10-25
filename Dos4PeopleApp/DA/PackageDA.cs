@@ -25,7 +25,7 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
                 string query = "PackageCategory_Get";
-                List<VmPackageCategory> packageCategoryList = await conn.QueryFirstOrDefaultAsync<List<VmPackageCategory>>(query, parameters, commandType: CommandType.StoredProcedure);
+                List<VmPackageCategory> packageCategoryList = (await conn.QueryAsync<VmPackageCategory>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
                 string errorCode = parameters.Get<string>("ErrCode");
                 string userMsg = parameters.Get<string>("UserMsg");
                 if (errorCode != null && errorCode != "00")
@@ -57,7 +57,7 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
                 string query = "Package_Get";
-                List<VmPackage> packageList = await conn.QueryFirstOrDefaultAsync<List<VmPackage>>(query, parameters, commandType: CommandType.StoredProcedure);
+                List<VmPackage> packageList = (await conn.QueryAsync<VmPackage>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
                 string errorCode = parameters.Get<string>("ErrCode");
                 string userMsg = parameters.Get<string>("UserMsg");
                 if (errorCode != null && errorCode != "00")
@@ -91,6 +91,7 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("PackageValue", _objPackage.PackageValue);
                 parameters.Add("PackageDurationDays", _objPackage.PackageDurationDays);
                 parameters.Add("PerClickValue", _objPackage.PerClickValue);
+                parameters.Add("DailyTaskCount", _objPackage.DailyTaskCount);
                 parameters.Add("DailyValue", _objPackage.DailyValue);
                 parameters.Add("WeeklyValue", _objPackage.WeeklyValue);
                 parameters.Add("MonthlyValue", _objPackage.MonthlyValue);
@@ -100,6 +101,8 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("PotentialReferralEarn", _objPackage.PotentialReferralEarn);
                 parameters.Add("TargetPotentialYearlyIncome", _objPackage.TargetPotentialYearlyIncome);
                 parameters.Add("PotentialYearlyIncome", _objPackage.PotentialYearlyIncome);
+                parameters.Add("TCBOnMainInvestPer", _objPackage.TCBOnMainInvestPer);
+                parameters.Add("Remarks", _objPackage.Remarks);
                 parameters.Add("IsActive", _objPackage.IsActive);
                 parameters.Add("IsPublished", _objPackage.IsPublished);
                 parameters.Add("CreatedBy", _objPackage.CreatedBy);

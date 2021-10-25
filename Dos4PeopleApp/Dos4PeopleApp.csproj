@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\Application_Scripts\ChangePassword.js" />
+    <Content Remove="wwwroot\Application_Scripts\Package.js" />
     <Content Remove="wwwroot\Application_Scripts\ResetPwd.js" />
     <Content Remove="wwwroot\Application_Scripts\User.js" />
   </ItemGroup>
@@ -13,6 +14,7 @@
   <ItemGroup>
     <None Include="wwwroot\Application_Scripts\ResetPwd.js" />
     <None Include="wwwroot\Application_Scripts\ChangePassword.js" />
+    <None Include="wwwroot\Application_Scripts\Package.js" />
     <None Include="wwwroot\Application_Scripts\User.js" />
     <None Include="wwwroot\Application_Scripts\Login.js" />
     <None Include="wwwroot\Content\FrontUITheme\assets\css\bootstrap.min.css.map" />
@@ -42,6 +44,11 @@
     <None Include="wwwroot\Content\FrontUITheme\assets\js\popper.min.js.map" />
     <None Include="wwwroot\Content\FrontUITheme\assets\js\splitting.js" />
     <None Include="wwwroot\Content\FrontUITheme\assets\js\swiper.min.js" />
+    <None Include="wwwroot\Scripts\FancyBox\helpers\jquery.fancybox-buttons.js" />
+    <None Include="wwwroot\Scripts\FancyBox\helpers\jquery.fancybox-media.js" />
+    <None Include="wwwroot\Scripts\FancyBox\helpers\jquery.fancybox-thumbs.js" />
+    <None Include="wwwroot\Scripts\FancyBox\jquery.fancybox.js" />
+    <None Include="wwwroot\Scripts\FancyBox\jquery.fancybox.pack.js" />
   </ItemGroup>
 
   <ItemGroup>

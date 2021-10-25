@@ -22,19 +22,39 @@ namespace Dos4PeopleApp.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<JsonResult> GetPackageCategoryList()
         {
-            List<VmPackageCategory> PackageCategoryList = null;
             try
             {
-                PackageCategoryList = await _objPackageDa.GetPackageCategoryList();
-                return Json(new { status = true, packagecategoryList = PackageCategoryList });
+                List<VmPackageCategory> packageCategories = await _objPackageDa.GetPackageCategoryList();
+                var _objList = packageCategories.Select(x => new
+                {
+                    id = x.PackageCategoryId,
+                    text = x.PackageCategory,
+                }).ToList();
+                return Json(new { status = true, data = _objList });
             }
             catch (Exception ex)
             {
-                return Json(new { status = false, packagecategoryList = PackageCategoryList });
+                return Json(new { status = false, message = ex.Message });
             }
+
+        }
+        [HttpPost]
+        public async Task<JsonResult> GetPackageCateMaxLevel([FromBody] VmPackageCategory objPackageCate)
+        {
+            try
+            {
+                List<VmPackageCategory> packageCategories = await _objPackageDa.GetPackageCategoryList();
+                VmPackageCategory objPackageCateMaxLevel = packageCategories.Where(x => x.PackageCategoryId == objPackageCate.PackageCategoryId).FirstOrDefault();
+                return Json(new { status = true, data = objPackageCateMaxLevel });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, message = ex.Message });
+            }
+
         }
         public async Task<JsonResult> GetPackageList()
         {
@@ -42,11 +62,11 @@ namespace Dos4PeopleApp.Controllers
             try
             {
                 PackageList = await _objPackageDa.GetPackageList();
-                return Json(new { status = true, PackageList = PackageList });
+                return Json(new { status = true, data = PackageList });
             }
             catch (Exception ex)
             {
-                return Json(new { status = false, PackageList = PackageList });
+                return Json(new { status = false, data = ex.Message });
             }
         }
 

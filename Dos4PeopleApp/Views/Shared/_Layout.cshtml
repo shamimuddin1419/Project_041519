@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/extensions/unslider.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/weather-icons/climacons.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/fonts/meteocons/style.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/charts/morris.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/charts/morris.css"> 
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/toggle/switchery.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/selects/select2.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
@@ -59,18 +59,18 @@
     @if (user != null)
     {
 
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
-    <div class="navbar-wrapper">
-        <div class="navbar-header">
-            <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item">
-                    <a class="navbar-brand" href="/">
-                        <img class="brand-logo img-responsive" alt="Site logo" style="height: auto; width:60px" src="~/Content/Images/Logo.png">
-                        @*<h2 class="brand-text">DOS</h2>*@
-                    </a>
-                </li>
-                <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
+        <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
+            <div class="navbar-wrapper">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav flex-row">
+                        <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/">
+                                <img class="brand-logo img-responsive" alt="Site logo" style="height: auto; width:60px" src="~/Content/Images/Logo.png">
+                                @*<h2 class="brand-text">DOS</h2>*@
+                            </a>
+                        </li>
+                        <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
 
                     </ul>
                 </div>
@@ -205,13 +205,13 @@
                             <li class="dropdown dropdown-user nav-item">
                                 <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><i class="fa fa-user"></i>@user.UserName</a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    
+
                                     <a class="dropdown-item" href="/ChangePassword">
                                         <i class="ft-check-square"></i> Change Password
                                     </a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item"  id="lblLogout">
+                                    <a class="dropdown-item" id="lblLogout">
                                         <i class="ft-power"></i> Logout
                                     </a>
                                 </div>
@@ -288,7 +288,38 @@
     <!-- BEGIN: Theme JS-->
     <script src="~/Content/Theme/app-assets/js/core/app-menu.js"></script>
     <script src="~/Content/Theme/app-assets/js/core/app.js"></script>
-     <script src="~/Application_Scripts/Login.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/extensions/unslider-min.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/timeline/horizontal-timeline.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/forms/toggle/bootstrap-checkbox.min.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <!-- BEGIN: Page JS-->
+    @*<script src="~/Content/Theme/app-assets/vendors/js/forms/extended/typeahead/typeahead.bundle.min.js"></script>
+        <script src="~/Content/Theme/app-assets/vendors/js/forms/extended/typeahead/handlebars.js"></script>*@
+    @*<script src="~/Content/Theme/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>*@
+    
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    @*<script src="~/Content/Theme/app-assets/vendors/js/tables/datatable/dataTables.select.min.js"></script>*@
+    <script src="~/Content/Theme/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/FancyBox/jquery.fancybox.js"></script>
+    <script src="~/Scripts/FancyBox/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/Theme/app-assets/js/scripts/forms/switch.js"></script>
+    <script src="~/Content/Theme/app-assets/js/scripts/forms/select/form-select2.js"></script>
+    <script src="~/Content/Theme/app-assets/js/scripts/extensions/block-ui.js"></script>
+    <script src="~/Scripts/dataTables.select.min.js"></script>
+    <script src="~/Content/Theme/app-assets/js/scripts/tables/datatables-extensions/datatable-select.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/pickers/dateTime/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="~/Content/Theme/app-assets/vendors/js/ui/jquery-ui.min.js"></script>
+    <
+
+    @*<script src="~/Content/Theme/app-assets/vendors/js/forms/extended/typeahead/bloodhound.min.js"></script>*@
+
+    <script src="~/Application_Scripts/Login.js"></script>
 
     <!-- END: Theme JS-->
     @await RenderSectionAsync("Scripts", required: false)
