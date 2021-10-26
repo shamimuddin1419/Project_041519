@@ -143,7 +143,7 @@ namespace Dos4PeopleApp.DA
                 var parameters = new DynamicParameters();
                 parameters.Add("PackageId", _objPackage.PackageId);
                 parameters.Add("IsActive", _objPackage.IsActive);
-                parameters.Add("IsPublished", _objPackage.IsPublished);
+                parameters.Add("IsPublished", 1);
                 parameters.Add("CreatedBy", _objPackage.CreatedBy);                
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);

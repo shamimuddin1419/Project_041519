@@ -8,8 +8,10 @@
         <div class="content-header-right text-md-right col-md-6 col-12">
             <div class="form-group">
                 <button type="button" class="btn btn-primary" id="btnSave">Save</button>
-                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
+                <button type="button" class="btn btn-success" id="btnPublish">Publish</button>
                 <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+                <button type="button" class="btn btn-info" id="btnNew">New</button>
+                <button type="button" class="btn btn-success" id="btnList">Show List</button>
 
             </div>
         </div>
@@ -18,6 +20,7 @@
         <!-- Basic Elements start -->
         <section class="basic-elements" >
             <div class="row" id="PackageMasterDetailId">
+                <input type="hidden" id="hidPackageId" />
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
@@ -161,6 +164,7 @@
                                         <th>Category</th>
                                         <th>Package Name</th>
                                         <th>Package Value</th>
+                                        <th>Published</th>
                                         <th>Active</th>
                                     </tr>
                                 </thead>

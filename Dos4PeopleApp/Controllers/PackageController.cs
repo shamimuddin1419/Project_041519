@@ -119,5 +119,20 @@ namespace Dos4PeopleApp.Controllers
             }
         }
 
+        public async Task<JsonResult> GetPackageInfoById(int id)
+        {
+            List<VmPackage> PackageList = null;
+            try
+            {
+                PackageList = await _objPackageDa.GetPackageList();
+                VmPackage packageInfo = PackageList.Where(x => x.PackageId == id).FirstOrDefault();
+                return Json(new { status = true, data = packageInfo });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, data = ex.Message });
+            }
+        }
+
     }
 }

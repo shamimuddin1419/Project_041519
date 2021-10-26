@@ -2,10 +2,13 @@
     loadInitialization();
 });
 
-function loadInitialization() {
+function loadInitialization() {   
     Clear();
-    LoadPackageCategory();
-    LoadPackageList();
+    LoadPackageCategory();  
+    $('#btnDelete').hide();
+    $('#btnNew').hide();
+    $('#btnPublish').hide();    
+    $('#PackageListId').hide();
 };
 
 function LoadPackageCategory() {
@@ -19,6 +22,31 @@ function LoadPackageCategory() {
         });
     });
 }
+
+$('#btnList').click(function () {
+    $('#btnSave').hide();
+    $('#btnDelete').hide();
+    $('#btnPublish').hide();   
+    $('#btnNew').show();
+    $('#PackageMasterDetailId').hide();
+    $('#PackageListId').show();
+    LoadPackageList();
+   
+});
+
+$('#btnNew').click(function () {
+    NewButtonAction();
+});
+
+function NewButtonAction() {
+    $('#btnSave').show();
+    $('#btnDelete').hide();
+    $('#btnPublish').hide();
+    $('#btnNew').hide();
+    $('#PackageMasterDetailId').show();
+    $('#PackageListId').hide();
+    Clear();
+} 
 
 $("#ddlPackageCategory").change(function () {
     $('#ReferralEarnlabel').text('');
@@ -46,6 +74,70 @@ $("#ddlPackageCategory").change(function () {
             toastr.error("error!");
         }
     });
+});
+
+
+$('#btnDelete').click(function () {
+    if (confirm("Are you sure want to delete the package?") == true) {
+        if ($('#hidPackageId').val() == '0' || $('#hidPackageId').val() == null) {
+            toastr.warning("Select Package")
+        }
+        else {
+            var objPackage = {
+                PackageId: $('#hidPackageId').val()               
+            };
+            $.ajax({
+                url: "/Package/DeletePackage",
+                data: JSON.stringify(objPackage),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                success: function (response) {
+                    debugger;
+                    if (response.status == true) {
+                        toastr.success(response.message);
+                        NewButtonAction();
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function (response) {
+                    toastr.error("error!");
+                }
+            });
+        }
+    }
+});
+
+$('#btnPublish').click(function () {
+    if (confirm("Are you sure want to publish the package?") == true) {
+        if ($('#hidPackageId').val() == '0' || $('#hidPackageId').val() == null) {
+            toastr.warning("Select Package")
+        }
+        else {
+            var objPackage = {
+                PackageId: $('#hidPackageId').val(),
+                IsActive: $('#IsActive').is(":checked")               
+            };
+            $.ajax({
+                url: "/Package/UpdatePackage",
+                data: JSON.stringify(objPackage),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                success: function (response) {
+                    debugger;
+                    if (response.status == true) {
+                        toastr.success(response.message);
+                        NewButtonAction();
+                    } else {
+                        toastr.error(response.message);
+                    }
+                },
+                error: function (response) {
+                    toastr.error("error!");
+                }
+            });
+        }
+    }
 });
 
 $('#btnSave').click(function () {
@@ -118,7 +210,8 @@ $('#btnSave').click(function () {
             TargetPotentialYearlyIncome: $('#txtTargetPotentialYearlyIncome').val(),
             TCBOnMainInvestPer: $('#txtTCBOntheMainInvestment').val(),
             PotentialYearlyIncome: $('#txtPotentialYearlyMinIncome').val(),
-            Remarks: $('#txtRemark').val()
+            Remarks: $('#txtRemark').val(),
+            IsActive: $('#IsActive').is(":checked"),
         };
         $.ajax({
             url: "/Package/InsertPackage",
@@ -143,6 +236,7 @@ $('#btnSave').click(function () {
 });
 
 function Clear() {
+    $('#hidPackageId').val("0");
     $('#ddlPackageCategory').val('0');
     $('#txtPackageName').val('');
     $('#txtPackageValue').val('0');
@@ -160,6 +254,9 @@ function Clear() {
     $('#txtTCBOntheMainInvestment').val('0');
     $('#txtPotentialYearlyMinIncome').val('0');
     $('#txtRemark').val('');
+    $('.select2').trigger('change');   
+    $('#IsActive').prop('checked', true);
+    $('.switchery').trigger('click')
 }
 
 function LoadPackageList() {
@@ -182,7 +279,7 @@ function LoadPackageList() {
                     'width': '5%',
                     "className": "center",
                     render: function (data, type, row) {
-                        return '<button type="button" onclick = "GetPackageById(' + data.PackageId + ')" class="btn info"><i class="fa fa-pencil"></i></a>'
+                        return '<button type="button" onclick = "GetPackageById(' + data.packageId + ')" class="btn info"><i class="fa fa-pencil"></i></a>'
                     }
 
                 },               
@@ -190,6 +287,7 @@ function LoadPackageList() {
                 { "data": "packageCategory", "autoWidth": true },
                 { "data": "packageName", "autoWidth": true },
                 { "data": "packageValue", "autoWidth": true },
+                { "data": "isPublished", "autoWidth": true }, 
                 { "data": "isActive", "autoWidth": true } 
             ],       
         "order": [1, "asc"],
@@ -203,21 +301,37 @@ function LoadPackageList() {
 }
 
 function GetPackageById(id) {
-    //if (confirm("Are you sure want delete the Collection?") == true) {
-    //    $.get('/InternetBillCollection/DeleteCollection/' + id, function (data) {
-    //        if (data.success) {
-    //            LoadBillDatatable();
-    //            showSuccessMessage(data.message);
-    //        }
-    //        else if (data.success == false) {
-    //            showErrorMessage(data.message);
-    //        }
-    //        else {
-    //            showErrorMessage("Something error occured, Refresh the page and try again!");
-    //        }
-
-    //    }).fail(function (response) {
-    //        showErrorMessage(response.responseText);
-    //    });
-    //}
+    $.get('/Package/GetPackageInfoById/' + id, function (data) {
+        $('#hidPackageId').val(data.data.packageId);
+        $('#ddlPackageCategory').val(data.data.packageCategoryId);
+        $('#txtPackageName').val(data.data.packageName);
+        $('#txtPackageValue').val(data.data.packageValue);
+        $('#txtPlanDuration').val(data.data.packageDurationDays);
+        $('#txtDailyTaskCount').val(data.data.dailyTaskCount);
+        $('#txtActionworth').val(data.data.perClickValue);
+        $('#txtDailyEarn').val(data.data.dailyValue);
+        $('#txtWeeklyEarn').val(data.data.weeklyValue);
+        $('#txtMonthlyEarn').val(data.data.monthlyValue);
+        $('#txtYearlyEarn').val(data.data.yearlyValue);
+        $('#txtReferralEarnlevel').val(data.data.referralEarn);
+        $('#txtWorkComissionlevel').val(data.data.workCommission);
+        $('#txtPotentialReferralEarn').val(data.data.potentialReferralEarn);
+        $('#txtTargetPotentialYearlyIncome').val(data.data.potentialReferralEarn);
+        $('#txtTCBOntheMainInvestment').val(data.data.targetPotentialYearlyIncome);
+        $('#txtPotentialYearlyMinIncome').val(data.data.potentialYearlyIncome);
+        $('#txtRemark').val(data.data.remarks);
+        $('.select2').trigger('change');   
+        $('#IsActive').prop('checked', data.data.isActive),
+       $('.switchery').trigger('click');
+        $('#btnSave').hide();
+        $('#btnNew').show();
+        $('#btnDelete').show();
+        if (data.data.isPublished == true) {
+            $('#btnPublish').hide();
+        } else {
+            $('#btnPublish').show();
+        }
+        $('#PackageMasterDetailId').show();
+        $('#PackageListId').hide();
+    });
 }
