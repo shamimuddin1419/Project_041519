@@ -1,0 +1,74 @@
+﻿
+<div class="content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Payment Info.</h4>
+                    
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Note!</h4>
+                            <p>After approving the payment the package will be activated for you. </p>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+
+                                <fieldset class="form-group">
+                                    <label for="basicInput">Payment Type</label>
+                                    <select class="form-control select2" id="ddlPaymentMethodType">
+                                        <option value="0" min="0">Select</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+
+                                <fieldset class="form-group">
+                                    <label for="basicInput">Payment Number</label>
+                                    <select class="form-control select2" id="ddlPaymentMethod">
+                                        <option value="0" min="0">Select</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput">Reference</label>
+                                    <input type="text" class="form-control" id="txtReference">
+                                </fieldset>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> Remark</label>
+                                    <textarea class="form-control" id="txtRemark" rows="2"></textarea>
+                                </fieldset>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                <button type="button" class="form-control-lg btn btn-primary btn-lg pl-3 pr-3" id="btnRequestForPaymentAccept">Request For Payment Accept</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Application_Scripts/BuyPlan.js"></script>
+}
+
