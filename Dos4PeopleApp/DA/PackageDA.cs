@@ -43,6 +43,48 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
+
+        internal async Task<VmReturnType> RequestForPaymentAccept(VmUserPackageRequest objVmPackageReq)
+        {
+            var conn = Utility.Utility.GetConnection();
+            VmReturnType _objReturnType = new VmReturnType();
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                var parameters = new DynamicParameters();
+                parameters.Add("UserId", objVmPackageReq.UserId);
+                parameters.Add("PackageId", objVmPackageReq.PackageId);             
+                parameters.Add("PaymentMethodId", objVmPackageReq.PaymentMethodId);
+                parameters.Add("Reference", objVmPackageReq.Reference);
+                parameters.Add("Remarks", objVmPackageReq.Remarks);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "UserPackageRequest_Add";
+                var result = await conn.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+                _objReturnType.ErrCode = parameters.Get<string>("ErrCode");
+                _objReturnType.UserMsg = parameters.Get<string>("UserMsg");
+                if (_objReturnType.ErrCode != null && _objReturnType.ErrCode != "00")
+                {
+                    _objReturnType.Status = false;
+                    throw new CustomException(_objReturnType.UserMsg);
+                }
+                _objReturnType.Status = true;
+            }
+            catch (Exception ex)
+            {
+                _objReturnType.Status = false;
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return _objReturnType;
+        }
+
         internal async Task<List<VmPackage>> GetPackageList()
         {
             var conn = Utility.Utility.GetConnection();
@@ -205,6 +247,71 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
             return _objReturnType;
+        }
+        
+            internal async Task<List<VmPaymentMethod>> GetPaymentMethodList()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();              
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "PaymentMethodByTypeId_Get";
+                List<VmPaymentMethod> paymentMethodTypes = (await conn.QueryAsync<VmPaymentMethod>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return paymentMethodTypes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        internal async Task<List<VmPaymentMethodType>> GetPaymentMethodTypeList()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "PaymentMethodType_Get";
+                List<VmPaymentMethodType> paymentMethodTypes = (await conn.QueryAsync<VmPaymentMethodType>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return paymentMethodTypes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

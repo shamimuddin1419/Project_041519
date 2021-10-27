@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Application_Scripts\BuyPlan.js" />
     <Content Remove="wwwroot\Application_Scripts\ChangePassword.js" />
     <Content Remove="wwwroot\Application_Scripts\Package.js" />
     <Content Remove="wwwroot\Application_Scripts\ResetPwd.js" />
@@ -12,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Application_Scripts\BuyPlan.js" />
     <None Include="wwwroot\Application_Scripts\ResetPwd.js" />
     <None Include="wwwroot\Application_Scripts\ChangePassword.js" />
     <None Include="wwwroot\Application_Scripts\Package.js" />
