@@ -1,5 +1,101 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿
+<div class="content-wrapper">
+    <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+            <h3 class="content-header-title mb-0">Package Approval</h3>
+
+        </div>
+        <div class="content-header-right text-md-right col-md-6 col-12">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="btnSave">Approve</button>
+                <button type="button" class="btn btn-primary" id="btnReject">Reject</button>
+                <button type="button" class="btn btn-success" id="btnList">Show List</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <!-- Basic Elements start -->
+        <section class="basic-elements">
+            <div class="row" id="MasterDetailId">
+                <input type="hidden" id="hidPackageId" />
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">Payment Type</label>
+                                            <input type="text" class="form-control" id="txtPaymentType" readonly>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">Payment Number</label>
+                                            <input type="text" class="form-control" id="txtPaymentNumber" readonly>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">Reference</label>
+                                            <input type="text" class="form-control" id="txtReference" readonly>
+                                        </fieldset>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput"> Remark</label>
+                                            <textarea class="form-control" id="txtRemark" rows="2" readonly></textarea>
+                                        </fieldset>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ListId">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <table id="ListTableId" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Detail </th>
+                                        <th>Request Date</th>
+                                        <th>User Name</th>
+                                        <th>Package Name</th>
+                                        <th>Payment Type</th>
+                                        <th>Payment Number</th>
+                                        <th>Reference</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Application_Scripts/PackageApproval.js"></script>
 }
+

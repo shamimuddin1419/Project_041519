@@ -313,5 +313,38 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
+
+        internal async Task<List<VmUserPackageRequest>> GetUserPackageRequestPendingList()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "UserPackageRequestPending_Get";
+                List<VmUserPackageRequest> packageList = (await conn.QueryAsync<VmUserPackageRequest>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return packageList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
