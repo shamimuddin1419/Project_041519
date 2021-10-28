@@ -35,11 +35,11 @@ var planListRender = function () {
                                         <li>Target Potential Yearly Income	${value.targetPotentialYearlyIncome}</li>
                                         ${value.tcbOnMainInvestPer === 0 ? '' : '<li>TCB On the Main Investment	'+value.tcbOnMainInvestPer+'</li>'}
                                         <li>Potential Yearly Min Income	 ${value.potentialYearlyIncome}</li>
-                                        <li>Withdraw on the 15th of every month</li>
-                                        <li>Withdraw Your Referral & Work Commision 5th Day of every month</li>
+                                        <li>${value.remarks}</li>
+                                        
                                     </ul>
                                 </div>
-                                <a href="#" class="btn btn_border border_blue">Buy Now</a>
+                                <a href="/Buyplan/Index?packageId=${value.packageId}" class="btn btn_border border_blue">Buy Now</a>
                             </div>
                         </div>`
                 packageListRender = packageListRender + itemRender;
