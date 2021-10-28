@@ -18,6 +18,7 @@ namespace Dos4PeopleApp.Controllers
         {
             _objPackageDa = new PackageDA();
         }
+        [TypeFilter(typeof(LoginCheckActionFilter))]
         public IActionResult Index()
         {
             return View();
