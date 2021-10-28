@@ -207,6 +207,7 @@ $('#btnSave').click(function () {
             ReferralEarn: $('#txtReferralEarnlevel').val(),
             WorkCommission: $('#txtWorkComissionlevel').val(),
             PotentialReferralEarn: $('#txtPotentialReferralEarn').val(),
+            PotentialReferralWorkEarn: $('#txtPotentialReferralWorkEarn').val(),
             TargetPotentialYearlyIncome: $('#txtTargetPotentialYearlyIncome').val(),
             TCBOnMainInvestPer: $('#txtTCBOntheMainInvestment').val(),
             PotentialYearlyIncome: $('#txtPotentialYearlyMinIncome').val(),
@@ -249,6 +250,7 @@ function Clear() {
     $('#txtYearlyEarn').val('0');
     $('#txtReferralEarnlevel').val('0');
     $('#txtWorkComissionlevel').val('0');
+    $('#txtPotentialReferralWorkEarn').val('0');
     $('#txtPotentialReferralEarn').val('0');
     $('#txtTargetPotentialYearlyIncome').val('0');
     $('#txtTCBOntheMainInvestment').val('0');
@@ -315,6 +317,7 @@ function GetPackageById(id) {
         $('#txtYearlyEarn').val(data.data.yearlyValue);
         $('#txtReferralEarnlevel').val(data.data.referralEarn);
         $('#txtWorkComissionlevel').val(data.data.workCommission);
+        $('#txtPotentialReferralWorkEarn').val(data.data.potentialReferralWorkEarn);
         $('#txtPotentialReferralEarn').val(data.data.potentialReferralEarn);
         $('#txtTargetPotentialYearlyIncome').val(data.data.potentialReferralEarn);
         $('#txtTCBOntheMainInvestment').val(data.data.targetPotentialYearlyIncome);
