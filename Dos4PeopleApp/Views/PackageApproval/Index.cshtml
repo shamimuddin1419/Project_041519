@@ -7,8 +7,8 @@
         </div>
         <div class="content-header-right text-md-right col-md-6 col-12">
             <div class="form-group">
-                <button type="button" class="btn btn-primary" id="btnSave">Approve</button>
-                <button type="button" class="btn btn-primary" id="btnReject">Reject</button>
+                <button type="button" class="btn btn-primary" id="btnApprove">Approve</button>
+                <button type="button" class="btn btn-danger" id="btnReject">Reject</button>
                 <button type="button" class="btn btn-success" id="btnList">Show List</button>
 
             </div>
@@ -18,7 +18,7 @@
         <!-- Basic Elements start -->
         <section class="basic-elements">
             <div class="row" id="MasterDetailId">
-                <input type="hidden" id="hidPackageId" />
+                <input type="hidden" id="hidPackageRequestId" />
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
@@ -41,6 +41,15 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">Amount</label>
+                                            <input type="text" class="form-control" id="txtAmount" readonly>
+                                        </fieldset>
+                                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
@@ -60,7 +69,7 @@
                                     </div>
 
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -77,11 +86,11 @@
                                         <th>Detail </th>
                                         <th>Request Date</th>
                                         <th>User Name</th>
-                                        <th>Package Name</th>
+                                        <th>Amount</th>
                                         <th>Payment Type</th>
+                                        <th>Package Name</th>
                                         <th>Payment Number</th>
                                         <th>Reference</th>
-                                        <th>Remarks</th>
                                     </tr>
                                 </thead>
                             </table>

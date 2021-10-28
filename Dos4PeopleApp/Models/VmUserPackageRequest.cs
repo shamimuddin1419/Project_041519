@@ -21,5 +21,8 @@ namespace Dos4PeopleApp.Models
         public DateTime ApprovedDate { set; get; }
         public string PaymentMethodTypeName { set; get; }
         public string StringCreateDate { get; set; }
+        public decimal Amount { get; set; }
+        public Guid RejectBy { set; get; }
+
     }
 }
