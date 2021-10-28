@@ -31,17 +31,21 @@ $('#btnRequestForPaymentAccept').click(function () {
     if (confirm("Are you sure want to request for payment accept ?") == true) {
 
         if ($('#ddlPaymentMethodType').val() == null || $('#ddlPaymentMethodType').val() == '0') {
-            toastr.error('Provide Payment Type');
+            toastr.warning('Provide Payment Type');
         }
         else if ($('#ddlPaymentMethod').val() == null || $('#ddlPaymentMethod').val() == '0') {
-            toastr.error('Provide Payment Number');
+            toastr.warning('Provide Payment Number');
+        }
+        else if ($('#txtAmount').val() == null || $('#txtAmount').val() == '') {
+            toastr.warning('Provide Amount');
         }
         else if ($('#txtReference').val() == '') {
-            toastr.warning("Provide Reference")
+            toastr.warning('Provide Reference');
         }        
         else {
             var objUserPackageReq = {
                 PaymentMethodId: $('#ddlPaymentMethod').val(),
+                Amount: $('#txtAmount').val(),
                 Reference: $('#txtReference').val(),
                 Remarks: $('#txtRemark').val()
             };
@@ -71,8 +75,10 @@ $('#btnRequestForPaymentAccept').click(function () {
 function Clear() {  
     
     $('#ddlPaymentMethodType').val('0');
+    $('#ddlPaymentMethod').val('0');
     $('#txtRemark').val('');
-    $('#txtReference').val('');   
+    $('#txtReference').val('');  
+    $('#txtAmount').val(''); 
     $('.select2').trigger('change');
 
 }

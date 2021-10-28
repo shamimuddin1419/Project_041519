@@ -65,7 +65,7 @@
                     <ul class="nav navbar-nav flex-row">
                         <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
                         <li class="nav-item">
-                            <a class="navbar-brand" href="/">
+                            <a class="navbar-brand" href="/Dashboard">
                                 <img class="brand-logo img-responsive" alt="Site logo" style="height: auto; width:60px" src="~/Content/Images/Logo.png">
                                 @*<h2 class="brand-text">DOS</h2>*@
                             </a>
@@ -81,15 +81,9 @@
 
                             <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
                             <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
+                           
                         </ul>
-                        <ul class="nav navbar-nav float-right">
-                            <li class="dropdown dropdown-language nav-item">
-                                <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-gb"></i><span class="selected-language"></span></a>
-                                <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-gb"></i> English</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Chinese</a><a class="dropdown-item" href="#"><i class="flag-icon flag-icon-de"></i> German</a></div>
-                            </li>
+                        <ul class="nav navbar-nav float-right">                           
                             <li class="dropdown dropdown-notification nav-item">
                                 <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
@@ -150,58 +144,7 @@
                                     <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown dropdown-notification nav-item">
-                                <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i><span class="badge badge-pill badge-warning badge-up">3</span></a>
-                                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                                    <li class="dropdown-menu-header">
-                                        <h6 class="dropdown-header m-0"><span class="grey darken-2">Messages</span><span class="notification-tag badge badge-warning float-right m-0">4 New</span></h6>
-                                    </li>
-                                    <li class="scrollable-container media-list ps">
-                                        <a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Margaret Govan</h6>
-                                                    <p class="notification-text font-small-3 text-muted">I like your portfolio, let's start.</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left"><span class="avatar avatar-sm avatar-busy rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-2.png" alt="avatar"><i></i></span></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Bret Lezama</h6>
-                                                    <p class="notification-text font-small-3 text-muted">I have seen your work, there is</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Tuesday</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left"><span class="avatar avatar-sm avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-3.png" alt="avatar"><i></i></span></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Carie Berra</h6>
-                                                    <p class="notification-text font-small-3 text-muted">Can we have call in this week ?</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Friday</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left"><span class="avatar avatar-sm avatar-away rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="avatar"><i></i></span></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Eric Alsobrook</h6>
-                                                    <p class="notification-text font-small-3 text-muted">We have project party this saturday.</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">last month</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
-                                    </li>
-                                    <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all messages</a></li>
-                                </ul>
-                            </li>
+                            
                             <li class="dropdown dropdown-user nav-item">
                                 <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><i class="fa fa-user"></i>@user.UserName</a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -229,38 +172,36 @@
                         <span>Menu</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Mwnu"></i>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Summary</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Summary</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Earn</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Earn</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Deposit</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Deposit</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Upgrade</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Upgrade</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Voucher Codes</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Voucher Codes</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Referral</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Referral</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Money</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Money</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">People</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">People</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Statistics</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Statistics</span></a>
                     </li>
                     <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Settings</span></a>
+                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Settings</span></a>
                     </li>
-                    <li class=" nav-item">
-                        <a href="app-email.html"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Logout</span></a>
-                    </li>
+                   
                 </ul>
                 <div class="ps__rail-x" style="left: 0px; bottom: -48px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 48px; height: 256px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 6px; height: 36px;"></div></div>
             </div>

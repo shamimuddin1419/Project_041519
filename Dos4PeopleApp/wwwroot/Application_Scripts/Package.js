@@ -236,7 +236,7 @@ $('#btnSave').click(function () {
 });
 
 function Clear() {
-    $('#hidPackageId').val("0");
+    $('#hidPackageId').val('0');
     $('#ddlPackageCategory').val('0');
     $('#txtPackageName').val('');
     $('#txtPackageValue').val('0');
