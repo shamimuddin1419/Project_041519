@@ -30,6 +30,8 @@ namespace Dos4PeopleApp.Models
         public Guid CreatedBy { set; get; }
         public DateTime CreatedDate { set; get; }
         public string PackageCategory { set; get; }
-       
+        public decimal PotentialReferralWorkEarn { get; set; }
+        public int MaxLevel { get; set; }
+
     }
 }

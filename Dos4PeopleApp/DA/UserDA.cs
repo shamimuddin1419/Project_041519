@@ -25,6 +25,7 @@ namespace Dos4PeopleApp.DA
                 }
                 var parameters = new DynamicParameters();
                 parameters.Add("UserName", _objUser.UserName.Trim());
+                parameters.Add("FullName", _objUser.FullName.Trim());
                 parameters.Add("Email", _objUser.Email.Trim());              
                 parameters.Add("Password", _objUser.Password.Trim());
                 parameters.Add("ReferrelUserName", _objUser.ReferrelUserName == null || _objUser.ReferrelUserName == "" ? null : _objUser.ReferrelUserName.Trim());
