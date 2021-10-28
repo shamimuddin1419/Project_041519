@@ -43,6 +43,7 @@ $('#btnSave').click(function () {
         var objVmUser = {
             UserName: $('#UserName').val(),
             Email: $('#Email').val(),
+            FullName: $('#FullName').val(),
             Password: $('#Password').val(),
             ConfirmPassword: $('#ConfirmPassword').val(),
             ReferrelUserName: $('#Referrer').val(),
@@ -58,6 +59,7 @@ $('#btnSave').click(function () {
                     //toastr.success(response.message);
                     $('#UserName').val('');
                     $('#Email').val('');
+                    $('#FullName').val('');
                     $('#Password').val('');
                     $('#ConfirmPassword').val('');
                     $('#Referrer').val('');

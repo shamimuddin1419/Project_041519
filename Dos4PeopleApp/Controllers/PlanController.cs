@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dos4PeopleApp.Controllers
 {
-    public class Plans : Controller
+    public class PlanController : Controller
     {
         public IActionResult Index()
         {
