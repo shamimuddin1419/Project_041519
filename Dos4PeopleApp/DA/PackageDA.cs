@@ -176,6 +176,7 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("ReferralEarn", _objPackage.ReferralEarn);
                 parameters.Add("WorkCommission", _objPackage.WorkCommission);
                 parameters.Add("PotentialReferralEarn", _objPackage.PotentialReferralEarn);
+                parameters.Add("PotentialReferralWorkEarn", _objPackage.PotentialReferralWorkEarn);
                 parameters.Add("TargetPotentialYearlyIncome", _objPackage.TargetPotentialYearlyIncome);
                 parameters.Add("PotentialYearlyIncome", _objPackage.PotentialYearlyIncome);
                 parameters.Add("TCBOnMainInvestPer", _objPackage.TCBOnMainInvestPer);
