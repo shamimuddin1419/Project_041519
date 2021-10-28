@@ -4,8 +4,20 @@
 function loadInitialization() {
     Clear();
     LoadPaymentMethod();
+    LoadPackageInfo();
    
 };
+
+function LoadPackageInfo() {  
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('packageId');
+    $.get('/Package/GetPackageInfoById/' + id, function (data) { 
+        let PackageInfo = `(Package: ${data.data.packageName} and price: ${data.data.packageValue})`;      
+        $('#lblPackageInfo').text(PackageInfo);
+        $('#txtAmount').val(data.data.packageValue);
+
+    });
+}
 
 function LoadPaymentMethod() {    
     var Packages = []
