@@ -7,6 +7,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\Application_Scripts\BuyPlan.js" />
     <Content Remove="wwwroot\Application_Scripts\ChangePassword.js" />
+    <Content Remove="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
     <Content Remove="wwwroot\Application_Scripts\Package.js" />
     <Content Remove="wwwroot\Application_Scripts\PackageApproval.js" />
     <Content Remove="wwwroot\Application_Scripts\ResetPwd.js" />
@@ -15,6 +16,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\Application_Scripts\BuyPlan.js" />
+    <None Include="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
     <None Include="wwwroot\Application_Scripts\PackageApproval.js" />
     <None Include="wwwroot\Application_Scripts\ResetPwd.js" />
     <None Include="wwwroot\Application_Scripts\ChangePassword.js" />

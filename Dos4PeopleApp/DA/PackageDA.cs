@@ -44,6 +44,43 @@ namespace Dos4PeopleApp.DA
             }
         }
 
+        internal async Task<VmReturnType> GenerateDailyTaskIncome(Guid generatedBy)
+        {
+            var conn = Utility.Utility.GetConnection();
+            VmReturnType _objReturnType = new VmReturnType();
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                var parameters = new DynamicParameters();
+                parameters.Add("CreatedBy", generatedBy);              
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "DailyTaskAutoProcess";
+                var result = await conn.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+                _objReturnType.ErrCode = parameters.Get<string>("ErrCode");
+                _objReturnType.UserMsg = parameters.Get<string>("UserMsg");
+                if (_objReturnType.ErrCode != null && _objReturnType.ErrCode != "00")
+                {
+                    _objReturnType.Status = false;
+                    throw new CustomException(_objReturnType.UserMsg);
+                }
+                _objReturnType.Status = true;
+            }
+            catch (Exception ex)
+            {
+                _objReturnType.Status = false;
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return _objReturnType;
+        }
+
         internal async Task<VmUserPackageRequest> GetUserPackageRequestById(int id)
         {
             var conn = Utility.Utility.GetConnection();
