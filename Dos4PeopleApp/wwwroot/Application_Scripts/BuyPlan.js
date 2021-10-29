@@ -55,7 +55,10 @@ $('#btnRequestForPaymentAccept').click(function () {
             toastr.warning('Provide Reference');
         }        
         else {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pid = urlParams.get('packageId');
             var objUserPackageReq = {
+                PackageId: pid,
                 PaymentMethodId: $('#ddlPaymentMethod').val(),
                 Amount: $('#txtAmount').val(),
                 Reference: $('#txtReference').val(),

@@ -29,9 +29,7 @@ namespace Dos4PeopleApp.Controllers
             {
                 VmReturnType _objReturnType = null;
                 ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
-
-                objVmPackageReq.UserId = ObjSession.UserId;
-                objVmPackageReq.PackageId = 1;
+                objVmPackageReq.UserId = ObjSession.UserId;                
                 _objReturnType = await ObjPackageDa.RequestForPaymentAccept(objVmPackageReq);
                 return Json(new { Message = _objReturnType.UserMsg.Trim(), Status = _objReturnType.Status });
 
