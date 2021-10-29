@@ -41,31 +41,31 @@
         <!-- backtotop - start -->
         <div id="backtotop"> <a href="#" id="scroll"> <i class="fal fa-arrow-up"></i> <i class="fal fa-arrow-up"></i> </a> </div>
         <!-- backtotop - end -->
-       
+
         <span class="scene d-none"></span>
         <!-- header_section - start
-                    ================================================== -->
+                ================================================== -->
         <header id="header_section" class="header_section sticky_header d-flex align-items-center text-white border_bottom clearfix">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="brand_logo">
-                            <a href="index.html" class="brand_link"> <img src="~/Content/FrontUITheme/assets/images/logo/dop.png" alt="DOP"> <img src="~/Content/FrontUITheme/assets/images/logo/dop.png" alt="DOP"> </a>
+                            <a href="/" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOS"> <img src="/Content/Images/Logo.png" alt="DOP"> </a>
                             <button type="button" class="menu_btn"> <i class="fal fa-bars"></i> </button>
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <nav class="main_menu ul_li_right clearfix">
                             <ul class="clearfix">
-                                <li class="active menu_item"> <a href="#!">Home</a> </li>
-                                <li class="menu_item"> <a href="#">HOW IT WORKS</a> </li>
-                                <li class="menu_item"> <a href="#">PLANS</a> </li>
-                                <li class="menu_item"> <a href="#!">RECENT PAYOUTS</a> </li>
-                                <li class="menu_item"> <a href="#!">FAQ</a> </li>
+                                <li class="active menu_item"> <a href="/">Home</a> </li>
+                                <li class="menu_item"> <a href="/">HOW IT WORKS</a> </li>
+                                <li class="menu_item"> @Html.ActionLink("PLANS", "Index", "Plan")</li>
+                                <li class="menu_item"> <a href="/">RECENT PAYOUTS</a> </li>
+                                <li class="menu_item"> <a href="/">FAQ</a> </li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-lg-2"> <a href="sign_in.html" class="btn btn_border border_white float-right">Sign In</a> </div>
+                    <div class="col-lg-2"> <a href="/Login" class="btn btn_border border_white float-right">Sign In</a> </div>
                 </div>
             </div>
         </header>
@@ -73,56 +73,56 @@
         <!-- mobile sidebar menu - start -->
         <div class="sidebar-menu-wrapper">
             <div id="mobile_menu" class="mobile_menu">
-                <div class="brand_logo mb-50 clearfix"> <a href="index.html" class="brand_link"> <img src="~/Content/FrontUITheme/assets/images/logo/logo_2.png" alt="DOP"> </a> <span class="close_btn"><i class="fal fa-times"></i></span> </div>
+                <div class="brand_logo mb-50 clearfix"> <a href="/" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOS"> </a> <span class="close_btn"><i class="fal fa-times"></i></span> </div>
                 <div class="mobile_menu_dropdown menu_list ul_li_block mp_balancing mb-50 clearfix">
                     <ul class="clearfix">
-                        <li> <a href="#">Home</a> </li>
-                        <li><a href="#">HOW IT WORKS</a></li>
-                        <li><a href="#">Plans</a></li>
-                        <li><a href="#">RECENT PAYOUTS</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li> <a href="/">Home</a> </li>
+                        <li><a href="/">HOW IT WORKS</a></li>
+                        <li>@Html.ActionLink("PLANS", "Index", "Plan")</li>
+                        <li><a href="/">RECENT PAYOUTS</a></li>
+                        <li><a href="/">FAQ</a></li>
                     </ul>
                 </div>
-                <a href="sign_up.html" class="btn bg_default_blue">Get Started</a>
+                <a href="/Login" class="btn bg_default_blue">Get Started</a>
             </div>
             <div class="overlay"></div>
         </div>
         <!-- mobile sidebar menu - end -->
         <!-- header_section - end ================================================== -->
         <!-- main body - start
-        ================================================== -->
+    ================================================== -->
         <main>
 
 
             <!-- breadcrumb_section - start
-            ================================================== -->
+        ================================================== -->
             <section id="breadcrumb_section" class="breadcrumb_section bg_gradient_blue deco_wrap d-flex align-items-center text-white clearfix pt-0 pb-0" style="min-height:auto !important;">
                 <div class="container">
                     <div class="breadcrumb_content text-center" data-aos="fade-up" data-aos-delay="100">
-                        
+
                     </div>
                 </div>
 
             </section>
             <!-- breadcrumb_section - end
-            ================================================== -->
+        ================================================== -->
             <!-- pricing_section - start
-            ================================================== -->
+        ================================================== -->
             <section class="pricing_section sec_ptb_120 bg_gray_2 clearfix">
                 <div class="container">
                     <div class="section_title text-center increase_size mb-50" data-aos="fade-up" data-aos-delay="100">
                         <h2 class="title_text mb-0">Best Pricing Plans</h2>
                     </div>
                     <div class="row" id="PriceLoadingId">
-                        
+
                     </div>
 
                 </div>
             </section>
             <!-- pricing_section - end
-            ================================================== -->
+        ================================================== -->
             <!-- newsletter_section - start
-            ================================================== -->
+        ================================================== -->
             <section id="newsletter_section" class="newsletter_section bg_gradient_blue text-white sec_ptb_60 clearfix">
                 <div class="container">
                     <div class="row align-items-center justify-content-lg-between justify-content-md-center justify-content-sm-center">
@@ -152,31 +152,31 @@
                 </div>
             </section>
             <!-- newsletter_section - end
-            ================================================== -->
+        ================================================== -->
 
 
         </main>
         <!-- main body - end
-        ================================================== -->
+    ================================================== -->
         <!-- footer_section - start
-                    ================================================== -->
+                ================================================== -->
         <footer id="footer_section" class="footer_section bg_dark_blue text-white deco_wrap sec_ptb_120 pb-0 clearfix">
             <div class="widget_area">
                 <div class="container position-relative">
                     <div class="row justify-content-lg-between">
                         <div class="col-lg-3 col-md-12">
                             <div class="widget about_content pr-0">
-                                <div class="brand_logo mb-30"> <a href="index.html" class="brand_link"> <img src="~/Content/FrontUITheme/assets/images/logo/dop.png" alt="DOP"> </a> </div>
+                                <div class="brand_logo mb-30"> <a href="/" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOS"> </a> </div>
                                 <div class="copyright_text">
-                                    <p class="mb-0"> Copyright © 2021 Desing by <a href="#" class="author_link">DOP</a> </p>
+                                    <p class="mb-0"> Copyright © 2021 Desing by <a href="/" class="author_link">DOS</a> </p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-4 col-sm-4">
                             <div class="widget useful_links ul_li_block">
-                                <h3 class="widget_title mb-50">DOP Homes</h3>
+                                <h3 class="widget_title mb-50">DOS Homes</h3>
                                 <ul class="clearfix">
-                                    <li><a href="#">Agency</a></li>
+                                    <li><a href="/">Agency</a></li>
 
                                 </ul>
                             </div>
@@ -185,7 +185,7 @@
                             <div class="widget useful_links ul_li_block">
                                 <h3 class="widget_title mb-50">Useful Pages</h3>
                                 <ul class="clearfix">
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="/">About Us</a></li>
 
                                 </ul>
                             </div>
@@ -194,10 +194,10 @@
                             <div class="social_icon_rounded ul_li ml--30">
                                 <h3 class="widget_title mb-50">Follow Us</h3>
                                 <ul class="clearfix">
-                                    <li> <a href="#!"> <i class="icon-facebook"></i> <i class="icon-facebook"></i> </a> </li>
-                                    <li> <a href="#!"> <i class="icon-twitter"></i> <i class="icon-twitter"></i> </a> </li>
-                                    <li> <a href="#!"> <i class="icon-vimeo"></i> <i class="icon-vimeo"></i> </a> </li>
-                                    <li> <a href="#!"> <i class="icon-linkedin"></i> <i class="icon-linkedin"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-facebook"></i> <i class="icon-facebook"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-twitter"></i> <i class="icon-twitter"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-vimeo"></i> <i class="icon-vimeo"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-linkedin"></i> <i class="icon-linkedin"></i> </a> </li>
                                 </ul>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
             </div>
         </footer>
         <!-- footer_section - end
-                    ================================================== -->
+                ================================================== -->
     </div>
 
     <!-- jquery include -->
