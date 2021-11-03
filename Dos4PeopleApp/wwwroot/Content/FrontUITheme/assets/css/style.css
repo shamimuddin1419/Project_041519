@@ -1717,6 +1717,18 @@ button {
   .header_section .btn.btn_border {
     padding: 11px 35px;
     padding-bottom: 12px; }
+.header_section .btn.border_white {
+    color: #4154f1;
+    border-color: #4154f1;
+}
+
+    .header_section .btn.border_white:before {
+        background-color: #4154f1;
+    }
+
+    .header_section. .btn.border_white:hover {
+        color: #ffffff;
+    }
 
 .header_section.stuck .btn {
   font-size: 16px;
@@ -1739,7 +1751,8 @@ button {
   color: rgba(255, 255, 255, 0.7); }
 
 .header_section.text-white .main_menu > ul > li:hover > a, .header_section.text-white .main_menu > ul > li.active > a {
-  color: #ffffff; }
+    color: #4154f1 !important;
+}
 
 .header_section.text-white.border_bottom {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important; }
@@ -1757,7 +1770,32 @@ button {
   right: 0px;
   z-index: 999;
   min-height: 110px;
-  position: absolute; }
+/*  position: absolute;*/
+
+}
+    .sticky_header .brand_logo > .brand_link {
+        max-width: 147px;
+    }
+
+        .sticky_header .brand_logo > .brand_link > img:nth-child(1) {
+            display: none;
+        }
+
+        .sticky_header .brand_logo > .brand_link > img:nth-child(2) {
+            display: inline-block;
+        }
+
+    .sticky_header.text-white .main_menu > ul > li > a {
+        color: #051441;
+    }
+
+    .sticky_header.text-white .main_menu > ul > li:hover > a, .sticky_header.stuck.text-white .main_menu > ul > li.active > a {
+        color: #4154f1;
+    }
+
+    .sticky_header.text-white .menu_btn {
+        color: #6a7c92;
+    }
 
 .sticky_header.stuck {
   position: fixed;
@@ -8856,6 +8894,14 @@ button {
   color: #4154f1; }
   .home_software .header_section.stuck .btn.border_white:hover {
     color: #ffffff; }
+
+.home_software .header_section .btn.border_white {
+    color: #4154f1;
+}
+
+    .home_software .header_section .btn.border_white:hover {
+        color: #ffffff;
+    }
 
 /* header section - end */
 /* banner section - start */

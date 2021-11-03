@@ -25,12 +25,14 @@
             </div>
         </div>
         <div class="card mt-1 ml-2 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+            <input type="hidden" id="GetDashboardFirstCardDataURLId" value=@Url.ActionLink("GetDashboardFirstCardData","Dashboard") />
+            <input type="hidden" id="GetDashboardGraphURLId" value=@Url.ActionLink("GetDashboardGraphData","Dashboard") />
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
-                        <h3>Main</h3>
+                        <h4>Balance</h4>
                         <p style="font-size:xx-large;color:darkturquoise">
-                            ৳0
+                            $<span id="CurrBalValId"></span>
                         </p>
                     </div>
                     <div class="align-self-center">
@@ -44,9 +46,9 @@
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
-                        <h3>Purchase</h3>
+                        <h4>Today's Earn</h4>
                         <p style="font-size:xx-large;color:darkturquoise">
-                            ৳0
+                            $<span id="TodayEarnValId"></span>
                         </p>
                     </div>
                     <div class="align-self-center">
@@ -60,9 +62,9 @@
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
-                        <h3>Commission</h3>
+                        <h4 id="CurrentPackageNameId"></h4>
                         <p style="font-size:xx-large;color:darkturquoise">
-                            ৳0
+                            $<span id="CurrPackValId"></span>
                         </p>
                     </div>
                     <div class="align-self-center">
@@ -78,14 +80,14 @@
         <div class="col-xs-12 col-md-6">
             <div class="card mt-1 ml-1 mr-1" style="border-radius:2rem;">
                 <div class="card-header" style="border-radius:2rem;">
-                    <h4 class="card-title">Direct Referrals Count</h4>
+                    <h4 class="card-title">Direct Referrals Count (Last 7 Days)</h4>
                     <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
 
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
                         <div class="height-400">
-                            <canvas id="column-chart"></canvas>
+                            <canvas id="direct-referrel-column-chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -94,14 +96,14 @@
         <div class="col-xs-12 col-md-6">
             <div class="card mt-1  ml-1 mr-1" style="border-radius:2rem;">
                 <div class="card-header" style="border-radius:2rem;">
-                    <h4 class="card-title">Money Credited To Your Account</h4>
+                    <h4 class="card-title">Money Credited To Your Account (Last 7 Days)</h4>
                     <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
 
                 </div>
                 <div class="card-content collapse show">
                     <div class="card-body">
                         <div class="height-400">
-                            <canvas id="column-money-chart"></canvas>
+                            <canvas id="money-credited-column-chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -136,14 +138,14 @@
 </style>
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/Content/Theme/app-assets/vendors/js/charts/chart.min.js"></script>
+<script src="~/Content/Theme/app-assets/vendors/js/charts/chart.min.js"></script>
 <!-- END: Page Vendor JS-->
 <!-- BEGIN: Page JS-->
-<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar.js"></script>
+@*<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar.js"></script>
 <script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar-stacked.js"></script>
-<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar-multi-axis.js"></script>
-<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column.js"></script>
-<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column-stacked.js"></script>
-<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column-multi-axis.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/bar-multi-axis.js"></script>*@
+@*<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column.js"></script>*@
+@*<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column-stacked.js"></script>
+<script src="~/Content/Theme/app-assets/js/scripts/charts/chartjs/bar/column-multi-axis.js"></script>*@
 <!-- END: Page JS-->
 <script src="~/Application_Scripts/Dashboard.js"></script>
