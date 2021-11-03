@@ -10,3 +10,7 @@
     /* Alert the copied text */
     toastr.info("Copied");
 })
+
+$('#withdrawBtn').click(function () {  
+    toastr.info("Please Check Your Withdrawal Amount And Withdrawal Date & Time");
+})
