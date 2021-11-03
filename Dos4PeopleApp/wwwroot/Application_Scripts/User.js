@@ -30,6 +30,9 @@ $('#btnSave').click(function () {
     else if ($('#Email').val() == '') {
         toastr.warning("Provide Email")
     }  
+    else if ($('#Mobile').val() == '') {
+        toastr.warning("Provide Mobile")
+    } 
     else if ($('#Password').val() == '') {
         toastr.warning("Provide Password")
     } 
@@ -43,6 +46,7 @@ $('#btnSave').click(function () {
         var objVmUser = {
             UserName: $('#UserName').val(),
             Email: $('#Email').val(),
+            Mobile: $('#Mobile').val(),
             FullName: $('#FullName').val(),
             Password: $('#Password').val(),
             ConfirmPassword: $('#ConfirmPassword').val(),
@@ -59,6 +63,7 @@ $('#btnSave').click(function () {
                     //toastr.success(response.message);
                     $('#UserName').val('');
                     $('#Email').val('');
+                    $('#Mobile').val('');
                     $('#FullName').val('');
                     $('#Password').val('');
                     $('#ConfirmPassword').val('');

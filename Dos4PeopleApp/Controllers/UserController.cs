@@ -38,6 +38,10 @@ namespace Dos4PeopleApp.Controllers
                 {
                     return Json(new { Message = "Provide valid email address", Status = false });
                 }
+                else if (objVmUser.Mobile == null || objVmUser.Mobile == "")
+                {
+                    return Json(new { Message = "Provide  Mobile", Status = false });
+                }
                 else if (objVmUser.Password == null || objVmUser.Password == "")
                 {
                     return Json(new { Message = "Provide Password", Status = false });
