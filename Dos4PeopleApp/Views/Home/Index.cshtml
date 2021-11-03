@@ -149,11 +149,12 @@
                         </div>
                         <div class="col-lg-12 col-md-10 justify-content-md-center">
                             <div class="banner_image aos-init aos-animate newsletter_section banner-form-group ehead" data-aos="fade-up" data-aos-delay="400">
+                                
                                 <div class="row">
                                     <div class="col-lg-5 col-md-4 col-sm-12">
                                         <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
 
-                                            <h2 class="title_text mb-0">0001</h2>
+                                            <h2 class="title_text mb-0" id="totalTextId">0001</h2>
                                             <p class="mb-0 c_slide_in_wrap1">
                                                 Total works completed successfully
                                             </p>
@@ -162,7 +163,7 @@
                                     </div><div class="col-lg-5 col-md-4 col-sm-12">
                                         <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
 
-                                            <h2 class="title_text mb-0">0001</h2>
+                                            <h2 class="title_text mb-0" id="activeTextId">0001</h2>
                                             <p class="mb-0 c_slide_in_wrap1">
                                                 Total works completed successfully
                                             </p>
@@ -641,6 +642,18 @@
     <script src="~/Content/FrontUITheme/assets/js/custom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async src="https://cpwebassets.codepen.io/~/Content/FrontUITheme/assets/embed/ei.js"></script>
+    <script>
+        $(document).ready(function () {
+            loadUserCountData();
+        });
+        var loadUserCountData = function () {
+            debugger;
+            $.get('@Url.ActionLink("GetUserCountData","Dashboard")', function (data) {
+                $('#totalTextId').text(data.data.totalUser)
+                $('#activeTextId').text(data.data.packageUser)
+            });
+        } 
+    </script>
 </body>
 
 <!-- Mirrored from droitthemes.com/html/DOP/demo/home_software.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Oct 2021 07:33:00 GMT -->
