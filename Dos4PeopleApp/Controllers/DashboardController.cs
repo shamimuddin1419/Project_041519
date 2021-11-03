@@ -54,5 +54,18 @@ namespace Dos4PeopleApp.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
+        public async Task<JsonResult> GetUserCountData()
+        {
+            try
+            {
+                VMUserCountData userCountData = await dashboardDA.GetUserCountData();
+                return Json(new { success = true, data = userCountData });
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }

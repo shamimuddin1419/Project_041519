@@ -77,5 +77,37 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
+        internal async Task<VMUserCountData> GetUserCountData()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VMUserCountData result = new VMUserCountData();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "UserCount_Get";
+                result = (await conn.QueryAsync<VMUserCountData>(query, parameters, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
