@@ -1,10 +1,12 @@
 ﻿$(document).ready(function () {
     loadInitialization();
+    
 });
 function loadInitialization() {
     Clear();
     LoadPaymentMethod();
     LoadPackageInfo();
+   
    
 };
 
@@ -26,9 +28,31 @@ function LoadPaymentMethod() {
         $('#ddlPaymentMethodType').select2({
             data: Packages
         });
+
     });
 }
+
+function changeicon() {
+    $('#IdPMImage').show();
+   var PaymentType= $("#ddlPaymentMethodType option:selected").text();
+    if (PaymentType == 'Payoneer') {
+        $('#IdPMImage').attr('src', '/Content/Images/Payoneer.jpeg');
+    } else if (PaymentType == 'Perfect Money') {       
+        $('#IdPMImage').attr('src', '/Content/Images/PerfectMoney.jpeg');
+    }
+    else if (PaymentType == 'Payeer') {
+        $('#IdPMImage').attr('src', '/Content/Images/Payeer.jpeg');
+    }
+    else if (PaymentType == 'BTC') {
+        $('#IdPMImage').attr('src', '/Content/Images/BTC.jpeg');
+    } else {
+        $('#IdPMImage').attr('src', '');
+        $('#IdPMImage').hide();
+    }
+}
+
 $("#ddlPaymentMethodType").change(function () {
+
     let id = $('#ddlPaymentMethodType').val();
     var paymentMethods = []     
     $.get('/BuyPlan/GetPaymentMethodList/' + id, function (data) {
@@ -37,6 +61,7 @@ $("#ddlPaymentMethodType").change(function () {
             data: paymentMethods
         });
     });   
+    changeicon();
 });
 
 $('#btnRequestForPaymentAccept').click(function () {
@@ -95,5 +120,6 @@ function Clear() {
     $('#txtReference').val('');  
     $('#txtAmount').val(''); 
     $('.select2').trigger('change');
+    $('#IdPMImage').hide();
 
 }
