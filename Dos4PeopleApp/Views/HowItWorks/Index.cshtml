@@ -1,0 +1,237 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from droitthemes.com/html/DOP/demo/home_software.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Oct 2021 07:32:00 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>DOP</title>
+    <link rel="shortcut icon" href="~/Content/FrontUITheme/assets/images/logo/d.png">
+
+    <!-- css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/bootstrap.min.css">
+
+    <!-- icons - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/fontawesome-all.css">
+
+    <!-- slider & carousel - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/owl.theme.default.min.css">
+
+    <!-- animation - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/splitting.css">
+
+    <!-- magnific popup - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/magnific-popup.css">
+
+    <!-- custom - css include -->
+    <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/style.css">
+    
+</head>
+
+<body class="home_software no-scroll-y">
+    <div class="body_wrap">
+
+        <!-- backtotop - start -->
+        <div id="backtotop"> <a href="#" id="scroll"> <i class="fal fa-arrow-up"></i> <i class="fal fa-arrow-up"></i> </a> </div>
+        <!-- backtotop - end -->
+
+        <span class="scene d-none"></span>
+        <!-- header_section - start
+                ================================================== -->
+        <header id="header_section" class="header_section sticky_header d-flex align-items-center text-white border_bottom clearfix">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="brand_logo">
+                            <a href="/" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOS"> <img src="/Content/Images/Logo.png" alt="DOP"> </a>
+                            <button type="button" class="menu_btn"> <i class="fal fa-bars"></i> </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <nav class="main_menu ul_li_right clearfix">
+                            <ul class="clearfix">
+                                <li class="active menu_item"> <a href="/">HOME</a> </li>
+                                <li class="menu_item"> @Html.ActionLink("HOW IT WORKS", "Index", "HowItWorks") </li>
+                                <li class="menu_item"> @Html.ActionLink("PLANS", "Index", "Plan")</li>
+                                <li class="menu_item"> <a href="/">RECENT PAYOUTS</a> </li>
+                                <li class="menu_item"> <a href="/">FAQ</a> </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2"> <a href="/Login" class="btn btn_border border_white float-right">Sign In</a> </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- mobile sidebar menu - start -->
+        <div class="sidebar-menu-wrapper">
+            <div id="mobile_menu" class="mobile_menu">
+                <div class="brand_logo mb-50 clearfix"> <a href="/" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOS"> </a> <span class="close_btn"><i class="fal fa-times"></i></span> </div>
+                <div class="mobile_menu_dropdown menu_list ul_li_block mp_balancing mb-50 clearfix">
+                    <ul class="clearfix">
+                        <li> <a href="/">HOME</a> </li>
+                        <li class="menu_item"> @Html.ActionLink("HOW IT WORKS", "Index", "HowItWorks") </li>
+                        <li>@Html.ActionLink("PLANS", "Index", "Plan")</li>
+                        <li><a href="/">RECENT PAYOUTS</a></li>
+                        <li><a href="/">FAQ</a></li>
+                    </ul>
+                </div>
+                <a href="/Login" class="btn bg_default_blue">Get Started</a>
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <!-- mobile sidebar menu - end -->
+        <!-- header_section - end ================================================== -->
+        <!-- main body - start
+        ================================================== -->
+        <main>
+            <section class="clearfix">
+                <div class="container">
+                    <div class="row" style="text-align:center">
+                        <iframe src="~/Content/PDFFiles/HowItWorks.pdf"
+                                frameBorder="0"
+                                scrolling="auto"
+                                height="700" width="1200"></iframe>
+                    </div>
+
+                </div>
+            </section>
+            <br />
+            <!-- pricing_section - end
+            ================================================== -->
+            <!-- newsletter_section - start
+            ================================================== -->
+            <section id="newsletter_section" class="newsletter_section bg_gradient_blue text-white sec_ptb_60 clearfix">
+                <div class="container">
+                    <div class="row align-items-center justify-content-lg-between justify-content-md-center justify-content-sm-center">
+
+                        <div class="col-lg-5 col-md-12">
+                            <div class="section_title decrease_size">
+                                <h2 class="title_text mb-15">Subscribe Newsletter</h2>
+                                <p class="mb-0">
+                                    The free demo comes with no commitments and <span class="d-block">no credit card required.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-8">
+                            <form action="#">
+                                <div class="form_item mb-0">
+                                    <input class="text-left" type="email" name="email" placeholder="Your email">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-2 col-md-12">
+                            <button type="submit" class="btn btn_border border_white float-right">Subscribe</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- newsletter_section - end
+            ================================================== -->
+
+
+        </main>
+        <!-- main body - end
+        ================================================== -->
+        <!-- footer_section - start
+                ================================================== -->
+        <footer id="footer_section" class="footer_section bg_dark_blue text-white deco_wrap sec_ptb_120 pb-0 clearfix">
+            <div class="widget_area">
+                <div class="container position-relative">
+                    <div class="row justify-content-lg-between">
+                        <div class="col-lg-3 col-md-12">
+                            <div class="widget about_content pr-0">
+                                <div class="brand_logo mb-30"> <a href="/" class="brand_link"> <img src="/Content/Images/Logo.png" alt="DOS"> </a> </div>
+                                <div class="copyright_text">
+                                    <p class="mb-0"> Copyright © 2021 Desing by <a href="/" class="author_link">DOS</a> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="widget useful_links ul_li_block">
+                                <h3 class="widget_title mb-50">DOS Homes</h3>
+                                <ul class="clearfix">
+                                    <li><a href="/">Agency</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="widget useful_links ul_li_block">
+                                <h3 class="widget_title mb-50">Useful Pages</h3>
+                                <ul class="clearfix">
+                                    <li><a href="/">About Us</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-4">
+                            <div class="social_icon_rounded ul_li ml--30">
+                                <h3 class="widget_title mb-50">Follow Us</h3>
+                                <ul class="clearfix">
+                                    <li> <a href="/"> <i class="icon-facebook"></i> <i class="icon-facebook"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-twitter"></i> <i class="icon-twitter"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-vimeo"></i> <i class="icon-vimeo"></i> </a> </li>
+                                    <li> <a href="/"> <i class="icon-linkedin"></i> <i class="icon-linkedin"></i> </a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer_section - end
+                ================================================== -->
+    </div>
+
+    <!-- jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/popper.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/bootstrap.min.js"></script>
+
+    <!-- slider & carousel - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/owl.carousel.min.js"></script>
+
+    <!-- animation - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/aos.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/splitting.js"></script>
+
+    <!-- magnific popup - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/magnific-popup.min.js"></script>
+
+    <!-- isotope filter - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/isotope.pkgd.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/masonry.pkgd.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/imagesloaded.pkgd.min.js"></script>
+
+    <!-- mouse move & scroll parallax  - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/parallax.min.js"></script>
+    <script src="~/Content/FrontUITheme/assets/js/parallax-scroll.js"></script>
+
+    <!-- google map - jquery include -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrdEzlfpnsnfq4MgU1e1CCsrvVx2d59s"></script>
+    <script src="~/Content/FrontUITheme/assets/js/gmaps.js"></script>
+
+    <!-- mobile menu - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/mCustomScrollbar.js"></script>
+
+    <!-- custom - jquery include -->
+    <script src="~/Content/FrontUITheme/assets/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Application_Scripts/Plan.js"></script>
+    <script src="~/Application_Scripts/Plan.js"></script>
+</body>
+
+<!-- Mirrored from droitthemes.com/html/DOP/demo/home_software.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Oct 2021 07:33:00 GMT -->
+</html>

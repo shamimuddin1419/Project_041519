@@ -58,7 +58,7 @@
                         <nav class="main_menu ul_li_right clearfix">
                             <ul class="clearfix">
                                 <li class="active menu_item"> <a href="/">HOME</a> </li>
-                                <li class="menu_item"> <a href="/">HOW IT WORKS</a> </li>
+                                <li class="menu_item"> @Html.ActionLink("HOW IT WORKS", "Index", "HowItWorks") </li>
                                 <li class="menu_item"> @Html.ActionLink("PLANS", "Index", "Plan")</li>
                                 <li class="menu_item"> <a href="/">RECENT PAYOUTS</a> </li>
                                 <li class="menu_item"> <a href="/">FAQ</a> </li>
@@ -77,7 +77,7 @@
                 <div class="mobile_menu_dropdown menu_list ul_li_block mp_balancing mb-50 clearfix">
                     <ul class="clearfix">
                         <li> <a href="/">HOME</a> </li>
-                        <li><a href="/">HOW IT WORKS</a></li>
+                        <li class="menu_item"> @Html.ActionLink("HOW IT WORKS", "Index", "HowItWorks") </li>
                         <li>@Html.ActionLink("PLANS", "Index", "Plan")</li>
                         <li><a href="/">RECENT PAYOUTS</a></li>
                         <li><a href="/">FAQ</a></li>
