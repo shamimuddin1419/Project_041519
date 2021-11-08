@@ -9943,7 +9943,7 @@ button {
   /* home chat - end */
   /* home payment - start */
   .payment_banner .banner_image {
-    width: 340px; }
+    width: 100%; }
   .payment_banner .banner_image .apps_wrap > ul {
     width: 520px;
     height: 430px; }
@@ -10336,7 +10336,9 @@ button {
     padding-top: 260px;
     padding-bottom: 80px; }
   .payment_banner .banner_content {
-    max-width: 470px; }
+    margin: 0px auto;
+    max-width: 470px; 
+  }
   .payment_banner .shape_1 {
     max-width: 600px; }
   .payment_banner .banner_image {
@@ -14393,8 +14395,8 @@ button {
     margin: 0px auto;
     max-width: 320px; }
   .payment_banner .banner_image {
-    width: 160px;
-    margin: 0px auto 30px; }
+    width: 100%;
+    margin: 0px auto 10px; }
   .payment_banner .banner_image .card_image {
     max-width: 140px;
     top: 85px !important;
@@ -16013,7 +16015,7 @@ button {
     background: #fff;
     border-radius: 20px;
     box-shadow: 0 9px 20px 0 rgb(22 26 57 / 36%);
-    padding: 80px 60px 80px;
+    padding: 22px 10px 10px;
 	text-align: center;}
 @media (min-width: 768px){
 .banner-bg {

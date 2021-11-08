@@ -52,6 +52,7 @@ function changeicon() {
 }
 
 $("#ddlPaymentMethodType").change(function () {
+    $('#ddlPaymentMethod').html('').select2({ data: { id: null, text: null } });
 
     let id = $('#ddlPaymentMethodType').val();
     var paymentMethods = []     

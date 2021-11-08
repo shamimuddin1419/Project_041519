@@ -7,11 +7,12 @@
 $('#copyBtn').click(function () {
     debugger;
     /* Get the text field */
-    var copyText = $('#refferelId').text();
-
+    var copyText = document.getElementById("refferelId");
+    copyText.select();
+    document.execCommand("Copy")
 
     /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText);
+    //navigator.clipboard.writeText(copyText);
 
     /* Alert the copied text */
     toastr.info("Copied");
