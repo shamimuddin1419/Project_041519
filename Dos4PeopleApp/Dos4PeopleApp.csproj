@@ -9,6 +9,7 @@
     <Content Remove="wwwroot\Application_Scripts\BuyPlan.js" />
     <Content Remove="wwwroot\Application_Scripts\ChangePassword.js" />
     <Content Remove="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
+    <Content Remove="wwwroot\Application_Scripts\MemberList.js" />
     <Content Remove="wwwroot\Application_Scripts\Package.js" />
     <Content Remove="wwwroot\Application_Scripts\PackageApproval.js" />
     <Content Remove="wwwroot\Application_Scripts\ResetPwd.js" />
@@ -18,6 +19,7 @@
   <ItemGroup>
     <None Include="wwwroot\Application_Scripts\BuyPlan.js" />
     <None Include="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
+    <None Include="wwwroot\Application_Scripts\MemberList.js" />
     <None Include="wwwroot\Application_Scripts\PackageApproval.js" />
     <None Include="wwwroot\Application_Scripts\ResetPwd.js" />
     <None Include="wwwroot\Application_Scripts\ChangePassword.js" />
@@ -65,6 +67,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.14" />
   </ItemGroup>
 
   <ItemGroup>
