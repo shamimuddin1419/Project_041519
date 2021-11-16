@@ -11,7 +11,7 @@ namespace Dos4PeopleApp.Controllers
 {
     public class PackageController : Controller
     {
-        PackageDA _objPackageDa = null;
+        private PackageDA _objPackageDa;
         VmUser ObjSession = null;
         public PackageController()
         {
@@ -47,7 +47,7 @@ namespace Dos4PeopleApp.Controllers
             try
             {
                 List<VmPackageCategory> packageCategories = await _objPackageDa.GetPackageCategoryList();
-                VmPackageCategory objPackageCateMaxLevel = packageCategories.Where(x => x.PackageCategoryId == objPackageCate.PackageCategoryId).FirstOrDefault();
+                VmPackageCategory objPackageCateMaxLevel = packageCategories.Where(x => x.PackageCategoryId == objPackageCate.PackageCategoryId).FirstOrDefault() ?? new VmPackageCategory();
                 return Json(new { status = true, data = objPackageCateMaxLevel });
             }
             catch (Exception ex)
@@ -58,7 +58,7 @@ namespace Dos4PeopleApp.Controllers
         }
         public async Task<JsonResult> GetPackageList()
         {
-            List<VmPackage> PackageList = null;
+            List<VmPackage> PackageList = new List<VmPackage>();
             try
             {
                 PackageList = await _objPackageDa.GetPackageList();
@@ -71,7 +71,7 @@ namespace Dos4PeopleApp.Controllers
         }
         public async Task<JsonResult> GetPublishedPackageList()
         {
-            List<VmPackage> PackageList = null;
+            List<VmPackage> PackageList = new List<VmPackage>();
             try
             {
                 PackageList = (await _objPackageDa.GetPackageList()).Where(x=>x.IsActive && x.IsPublished).ToList();
@@ -85,7 +85,7 @@ namespace Dos4PeopleApp.Controllers
 
         public async Task<JsonResult> InsertPackage([FromBody] VmPackage objPackage)
         {
-            VmReturnType _objReturnType = null;
+            VmReturnType _objReturnType = new VmReturnType();
             try
             {
                 ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
@@ -101,7 +101,7 @@ namespace Dos4PeopleApp.Controllers
         }
         public async Task<JsonResult> UpdatePackage([FromBody] VmPackage objPackage)
         {
-            VmReturnType _objReturnType = null;
+            VmReturnType _objReturnType = new VmReturnType();
             try
             {
                 ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
@@ -117,7 +117,7 @@ namespace Dos4PeopleApp.Controllers
         }
         public async Task<JsonResult> DeletePackage([FromBody] VmPackage objPackage)
         {
-            VmReturnType _objReturnType = null;
+            VmReturnType _objReturnType =  new VmReturnType();
             try
             {
                 ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
@@ -134,7 +134,7 @@ namespace Dos4PeopleApp.Controllers
 
         public async Task<JsonResult> GetPackageInfoById(int id)
         {
-            List<VmPackage> PackageList = null;
+            List<VmPackage> PackageList = new List<VmPackage>();
             try
             {
                 PackageList = await _objPackageDa.GetPackageList();

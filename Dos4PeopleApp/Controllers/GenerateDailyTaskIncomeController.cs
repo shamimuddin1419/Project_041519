@@ -11,8 +11,8 @@ namespace Dos4PeopleApp.Controllers
 {
     public class GenerateDailyTaskIncomeController : Controller
     {
-        PackageDA _objPackageDa = null;
-        VmUser ObjSession = null;     
+        PackageDA _objPackageDa;
+        VmUser ObjSession;     
 
         public GenerateDailyTaskIncomeController()
         {
@@ -28,7 +28,7 @@ namespace Dos4PeopleApp.Controllers
         {
             try
             {
-                VmReturnType _objReturnType = null;
+                VmReturnType _objReturnType = new VmReturnType();
                 ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
                 Guid GeneratedBy = ObjSession.UserId;
                 _objReturnType = await _objPackageDa.GenerateDailyTaskIncome(GeneratedBy);
