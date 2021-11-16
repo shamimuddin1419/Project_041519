@@ -177,15 +177,14 @@
                     </li>
                     @if (user.UserName == "mdosadmin")
                     {
-                    <li class=" nav-item">
-                        <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Admin</span></a>
-                        <ul class="menu-content">
-                            <li>@Html.ActionLink("Process Daily Income", "Index", "GenerateDailyTaskIncome")</li>
-                            <li>@Html.ActionLink("Package Setup", "Index", "Package")</li>
-                            <li>@Html.ActionLink("Package Approval", "Index", "PackageApproval")</li>
-                            <li>@Html.ActionLink("Member List", "Index", "MemberList")</li>
-                        </ul>
-                    </li>
+                        <li class=" nav-item">
+                            <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Admin</span></a>
+                            <ul class="menu-content">
+                                <li>@Html.ActionLink("Process Daily Income", "Index", "GenerateDailyTaskIncome")</li>
+                                <li>@Html.ActionLink("Package Setup", "Index", "Package")</li>
+                                <li>@Html.ActionLink("Package Approval", "Index", "PackageApproval")</li>                                
+                            </ul>
+                        </li>
                     }
                     <li class=" nav-item">
                         <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Earn</span></a>
@@ -198,9 +197,12 @@
                     </li>
                     <li class=" nav-item">
                         <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Voucher Codes</span></a>
-                    </li>
+                    </li>                    
                     <li class=" nav-item">
-                        <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Referral</span></a>
+                        <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Referral</span></a>
+                        <ul class="menu-content">                            
+                            <li>@Html.ActionLink("Direct Referral", "Index", "MemberList")</li>
+                        </ul>
                     </li>
                     <li class=" nav-item">
                         <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Money</span></a>
