@@ -21,7 +21,6 @@ namespace Dos4PeopleApp.Controllers
         {
             return View();
         }
-
         public async Task<JsonResult> GetTotalNumberOfUsers()
         {
             List<VmUser> UserList = new List<VmUser>();
