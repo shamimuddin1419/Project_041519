@@ -18,7 +18,7 @@ namespace Dos4PeopleApp.Controllers
             _objUserDa = new UserDA();
         }
 
-        [TypeFilter(typeof(AdminLoginCheckAttribute))]
+       
         public IActionResult Index()
         {
             return View();
@@ -39,7 +39,8 @@ namespace Dos4PeopleApp.Controllers
                 return Json(new { status = false, data = ex.Message });
             }
         }
-        [HttpPost]
+        
+
         public async Task<JsonResult> GetMemberList()
         {
             List<VmUser> UserList = new List<VmUser>();
