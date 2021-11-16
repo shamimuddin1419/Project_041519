@@ -1,5 +1,4 @@
-﻿
-$('#btnGenerateDailyIncome').click(function () {     
+﻿$('#btnGenerateDailyIncome').click(function () {     
     $.ajax({
             url: "/GenerateDailyTaskIncome/GenerateDailyTaskIncome",           
             type: "POST",
