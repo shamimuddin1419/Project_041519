@@ -17,8 +17,6 @@ namespace Dos4PeopleApp.Controllers
         {
             _objUserDa = new UserDA();
         }
-
-       
         public IActionResult Index()
         {
             return View();
