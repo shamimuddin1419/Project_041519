@@ -29,7 +29,8 @@ namespace Dos4PeopleApp.Controllers
             List<VmUser> UserList = new List<VmUser>();
             try
             {
-                UserList = await _objUserDa.GetUserList();
+                var user = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
+                UserList = await _objUserDa.GetUserList(user.UserId);
                 int totalRows = UserList.Count;               
                 return Json(new { success = true, data = totalRows });
             }
@@ -44,7 +45,8 @@ namespace Dos4PeopleApp.Controllers
             List<VmUser> UserList = new List<VmUser>();
             try
             {
-                UserList = await _objUserDa.GetUserList();
+                var user = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
+                UserList = await _objUserDa.GetUserList(user.UserId);
                 int totalRows = UserList.Count;
                 int start = Convert.ToInt32(Request.Form["start"].FirstOrDefault());
                 int length = Convert.ToInt32(Request.Form["length"].FirstOrDefault());
@@ -77,7 +79,7 @@ namespace Dos4PeopleApp.Controllers
 
         private string GetTableHeaderByIndex(int index)
         {
-            string[] TableHeader = { "FullName","UserName","Email","Mobile","Sponsored","Package","JoinDate","Duration","Expaire","Status" };
+            string[] TableHeader = { "FullName","UserName","Email","Mobile","Sponsored","Package","JoinDate","Duration", "Expire", "Status" };
             return TableHeader[index];
         }
     }

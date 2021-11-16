@@ -23,7 +23,7 @@ namespace Dos4PeopleApp.Models
         public string Package { set; get; }
         public string JoinDate { set; get; }
         public string Duration { set; get; }
-        public string Expaire { set; get; }
+        public string Expire { set; get; }
 
 
     }

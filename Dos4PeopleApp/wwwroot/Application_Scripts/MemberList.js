@@ -38,7 +38,7 @@ function LoadMemberList() {
                 { "data": "package", "autoWidth": true } ,
                 { "data": "joinDate", "autoWidth": true },
                 { "data": "duration", "autoWidth": true },
-                { "data": "expaire", "autoWidth": true },
+                { "data": "expire", "autoWidth": true },
                  { "data": "status", "autoWidth": true }
             ], "order": [[0, "desc"]]  
           

@@ -272,7 +272,7 @@ namespace Dos4PeopleApp.DA
             }
         }
 
-        internal async Task<List<VmUser>> GetUserList()
+        internal async Task<List<VmUser>> GetUserList(Guid UserId)
         {
             var conn = Utility.Utility.GetConnection();
             try
@@ -283,6 +283,7 @@ namespace Dos4PeopleApp.DA
                     conn.Open();
                 }
                 DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("UserId", UserId);
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
                 string query = "UserList_Get";
