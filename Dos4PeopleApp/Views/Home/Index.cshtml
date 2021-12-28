@@ -1,6 +1,12 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@using Dos4PeopleApp.Utility;
+@inject IHttpContextAccessor HttpContextAccessor;
+
+@{
     Layout = null;
+
 }
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +15,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>DOS</title>
-    <link rel="shortcut icon" href="~/Content/FrontUITheme/assets/images/logo/d.png">
+    <link rel="icon" type="image/x-icon" href="~/Content/Images/favicon.jpeg">
 
-    
     <!-- css include -->
     <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/bootstrap.min.css">
-  
+
     <!-- icons - css include -->
     <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/icomoon.css">
     <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/themify-icons.css">
@@ -36,6 +41,8 @@
     <link rel="stylesheet" type="text/css" href="~/Content/FrontUITheme/assets/css/style.css">
 </head>
 
+
+@{VmUser user = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<VmUser>("VmUser"); }
 <body class="home_software no-scroll-y">
     <div class="body_wrap">
 
@@ -51,7 +58,7 @@
                     <div class="txt-loading">
                         <span data-text-preloader="Dos 4 People" class="letters-loading">
                             Dos 4 People
-                        </span>                        
+                        </span>
 
                     </div>
                     <p class="text-center">Loading</p>
@@ -79,7 +86,7 @@
         <span class="scene d-none"></span>
         <!-- header_section - start
                     ================================================== -->
-        <header id="header_section" class="header_section sticky_header d-flex align-items-center text-white border_bottom clearfix" >
+        <header id="header_section" class="header_section sticky_header d-flex align-items-center text-white border_bottom clearfix">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-2">
@@ -93,7 +100,7 @@
                             <ul class="clearfix">
                                 <li class="active menu_item"> <a href="/">HOME</a> </li>
                                 <li class="menu_item"> @Html.ActionLink("HOW IT WORKS", "Index", "HowItWorks") </li>
-                                <li class="menu_item"> @Html.ActionLink("PLANS", "Index","Plan")</li>
+                                <li class="menu_item"> @Html.ActionLink("PLANS", "Index", "Plan")</li>
                                 <li class="menu_item"> <a href="/">RECENT PAYOUTS</a> </li>
                                 <li class="menu_item"> <a href="/">FAQ</a> </li>
                             </ul>
@@ -149,27 +156,39 @@
                         </div>
                         <div class="col-lg-12 col-md-10 justify-content-md-center">
                             <div class="banner_image aos-init aos-animate newsletter_section banner-form-group ehead" data-aos="fade-up" data-aos-delay="400">
-                                
-                                <div class="row">
-                                    <div class="col-lg-5 col-md-4 col-sm-12">
-                                        <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                                            <h2 class="title_text mb-0" id="totalTextId">0001</h2>
-                                            <p class="mb-0 c_slide_in_wrap1" style="color:black">
-                                                Total Users
-                                            </p>
+                                @if (user != null && user.UserName.ToLower() == "mdosadmin")
+                                {
+                                    <div class="row">
+
+                                        <div class="col-lg-5 col-md-4 col-sm-12">
+                                            <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                                <h2 class="title_text mb-0" id="totalTextId">0001</h2>
+                                                <p class="mb-0 c_slide_in_wrap1" style="color:black">
+                                                    Total Users
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div><div class="col-lg-5 col-md-4 col-sm-12">
-                                              <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                                                  <h2 class="title_text mb-0" id="activeTextId">0001</h2>
-                                                  <p class="mb-0 c_slide_in_wrap1" style="color:black">
-                                                      Total Active Users
-                                                  </p>
 
-                                              </div>
-                                    </div><div class="col-lg-2 col-md-2 col-sm-12"><a href="#" class="btn btn_border border_blue">View Plans</a></div>
+                                        <div class="col-lg-5 col-md-4 col-sm-12">
+                                            <div class="sub_title text-center mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                                                <h2 class="title_text mb-0" id="activeTextId">0001</h2>
+                                                <p class="mb-0 c_slide_in_wrap1" style="color:black">
+                                                    Total Active Users
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-2 col-md-2 col-sm-12"> @Html.ActionLink("View Plans", "Index", "Plan",null, new {@class = "btn btn_border border_blue"})</div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="row" style="display:flex">
+                                        <div class="m-auto">@Html.ActionLink("View Plans", "Index", "Plan",null, new {@class = "btn btn_border border_blue"}) </div>
+                                    </div>
+                                }
                                 </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -274,7 +293,7 @@
                             <li> <a data-toggle="tab" href="#two_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>Easy To Complete Tasks</strong> </a> </li>
                             <li> <a data-toggle="tab" href="#three_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>12% Referral Commmission</strong> </a> </li>
                             <li> <a data-toggle="tab" href="#four_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>Auto Complete Task</strong> </a> </li>
-                            <li> <a data-toggle="tab" href="#five_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>274/7 Customer care Support</strong> </a> </li>
+                            <li> <a data-toggle="tab" href="#five_tab"> <span class="icon_image"> <img src="~/Content/FrontUITheme/assets/images/icons/services/icon_3.png" alt="icon_not_found"> </span> <strong>24/7 Customer care Support</strong> </a> </li>
                         </ul>
                     </div>
                     <div class="tab-content text-white" data-aos="fade-up" data-aos-delay="500">
@@ -649,7 +668,7 @@
                 $('#totalTextId').text(data.data.totalUser)
                 $('#activeTextId').text(data.data.packageUser)
             });
-        } 
+        }
     </script>
 </body>
 
