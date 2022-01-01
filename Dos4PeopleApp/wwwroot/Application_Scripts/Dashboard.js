@@ -26,10 +26,15 @@ var GetDashboardFirstCardData = function () {
     $.get(url, function (data) {
         debugger;
         if (data.success) {
+            $('#ReferrelEarnValId').text(data.data.totalReferrelCommission);
+            $('#WorkCommissionValId').text(data.data.totalWorkCommission);
+            $('#TaskCommissionValId').text(data.data.totalTaskEarn);
+
             $('#CurrBalValId').text(data.data.currentBalance);
             $('#TodayEarnValId').text(data.data.todaysEarn);
             $('#CurrentPackageNameId').text(data.data.currentPackageName);
             $('#CurrPackValId').text(data.data.currentPackageValue);
+
         }
     });
 }

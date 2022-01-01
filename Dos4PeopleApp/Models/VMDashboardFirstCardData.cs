@@ -11,5 +11,8 @@ namespace Dos4PeopleApp.Models
         public string CurrentPackageName { get; set; }
         public decimal CurrentPackageValue { get; set; }
         public decimal TodaysEarn { get; set; }
+        public decimal TotalReferrelCommission { get; set; }
+        public decimal TotalTaskEarn { get; set; }
+        public decimal TotalWorkCommission { get; set; }
     }
 }
