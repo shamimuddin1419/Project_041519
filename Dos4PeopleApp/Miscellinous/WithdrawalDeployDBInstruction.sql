@@ -11,7 +11,7 @@
 --set TotalTaskEarn = TotalBalance
 
 
---procedure DailyTaskAutoProcess need to modify
+--procedure DailyTaskAutoProcess --need to modify, should not give the latest sp. there is one backup from live which is updated, should give that one
 --drop table [dbo].[tblWithdraw] 
 
 --GO
