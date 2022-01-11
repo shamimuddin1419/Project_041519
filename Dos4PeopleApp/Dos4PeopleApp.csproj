@@ -12,11 +12,13 @@
     <Content Remove="wwwroot\Application_Scripts\MemberList.js" />
     <Content Remove="wwwroot\Application_Scripts\Package.js" />
     <Content Remove="wwwroot\Application_Scripts\PackageApproval.js" />
+    <Content Remove="wwwroot\Application_Scripts\PendingWithdraw.js" />
     <Content Remove="wwwroot\Application_Scripts\ResetPwd.js" />
     <Content Remove="wwwroot\Application_Scripts\User.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Application_Scripts\PendingWithdraw.js" />
     <None Include="wwwroot\Application_Scripts\BuyPlan.js" />
     <None Include="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
     <None Include="wwwroot\Application_Scripts\MemberList.js" />
