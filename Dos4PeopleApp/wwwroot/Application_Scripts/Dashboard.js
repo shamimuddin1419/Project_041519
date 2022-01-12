@@ -17,9 +17,9 @@ $('#copyBtn').click(function () {
     /* Alert the copied text */
     toastr.info("Copied");
 })
-$('#withdrawBtn').click(function () {   
-    toastr.info("Please Check Your Withdrawal Amount And Withdrawal Date & Time.");
-})
+//$('#withdrawBtn').click(function () {   
+//    toastr.info("Please Check Your Withdrawal Amount And Withdrawal Date & Time.");
+//})
 
 var GetDashboardFirstCardData = function () {
     var url = $('#GetDashboardFirstCardDataURLId').val()

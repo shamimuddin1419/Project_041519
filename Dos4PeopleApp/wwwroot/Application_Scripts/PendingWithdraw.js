@@ -64,12 +64,12 @@ $('#btnSubmitWithdrawalInfo').click(function () {
                 WalletAddress: $('#txtgWalletAddress').val(),
                 WithdrawAmount: $('#txtWIthdrawAmount').val(),
                 Password: $('#txtPassword').val(),
-                Remark: $('#txtRemark').val(),
+                Remarks: $('#txtRemark').val(),
                 isMainBalance: $('#isMainBalance').is(":checked"),
                 isCommission: $('#isCommission').is(":checked")
             };
             $.ajax({
-                url: "/PendingWithdraw/WithdrawalRequest",
+                url: "/Withdrawal/WithdrawalRequest",
                 data: JSON.stringify(objVmWithdrawal),
                 type: "POST",
                 contentType: "application/json;charset=utf-8",
@@ -134,7 +134,7 @@ function GetWithdrawalListByUserId() {
     $('#ListTableId').DataTable({
         "ajax":
         {
-            "url": '/PendingWithdraw/GetWithdrawalListByUserId',
+            "url": '/Withdrawal/GetWithdrawalListByUserId',
             "type": "POST",
             "datatype": "json"
         },

@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Dos4PeopleApp.Controllers
 {
-    public class PendingWithdrawController : Controller
+    public class WithdrawalController : Controller
     {
         VmUser ObjSession = null;
         PackageDA ObjPackageDa = null;
         UserDA _objUserDa = null;
         WithdrawalDA _objWithdrawalDA = null;
-        public PendingWithdrawController()
+        public WithdrawalController()
         {
             ObjPackageDa = new PackageDA();
             _objUserDa = new UserDA();
@@ -26,7 +26,6 @@ namespace Dos4PeopleApp.Controllers
         {
             return View();
         }
-
         public async Task<JsonResult> WithdrawalRequest([FromBody] VmWithdrawal objVmWithdrawal)
         {
             try

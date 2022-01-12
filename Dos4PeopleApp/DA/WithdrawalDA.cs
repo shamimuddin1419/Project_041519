@@ -27,7 +27,7 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("PaymentMethodTypeId", objVmWithdrawal.PaymentMethod.Trim());
                 parameters.Add("PaymentDetails", objVmWithdrawal.WalletAddress.Trim());
                 parameters.Add("WithdrawRequestBalance", objVmWithdrawal.WithdrawAmount);
-                parameters.Add("Remarks", objVmWithdrawal.Remark.Trim());
+                parameters.Add("Remarks", objVmWithdrawal.Remarks.Trim());
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
                 string query = "WithdrawRequest_Add";
@@ -86,6 +86,119 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
+
+        //--------------------------------------- Start For Withdrawal Pending --------------------------
+        internal async Task<List<VmWithdrawal>> GetWithdrawalPendingList()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("WithdrawStatus", "P");
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "Withdraw_Get";
+                List<VmWithdrawal> WithdrawalList = (await conn.QueryAsync<VmWithdrawal>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return WithdrawalList;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public async Task<VmReturnType> WithdrawalApprove(VmWithdrawal _objVmWithdrawal)
+        {
+            var conn = Utility.Utility.GetConnection();
+            VmReturnType _objReturnType = new VmReturnType();
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                var parameters = new DynamicParameters();
+                parameters.Add("WithdrawId", _objVmWithdrawal.WithdrawId);
+                parameters.Add("WithdrawStatus", "A");
+                parameters.Add("CreatedBy", _objVmWithdrawal.UserId);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "WithdrawRequest_Update";
+                var result = await conn.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+                _objReturnType.ErrCode = parameters.Get<string>("ErrCode");
+                _objReturnType.UserMsg = parameters.Get<string>("UserMsg");
+                if (_objReturnType.ErrCode != null && _objReturnType.ErrCode != "00")
+                {
+                    _objReturnType.Status = false;
+                    throw new CustomException(_objReturnType.UserMsg);
+                }
+                _objReturnType.Status = true;
+            }
+            catch (Exception ex)
+            {
+                _objReturnType.Status = false;
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return _objReturnType;
+        }
+        public async Task<VmReturnType> WithdrawalReject(VmWithdrawal _objVmWithdrawal)
+        {
+            var conn = Utility.Utility.GetConnection();
+            VmReturnType _objReturnType = new VmReturnType();
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                var parameters = new DynamicParameters();
+                parameters.Add("WithdrawId", _objVmWithdrawal.WithdrawId);
+                parameters.Add("WithdrawStatus", "R");
+                parameters.Add("CreatedBy", _objVmWithdrawal.UserId);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "WithdrawRequest_Update";
+                var result = await conn.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+                _objReturnType.ErrCode = parameters.Get<string>("ErrCode");
+                _objReturnType.UserMsg = parameters.Get<string>("UserMsg");
+                if (_objReturnType.ErrCode != null && _objReturnType.ErrCode != "00")
+                {
+                    _objReturnType.Status = false;
+                    throw new CustomException(_objReturnType.UserMsg);
+                }
+                _objReturnType.Status = true;
+            }
+            catch (Exception ex)
+            {
+                _objReturnType.Status = false;
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return _objReturnType;
+        }
+
+
 
     }
 }

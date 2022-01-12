@@ -15,9 +15,11 @@
     <Content Remove="wwwroot\Application_Scripts\PendingWithdraw.js" />
     <Content Remove="wwwroot\Application_Scripts\ResetPwd.js" />
     <Content Remove="wwwroot\Application_Scripts\User.js" />
+    <Content Remove="wwwroot\Application_Scripts\WithdrawalApproval.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Application_Scripts\WithdrawalApproval.js" />
     <None Include="wwwroot\Application_Scripts\PendingWithdraw.js" />
     <None Include="wwwroot\Application_Scripts\BuyPlan.js" />
     <None Include="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
