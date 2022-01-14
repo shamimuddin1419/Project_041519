@@ -78,6 +78,22 @@ namespace Dos4PeopleApp.Controllers
             }
         }
 
+        public async Task<JsonResult> GetWithdrawBalanceByUserId()
+        {
+            VmWithdrawBalance _objWithdrawBalance = new VmWithdrawBalance();
+            try
+            {
+                ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
+                Guid UserId = ObjSession.UserId;
+                _objWithdrawBalance = await _objWithdrawalDA.GetWithdrawBalanceByUserId(UserId);
+                return Json(new { status = true, data = _objWithdrawBalance });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, data = ex.Message });
+            }
+        }
+
 
     }
 }

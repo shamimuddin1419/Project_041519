@@ -13,6 +13,7 @@ namespace Dos4PeopleApp.Controllers
     {
         WithdrawalDA _objWithdrawalDa = null;
         VmUser ObjSession = null;
+       
 
         public WithdrawalApprovalController()
         {
@@ -51,6 +52,24 @@ namespace Dos4PeopleApp.Controllers
                 return Json(new { status = false, data = ex.Message });
             }
         }
+
+        public async Task<JsonResult> GetUserWiseWithdrawBalance(int id)
+        {
+            VmWithdrawBalance _objWithdrawBalance = new VmWithdrawBalance();
+            try
+            {
+                List<VmWithdrawal> withdrawalList = new List<VmWithdrawal>();
+                withdrawalList = await _objWithdrawalDa.GetWithdrawalPendingList();
+                VmWithdrawal withdrawal = withdrawalList.Where(x => x.WithdrawId == id).FirstOrDefault();
+                _objWithdrawBalance = await _objWithdrawalDa.GetWithdrawBalanceByUserId(withdrawal.UserId);
+                return Json(new { status = true, data = _objWithdrawBalance });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, data = ex.Message });
+            }
+        }
+
 
         public async Task<JsonResult> WithdrawalApprove([FromBody] VmWithdrawal objVmWithdrawal)
         {

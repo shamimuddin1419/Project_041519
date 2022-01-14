@@ -154,5 +154,13 @@ function GetUserPackageRequestById(id) {
         
         $('#MasterDetailId').show();
         $('#ListId').hide();
+        GetUserWiseWithdrawBalance(id);
+    });
+}
+
+function GetUserWiseWithdrawBalance(id) {
+    $.get('/WithdrawalApproval/GetUserWiseWithdrawBalance/' + id, function (data) {
+        $('#lblMinBalance').text(data.data.availableTaskEarn);
+        $('#lblCommission').text(data.data.availableCommissionEarn);
     });
 }

@@ -1,11 +1,20 @@
 ﻿$(document).ready(function () {
     loadInitialization();  
+    GetWithdrawBalanceByUserId();
     GetWithdrawalListByUserId();
 });
 function loadInitialization() {
     Clear();
     LoadPaymentMethod();
 };
+
+function GetWithdrawBalanceByUserId() {
+    $.get('/Withdrawal/GetWithdrawBalanceByUserId/', function (data) {
+        $('#lblMinBalance').text(data.data.availableTaskEarn);
+        $('#lblCommission').text(data.data.availableCommissionEarn);        
+    });
+}
+
 function LoadPaymentMethod() {    
     var Packages = []
     $.get('/BuyPlan/GetPaymentMethodTypeList', function (data) {

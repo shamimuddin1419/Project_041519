@@ -87,6 +87,40 @@ namespace Dos4PeopleApp.DA
             }
         }
 
+        internal async Task<VmWithdrawBalance> GetWithdrawBalanceByUserId(Guid UserId)
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("UserId", UserId);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "WithdrawBalanceInfo_Get";
+                VmWithdrawBalance withdrawBalance = (await conn.QueryAsync<VmWithdrawBalance>(query, parameters, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return withdrawBalance;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         //--------------------------------------- Start For Withdrawal Pending --------------------------
         internal async Task<List<VmWithdrawal>> GetWithdrawalPendingList()
         {
