@@ -93,6 +93,7 @@ function Clear() {
     $('#txtWalletAddress').val('');
     $('#txtWithdrawAmount').val('');
     $('#txtRemark').val('');
+    $('#lblServiceCharge').text('');
 }
 
 function LoadPackageRequestList() {
@@ -147,7 +148,7 @@ function GetUserPackageRequestById(id) {
         $('#txtWalletAddress').val(data.data.walletAddress);
         $('#txtWithdrawAmount').val(data.data.withdrawAmount);
         $('#txtRemark').val(data.data.remarks);
-      
+        $('#lblServiceCharge').text('Service charge Amount : ' + data.data.withdrawCharge);
         $('#btnApprove').show();
         $('#btnReject').show();
         $('#btnList').show();

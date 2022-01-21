@@ -52,7 +52,7 @@ namespace Dos4PeopleApp.Controllers
                 }
                 else
                 {
-                    return Json(new { Message ="Please Insert Valid Password", Status = false });
+                    return Json(new { Message = "Please Insert Valid Password", Status = false });
                 }
 
             }
@@ -68,7 +68,7 @@ namespace Dos4PeopleApp.Controllers
             try
             {
                 ObjSession = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
-                Guid UserId =ObjSession.UserId;
+                Guid UserId = ObjSession.UserId;
                 List = await _objWithdrawalDA.GetWithdrawalListByUserId(UserId);
                 return Json(new { status = true, data = List });
             }
@@ -93,7 +93,30 @@ namespace Dos4PeopleApp.Controllers
                 return Json(new { status = false, data = ex.Message });
             }
         }
+        public async Task<JsonResult> GetWithdrawServiceCharge([FromBody] VmWithdrawal objVmWithdrawal)
+        {
+            try
+            {
+                VmWithdrawal _objVmWithdrawal = null;
+                VmUser _objAssignuser = new VmUser();
+                if (objVmWithdrawal.isCommission == true)
+                {
+                    objVmWithdrawal.WithdrawBalanceType = "C";
+                }
+                else
+                {
+                    objVmWithdrawal.WithdrawBalanceType = "E";
+                }
+                _objVmWithdrawal = await _objWithdrawalDA.GetWithdrawServiceCharge(objVmWithdrawal);
+                return Json(new { WithdrawCharge = _objVmWithdrawal.WithdrawCharge });
 
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Message = ex.Message, Status = false });
+            }
+        }
 
     }
 }

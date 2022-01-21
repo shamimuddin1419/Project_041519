@@ -46,6 +46,56 @@ function changeicon() {
         $('#IdPMImage').hide();
     }
 }
+
+$("#txtWIthdrawAmount").blur(function () {
+
+    if ($('#isMainBalance').is(":checked") == true) {
+        if (parseFloat($('#lblMinBalance').text()) < parseFloat($('#txtWIthdrawAmount').val())) {
+            toastr.warning('Withdraw Amount cannot be greater than Main Balance');
+            $('#lblServiceCharge').text('');
+            return;
+        }
+    }
+    if ($('#isCommission').is(":checked") == true) {
+        if (parseFloat($('#lblCommission').text()) < parseFloat($('#txtWIthdrawAmount').val())) {
+            toastr.warning('Withdraw Amount cannot be greater than Commission Balance');
+            $('#lblServiceCharge').text('');
+            return;
+        }
+    }
+
+    if ($('#isMainBalance').is(":checked") == false && $('#isCommission').is(":checked") == false) {
+        toastr.warning('Please Select Withdrawal Balance Type.');
+    }
+    else if ($('#isMainBalance').is(":checked") == true && $('#isCommission').is(":checked") == true) {
+        toastr.warning('Please Select Just Only One Withdrawal Balance Type.');
+    }    
+    else if ($('#txtWIthdrawAmount').val() == null || $('#txtWIthdrawAmount').val() == '' || $('#txtWIthdrawAmount').val() == '0') {
+        toastr.warning('Provide Withdraw Amount.');
+        $('#lblServiceCharge').text('');
+    }    
+    else {
+        var objVmWithdrawal = {            
+            WithdrawAmount: $('#txtWIthdrawAmount').val(),            
+            isMainBalance: $('#isMainBalance').is(":checked"),
+            isCommission: $('#isCommission').is(":checked")
+        };
+        $.ajax({
+            url: "/Withdrawal/GetWithdrawServiceCharge",
+            data: JSON.stringify(objVmWithdrawal),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            success: function (response) {       
+                $('#lblServiceCharge').text('Service charge Amount : ' + response.withdrawCharge);              
+            },
+            error: function (response) {
+                toastr.error("error!");
+            }
+        });
+    }
+
+});
+
 $('#btnSubmitWithdrawalInfo').click(function () {
     if (confirm("Are you sure want to request for withdraw ?") == true) {
       
@@ -117,18 +167,23 @@ function isNumberKey(txt, evt) {
 $('#isMainBalance').change(function () {
     if ($(this).is(":checked")) {
         $('#isCommission').prop('checked', false);  
+        $('#lblServiceCharge').text('');
+        $('#txtWIthdrawAmount').val('');  
     }
 
 });
 $('#isCommission').change(function () {
     if ($(this).is(":checked")) {
         $('#isMainBalance').prop('checked', false);
+        $('#lblServiceCharge').text('');
+        $('#txtWIthdrawAmount').val('');  
     }
 
 });
 function Clear() {      
     $('#ddlReceivePaymentMethod').val('0');  
     $('#txtgWalletAddress').val('');
+    $('#lblServiceCharge').text(''); 
     $('#txtWIthdrawAmount').val('');  
     $('#txtPassword').val(''); 
     $('#txtRemark').val(''); 

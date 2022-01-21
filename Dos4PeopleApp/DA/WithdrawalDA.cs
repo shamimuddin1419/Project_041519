@@ -232,7 +232,40 @@ namespace Dos4PeopleApp.DA
             return _objReturnType;
         }
 
-
-
+        internal async Task<VmWithdrawal> GetWithdrawServiceCharge(VmWithdrawal _objVmWithdrawal)
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("Amount", _objVmWithdrawal.WithdrawAmount);
+                parameters.Add("WithdrawBalanceType", _objVmWithdrawal.WithdrawBalanceType);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "select dbo.WithdrawServiceCharge_Get('"+ _objVmWithdrawal.WithdrawAmount + "','"+_objVmWithdrawal.WithdrawBalanceType+ "') as withdrawCharge";
+                VmWithdrawal objWithdrawal = (await conn.QueryAsync<VmWithdrawal>(query, parameters)).FirstOrDefault();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return objWithdrawal;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        
     }
 }
