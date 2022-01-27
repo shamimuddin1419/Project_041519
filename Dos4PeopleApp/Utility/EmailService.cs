@@ -65,58 +65,43 @@ namespace Dos4PeopleApp.Utility
             }
             return result;
         }
-        public async Task<int> WithdrawalAcceptanceNotify(VmUser model, IWebHostEnvironment _webHostEnvironment)
+        public void SendConfirmationMail()
         {
-            int result = 0;
-            string sender = "contact@dos4people.com";
-            string receiver = model.Email;
-            MailMessage Msg = new MailMessage();
+            //try
+            //{
+            string Email = "shamim.cse19@gmail.com";
+            MailMessage mail = new MailMessage();
 
-            try
-            {
-                Msg.From = new MailAddress(sender);
-                Msg.To.Add(receiver);
-                var path = Path.Combine(_webHostEnvironment.WebRootPath, "EmailTemplate/PasswordRecovery.html");
-                StreamReader reader = new StreamReader(path);
-                string readFile = reader.ReadToEnd();
-                string StrContent = "";
-                StrContent = readFile;
+            mail.From = new MailAddress("noreply@dos4pp.net");
+            mail.To.Add(Email);
+            mail.Subject = "For testing";
+            mail.Body = "";
+            mail.IsBodyHtml = true;
+            mail.Body = "<html>" +
+                                "<body>" +
+                                "<Table>" +
+                                "<tr>" +
+                                "<td>Hello</td>" +
+                                "</tr>" +
+                                "<tr>" +
+                                "<td>Welcome to nexantrade.net </td>" +
+                               
+                                "<tr>" +                            
+                                "</Table></body></html>";
 
-                StrContent = StrContent.Replace("[FullName]", model.FullName);
-                StrContent = StrContent.Replace("[LoginID]", model.UserName);
-                StrContent = StrContent.Replace("[LoginEmail]", model.Email);
-                StrContent = StrContent.Replace("[Password]", model.Password);
-                Msg.Subject = model.UserName + " - Password Recovery";
+            SmtpClient SmtpServer = new SmtpClient();
+            SmtpServer.Host = "mail.nexentrade.net";
+            SmtpServer.Port = 25;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("noreply@dos4pp.net", "dos4ppPAss");
+            SmtpServer.EnableSsl = false;
 
-                Msg.Subject = model.UserName + " - Password Recovery";
-                Msg.Body = StrContent.ToString();
-                Msg.IsBodyHtml = true;
+            SmtpServer.Send(mail);
 
-                using (var smtp = new SmtpClient())
-                {
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "contact@dos4people.com",
-                        Password = "D0s4people"
-                    };
-                    smtp.Credentials = credential;
-
-                    smtp.Host = "mail.dos4people.com";
-                    smtp.Port = 25;
-                    smtp.EnableSsl = false;
-                    smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-
-                    smtp.Timeout = 20000;
-                    await smtp.SendMailAsync(Msg);
-                    result = 1;
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-                result = 0;
-            }
-            return result;
+            //}
+            //catch (Exception ex)
+            //{
+            //    lblmsg.Text = ex.Message.ToString();
+            //}
         }
     }
 }

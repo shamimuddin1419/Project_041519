@@ -15,11 +15,13 @@ namespace Dos4PeopleApp.Controllers
         PackageDA ObjPackageDa = null;
         UserDA _objUserDa = null;
         WithdrawalDA _objWithdrawalDA = null;
+       
         public WithdrawalController()
         {
             ObjPackageDa = new PackageDA();
             _objUserDa = new UserDA();
             _objWithdrawalDA = new WithdrawalDA();
+          
         }
         [TypeFilter(typeof(LoginCheckActionFilter))]
         public IActionResult Index()
