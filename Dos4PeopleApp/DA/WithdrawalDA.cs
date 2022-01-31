@@ -266,6 +266,30 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
-        
+        internal async Task<VmWithdrawBalance> GetServiceChargePercentage()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();               
+                string query = "WithdrawServiceChargePercentage_Get";
+                VmWithdrawBalance _objWithdrawBalance = (await conn.QueryAsync<VmWithdrawBalance>(query, parameters, commandType: CommandType.StoredProcedure)).FirstOrDefault();
+               return _objWithdrawBalance;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }

@@ -2,6 +2,7 @@
     loadInitialization();  
     GetWithdrawBalanceByUserId();
     GetWithdrawalListByUserId();
+    GetServiceChargePercentage();
 });
 function loadInitialization() {
     Clear();
@@ -12,6 +13,13 @@ function GetWithdrawBalanceByUserId() {
     $.get('/Withdrawal/GetWithdrawBalanceByUserId/', function (data) {
         $('#lblMinBalance').text(data.data.availableTaskEarn);
         $('#lblCommission').text(data.data.availableCommissionEarn);        
+    });
+}
+
+function GetServiceChargePercentage() {
+    $.get('/Withdrawal/GetServiceChargePercentage/', function (data) {
+        $('#lblMinBalanceSerCharge').text(data.data.mainBalanceServiceChargePer);
+        $('#lblCommissionSerCharge').text(data.data.commissionBalanceServiceChargePer);
     });
 }
 

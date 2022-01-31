@@ -13,5 +13,7 @@ namespace Dos4PeopleApp.Models
         public decimal? MaxWithdrawableEarn { set; get; }
         public decimal? EarnWithdrawDay { set; get; }
         public decimal? CommissionWithdrawDay { set; get; }
+        public decimal? MainBalanceServiceChargePer { set; get; }
+        public decimal? CommissionBalanceServiceChargePer { set; get; }
     }
 }

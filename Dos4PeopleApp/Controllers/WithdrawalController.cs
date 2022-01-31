@@ -120,5 +120,22 @@ namespace Dos4PeopleApp.Controllers
             }
         }
 
+        public async Task<JsonResult> GetServiceChargePercentage()
+        {
+
+            VmWithdrawBalance _objWithdrawBalance = new VmWithdrawBalance();
+            try
+            {
+                _objWithdrawBalance = await _objWithdrawalDA.GetServiceChargePercentage();
+                return Json(new { status = true, data = _objWithdrawBalance });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, data = ex.Message });
+            }
+        }
+
+        
+
     }
 }

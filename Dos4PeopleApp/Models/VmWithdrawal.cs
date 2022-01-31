@@ -21,5 +21,6 @@ namespace Dos4PeopleApp.Models
         public string WithdrawStatus { set; get; }
         public string UserFullName { set; get; }
         public decimal ? WithdrawCharge { set; get; }
+        
     }
 }
