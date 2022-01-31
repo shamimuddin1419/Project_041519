@@ -75,7 +75,7 @@ BEGIN
 		INNER JOIN tblUser u2 on pulm.ParentUserId = u2.UserId
 		INNER JOIN tblUserLevelCount ulc on pulm.ParentUserId = ulc.UserId and pulm.ParentUserLevel = ulc.Level
 		INNER JOIN tblLevelInfo l on pulm.ParentUserLevel = l.Level
-		INNER JOIN tblPackage p on u.PackageId = p.PackageId
+		INNER JOIN tblPackage p on u2.PackageId = p.PackageId
 		INNER JOIN tblPackageCategory pc on p.PackageCategoryId = pc.PackageCategoryId
 
 		WHERE pulm.UserId = @IvUserId

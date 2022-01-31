@@ -18,9 +18,9 @@ INSERT [dbo].[tblLevelInfo] ([LevelId], [Level], [ReferrelCommission], [TaskComm
 GO
 INSERT [dbo].[tblLevelInfo] ([LevelId], [Level], [ReferrelCommission], [TaskCommission], [LimitQtyReferrel], [LimitQtyTask]) VALUES (11, 8, CAST(0.0200 AS Decimal(10, 4)), CAST(0.0003 AS Decimal(10, 4)), 3, 3)
 GO
-INSERT [dbo].[tblLevelInfo] ([LevelId], [Level], [ReferrelCommission], [TaskCommission], [LimitQtyReferrel], [LimitQtyTask]) VALUES (12, 9, CAST(0.0100 AS Decimal(10, 4)), CAST(0.0002 AS Decimal(10, 4)), 2, 2)
+INSERT [dbo].[tblLevelInfo] ([LevelId], [Level], [ReferrelCommission], [TaskCommission], [LimitQtyReferrel], [LimitQtyTask]) VALUES (12, 9, CAST(0.0600 AS Decimal(10, 4)), CAST(0.0002 AS Decimal(10, 4)), 2, 2)
 GO
-INSERT [dbo].[tblLevelInfo] ([LevelId], [Level], [ReferrelCommission], [TaskCommission], [LimitQtyReferrel], [LimitQtyTask]) VALUES (13, 10, CAST(0.0100 AS Decimal(10, 4)), CAST(0.0001 AS Decimal(10, 4)), 1, 1)
+INSERT [dbo].[tblLevelInfo] ([LevelId], [Level], [ReferrelCommission], [TaskCommission], [LimitQtyReferrel], [LimitQtyTask]) VALUES (13, 10, CAST(0.0700 AS Decimal(10, 4)), CAST(0.0001 AS Decimal(10, 4)), 1, 1)
 GO
 SET IDENTITY_INSERT [dbo].[tblLevelInfo] OFF
 GO
