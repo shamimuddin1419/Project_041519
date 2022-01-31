@@ -4,7 +4,12 @@
 @using Microsoft.Extensions.Configuration
 @inject IHttpContextAccessor HttpContextAccessor
 @inject IConfiguration iConfiguration
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto Condensed' rel='stylesheet'>
+<style>
+    .card-roboto {
+        font-family: 'Roboto Condensed' !important;
+    }
+</style>
 @{ var user = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
     var referrelLink = iConfiguration.GetSection("MySettings").GetSection("BaseUrl").Value.ToString() + "User?referrer=" + user.UserName;}
 <div class="content-wrapper">
@@ -25,7 +30,7 @@
             </div>
         </div>
 
-        <div class="card mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card card-roboto mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <input type="hidden" id="GetDashboardFirstCardDataURLId" value=@Url.ActionLink("GetDashboardFirstCardData","Dashboard") />
             <input type="hidden" id="GetDashboardGraphURLId" value=@Url.ActionLink("GetDashboardGraphData","Dashboard") />
             <div class="card-body ">
@@ -43,7 +48,7 @@
 
             </div>
         </div>
-        <div class="card mt-1 mr-1 ml-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card card-roboto mt-1 mr-1 ml-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
@@ -59,7 +64,7 @@
 
             </div>
         </div>
-        <div class="card mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card card-roboto mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
@@ -77,7 +82,7 @@
         </div>
 
 
-        <div class="card mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card card-roboto mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
@@ -93,7 +98,7 @@
 
             </div>
         </div>
-        <div class="card mt-1 mr-1 ml-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card card-roboto mt-1 mr-1 ml-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
@@ -109,7 +114,7 @@
 
             </div>
         </div>
-        <div class="card mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
+        <div class="card card-roboto mt-1 ml-1 mr-1 col-md-3 col-sm-6 pb-2" style="border-radius: 2rem !important;">
             <div class="card-body ">
                 <div class="media d-flex">
                     <div class="media-body text-left">
