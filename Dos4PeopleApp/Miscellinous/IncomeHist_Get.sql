@@ -31,11 +31,11 @@ BEGIN
 		SELECT @FromDate = ISNULL(@FromDate, CAST(CAST(GETDATE() AS DATE) AS DATETIME))
 		SELECT @ToDate = ISNULL(@ToDate, CAST(CAST(GETDATE()+1 AS DATE) AS DATETIME))
 
-		SELECT tm.TransactionMasterId,CONVERT(VARCHAR,tm.Date,103) AS TransactionDate,tm.TransactionAmt,
+		SELECT tm.TransactionMasterId,FORMAT(tm.Date,'dd-MMM-yyyy') AS TransactionDate,tm.TransactionAmt,
 		tm.Remarks,
-		CONVERT(VARCHAR,u.ApprovedDate,103) JoiningDate,
+		FORMAT(u.ApprovedDate,'dd-MMM-yyyy') JoiningDate,
 		DATEDIFF(DAY,GETDATE(),u.PackageValidityDate) AS CurrentDuration,
-		CONVERT(VARCHAR,u.PackageValidityDate,103) as ExpiryDate
+		FORMAT(u.PackageValidityDate,'dd-MMM-yyyy') as ExpiryDate
 		FROM tblTransationMaster tm
 		INNER JOIN tblUser u on ISNULL(tm.UserIdAsRef,tm.UserId) = u.UserId
 		WHERE tm.UserId = @UserId
