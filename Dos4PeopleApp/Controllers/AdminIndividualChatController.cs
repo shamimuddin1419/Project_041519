@@ -18,6 +18,7 @@ namespace Dos4PeopleApp.Controllers
             _objVmChatting = new VmChatting();
             _objChattingDA = new ChattingDA();
         }
+        [TypeFilter(typeof(LoginCheckActionFilter))]
         public IActionResult Index()
         {
             return View();
