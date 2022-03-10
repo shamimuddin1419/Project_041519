@@ -107,10 +107,18 @@ function ChattingHistoryfromGrdButton(userID, fullName, gmail, mobile) {
     $('#idChattingPart').show();
 }
 
-$("#UserSearchId").on("input", function () {   
-    var SearchValue=$(this).val();
+$("#UserSearchId").on("input", delay(function (e) {
+    var SearchValue = $(this).val();
     GetIndividualChatUserList(SearchValue);
-});
+}));
+
+function delay(fn, ms) {
+    let timer = 0
+    return function (...args) {
+        clearTimeout(timer)
+        timer = setTimeout(fn.bind(this, ...args), ms || 0)
+    }
+}
 
 function GetIndividualChatUserList(searchValue) {
     var UserListRender = '';
