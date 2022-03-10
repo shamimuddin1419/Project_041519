@@ -22,7 +22,7 @@
                 var total = allValues.reduce((prevObj, newObj) => {
                     return prevObj + newObj;
                 },0)
-                $(api.column(1).footer()).html(total);
+                $(api.column(1).footer()).html(total.toFixed(2));
             }
         });
     }
