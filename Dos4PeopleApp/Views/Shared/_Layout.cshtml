@@ -26,7 +26,6 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/forms/selects/select2.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/Theme/app-assets/vendors/css/pickers/datetime/bootstrap-datetimepicker.css">
     <link href="~/Content/Theme/app-assets/css/jquery-ui.css" rel="stylesheet" />
     <!-- END: Vendor CSS-->
     <!-- BEGIN: Theme CSS-->
@@ -86,68 +85,28 @@
                             <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
 
                         </ul>
-                        <ul class="nav navbar-nav float-right">                           
-                            @*<li class="dropdown dropdown-notification nav-item">
-                                <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
+                        <ul class="nav navbar-nav float-right">
+                            <li class="dropdown dropdown-notification nav-item">
+                                <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up"><label id="lblNumberOfMessage"></label></span></a>
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                     <li class="dropdown-menu-header">
-                                        <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span><span class="notification-tag badge badge-danger float-right m-0">5 New</span></h6>
+                                        <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span><span class="notification-tag badge badge-danger float-right m-0"><label id="lblSubNumberOfMessage"></label></span></h6>
                                     </li>
                                     <li class="scrollable-container media-list ps">
-                                        <a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">You have new order!</h6>
-                                                    <p class="notification-text font-small-3 text-muted">Lorem ipsum dolor sit amet, consectetuer elit.</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">30 minutes ago</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-download-cloud icon-bg-circle bg-red bg-darken-1"></i></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading red darken-1">99% Server load</h6>
-                                                    <p class="notification-text font-small-3 text-muted">Aliquam tincidunt mauris eu risus.</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Five hour ago</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
-                                                    <p class="notification-text font-small-3 text-muted">Vestibulum auctor dapibus neque.</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Today</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-check-circle icon-bg-circle bg-cyan"></i></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Complete the task</h6><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><a href="javascript:void(0)">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-file icon-bg-circle bg-teal"></i></div>
-                                                <div class="media-body">
-                                                    <h6 class="media-heading">Generate monthly report</h6><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                        <div id="ChatHistory">
+                                        </div>
+                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
                                     </li>
-                                    <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">Read all notifications</a></li>
+                                    @if (user.UserName == "mdosadmin")
+                                    {
+                                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
+                                    }
                                 </ul>
-                            </li>*@
-                            
+                            </li>
                             <li class="dropdown dropdown-user nav-item">
                                 <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><i class="fa fa-user"></i>@user.UserName</a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -207,7 +166,7 @@
                         <ul class="menu-content">
                             <li>@Html.ActionLink("Direct Referral", "Index", "MemberList")</li>
                         </ul>
-                    </li>                    
+                    </li>
                     <li class=" nav-item">
                         <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Money</span></a>
                         <ul class="menu-content">
@@ -286,8 +245,8 @@
     <script src="~/Content/Theme/app-assets/js/scripts/extensions/block-ui.js"></script>
     <script src="~/Scripts/dataTables.select.min.js"></script>
     <script src="~/Content/Theme/app-assets/js/scripts/tables/datatables-extensions/datatable-select.js"></script>
-    @*<script src="~/Content/Theme/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js"></script>*@
-    @*<script src="~/Content/Theme/app-assets/vendors/js/pickers/dateTime/bootstrap-datetimepicker.min.js"></script>*@
+    <script src="~/Content/Theme/app-assets/vendors/js/pickers/dateTime/moment-with-locales.min.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/pickers/dateTime/bootstrap-datetimepicker.min.js"></script>
 
     <script src="~/Content/Theme/app-assets/vendors/js/ui/jquery-ui.min.js"></script>
 
