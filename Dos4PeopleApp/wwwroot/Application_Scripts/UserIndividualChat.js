@@ -4,11 +4,7 @@
 
 });
 function loadInitialization() {
-    $('#idUnSeenMessagePart').hide();
-    $('#idChattingPart').hide();
-    GetIndividualChatUserList('');  
-    GetNumberofUnseenChat();   
-    GetIndividualUnseenChatListByReceiverId();
+    GetIndividualChatList();    
 };
 
 var GetIndividualUnseenChatListByReceiverId = function () {
@@ -56,134 +52,30 @@ var GetIndividualUnseenChatListByReceiverId = function () {
 
     });
 }
-var GetNumberofUnseenChat = function () {
-    $.get('/AdminIndividualChat/IndividualUnseenChatListForAdmin', function (response) {        
-        if (response.status == true) {
-            debugger;
-            var dataSet = response.data;
-            if (dataSet.length > 0) {
-                $('#idUnSeenMessagePart').show();
-                var table = $('#ListTableId').DataTable();
-                table.destroy();
-                $('#ListTableId').DataTable({
-                    data: dataSet,
-                    "responsive": true,
-                    //"processing": true,
-                    //"serverSide": true,
-                    "columns":
-                        [
-                            {
-                                "data": null,
-                                'width': '5%',
-                                "className": "center",
-                                render: function (data, type, row) {
-                                    return `<button type="button" onclick = "ChattingHistoryfromGrdButton(' ${data.senderID} ',' ${data.senderName} ',' ${data.email} ',' ${data.mobile} ')" class="btn info"><i class="fa fa-pencil"></i></button>`
-                                }
 
-                            },
-
-                            { "data": "senderName", "autoWidth": true },
-                            { "data": "numberOfUnseenMessage", "autoWidth": true }
-                        ],
-                    "order": [1, "asc"],
-                    "processing": "true",
-                    "language": {
-                        "processing": "processing... please wait"
-                    },
-                });
-            } else {
-                $('#idUnSeenMessagePart').hide();
-                $('#idChattingPart').show();
-            }
-        } else {
-            toastr.error(response.message);
-        }
-    });
-}
-
-function ChattingHistoryfromGrdButton(userID, fullName, gmail, mobile) {    
-    GetIndividualChatList(userID, fullName, gmail, mobile, 1);
-    $('#idUnSeenMessagePart').hide();
-    $('#idChattingPart').show();
-}
-
-$("#UserSearchId").on("input", function () {   
-    var SearchValue=$(this).val();
-    GetIndividualChatUserList(SearchValue);
-});
-
-function GetIndividualChatUserList(searchValue) {
-    var UserListRender = '';
-    var objVmChatting = {
-        searchValue: searchValue        
-    };
-    $.ajax({
-        url: "/AdminIndividualChat/GetIndividualChatUserList",
-        data: JSON.stringify(objVmChatting),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        success: function (response) {
-            debugger;
-            if (response.status == true) {
-                var itemRender              
-                var result = response.data;
-                $.each(result, function (index, value) {                
-                        itemRender =
-                            `<a class="list-group-item list-group-item-action border-0" onclick = "GetUserChattingHistory('${value.userId}','${value.fullName}','${value.email}','${value.mobile}')">                              
-                                <div class="d-flex align-items-start">
-                                    <img src="/Content/Images/avatar5.png" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
-                                    <div class="flex-grow-1">
-                                          ${value.fullName}
-                                        <div class="small">${value.email}</div>
-                                        <div class="small">${value.mobile}</div>
-                                    </div>
-                                </div>
-                            </a>`                    
-                    UserListRender = UserListRender + itemRender;
-
-                });
-
-                $('#UserListBindId').html(UserListRender);                 
-
-            } else {
-                toastr.error(response.message);
-            }
-        },
-        error: function (response) {
-            toastr.error("error!");
-        }
-    });
-}
-function GetUserChattingHistory(userID, fullName, gmail, mobile) {
-    debugger;
-    GetIndividualChatList(userID, fullName,gmail, mobile,1);
-}
-function GetIndividualChatList(SenderID, fullName, gmail, mobile, callId) {
-    if (callId == 1) {
-        $('#lblUserFullName').text(fullName.trim());
-        $('#lblUsergmail').text(gmail.trim());
-        $('#lblUserMobile').text(mobile.trim());
-        $('#hidSenderID').val(SenderID.trim());
-    }
+function GetIndividualChatList() { 
+        
     debugger;
     var ChatHistoryRender = '';
-    var objVmChatting = {       
-        SenderID: SenderID.trim()
+    var objVmChatting = {
+        SenderID: ""
     };
     $.ajax({
-        url: "/AdminIndividualChat/GetIndividualChatList",
+        url: "/AdminIndividualChat/GetIndividualChatListForReceiver",
         data: JSON.stringify(objVmChatting),
         type: "POST",
         contentType: "application/json;charset=utf-8",
         success: function (response) {
-
             debugger;
-            if (response.status == true) {
+            if (response.status == true) {               
                 var itemRender
                 //toastr.success(response.message);
                 var result = response.data;
                 $.each(result, function (index, value) {
-                    if (value.createdBy != $('#hidSenderID').val()) {
+                    $('#lblUserFullName').text(value.userName);
+                    $('#lblUserMobile').text(value.mobile);
+                    $('#lblUsergmail').text(value.email);
+                    if (value.createdBy != value.dUser) {
                         itemRender =
                             `<div class="chat-message-right pb-4">
                                 <div>
@@ -232,11 +124,10 @@ $('#btnSendIndividual').click(function () {
     }
     else {
         var objChatting = {
-            ReceiverID: $('#hidSenderID').val().trim(), // This is ReceiverID
             MessageBody: $('#txtMessage').val()
         };
         $.ajax({
-            url: "/AdminIndividualChat/InsertIndividualChat",
+            url: "/AdminIndividualChat/InsertIndividualChatForuser",
             data: JSON.stringify(objChatting),
             type: "POST",
             contentType: "application/json;charset=utf-8",
@@ -244,7 +135,7 @@ $('#btnSendIndividual').click(function () {
                 debugger;
                 if (response.status == true) {
                     $('#txtMessage').val('')
-                    GetIndividualChatList($('#hidSenderID').val(), "", "", "", 2);
+                    GetIndividualChatList();
                 } else {
                     toastr.error(response.message);
                 }
@@ -255,31 +146,15 @@ $('#btnSendIndividual').click(function () {
         });
     }
 });
-var UpdateIndividualUnseenChatStatus = function () {  
-    var objChatting = {
-        SenderID: $('#hidSenderID').val().trim()      
-    };
-    $.ajax({
-        url: "/AdminIndividualChat/UpdateIndividualUnseenChatStatus",
-        data: JSON.stringify(objChatting),
-        type: "POST",
-        contentType: "application/json;charset=utf-8",
-        success: function (response) {       
+var UpdateIndividualUnseenChatStatus = function () {
+    $.get('/AdminIndividualChat/UpdateIndividualUnseenChatStatus', function (response) {        
+        if (response.status == true) {       
             GetIndividualUnseenChatListByReceiverId();
-        },
-        error: function (response) {
-            toastr.error("error!");
+        } else {
+            toastr.error(response.message);
         }
+
     });
 }
 
-$('#btnUnseenMessage').click(function () {
-    $('#idUnSeenMessagePart').show();
-    $('#idChattingPart').hide();   
-    GetNumberofUnseenChat();
-});
-$('#btnShowChattingOption').click(function () {
-    $('#idUnSeenMessagePart').hide();
-    $('#idChattingPart').show();
-});
 
