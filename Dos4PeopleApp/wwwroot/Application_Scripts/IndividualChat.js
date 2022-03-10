@@ -107,6 +107,7 @@ function ChattingHistoryfromGrdButton(userID, fullName, gmail, mobile) {
     $('#idChattingPart').show();
 }
 
+
 $("#UserSearchId").on("input", delay(function (e) {
     var SearchValue = $(this).val();
     GetIndividualChatUserList(SearchValue);
