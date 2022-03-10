@@ -9,13 +9,21 @@
             "destroy": true,
             "columns": [
 
-                { "data": "transactionDate", "autoWidth": true },
-                { "data": "transactionAmt", "autoWidth": true },
-                { "data": "remarks", "autoWidth": true },
-                { "data": "joiningDate", "autoWidth": true },
-                { "data": "currentDuration", "autoWidth": true },
-                { "data": "expiryDate", "autoWidth": true },
-            ]
+                { "data": "transactionDate", width: '12%' },
+                { "data": "transactionAmt", width: '8%' },
+                { "data": "remarks", width:'44%' },
+                { "data": "joiningDate", width: '12%' },
+                { "data": "currentDuration", width: '8%'  },
+                { "data": "expiryDate", width: '12%'  },
+            ],
+            footerCallback: function (row, data, start, end, display) {
+                var api = this.api();
+                var allValues = data.map(x => x.transactionAmt)
+                var total = allValues.reduce((prevObj, newObj) => {
+                    return prevObj + newObj;
+                },0)
+                $(api.column(1).footer()).html(total);
+            }
         });
     }
     $('#fromDatePickerId').datetimepicker({
