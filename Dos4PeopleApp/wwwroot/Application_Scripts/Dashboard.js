@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     GetDashboardFirstCardData();
     GetDashboardGraphData();
+    GetIndividualUnseenChatListByReceiverId();
     
 })
 
@@ -145,4 +146,50 @@ var GetDashboardGraphData = function () {
             var moneyChart = new Chart(moneyCreditedChartId, configForMoney);
         }
     })
+}
+
+var GetIndividualUnseenChatListByReceiverId = function () {
+    $.get('/AdminIndividualChat/GetIndividualUnseenChatListByReceiverId', function (response) {
+        var ChatHistory = '';
+        if (response.status == true) {
+            var itemRender
+            var result = response.data;
+            $('#lblNumberOfMessage').text(result.length);
+            $('#lblSubNumberOfMessage').text(result.length);
+            $.each(result, function (index, value) {
+                if (value.isAdmin) {
+                    itemRender =`<a href="/AdminIndividualChat">
+                                            <div class="media">
+                                                <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                                <div class="media-body">                                                   
+                                                    <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
+                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </a>`
+                ChatHistory = ChatHistory + itemRender;
+            }else {
+                    itemRender = `<a href="/UserIndividualChat">
+                                            <div class="media">
+                                                <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                                <div class="media-body">                                                   
+                                                    <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
+                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </a>`
+                    ChatHistory = ChatHistory + itemRender;
+            }
+
+            });
+
+            $('#ChatHistory').html(ChatHistory);
+
+        } else {
+            toastr.error(response.message);
+        }
+
+    });
 }
