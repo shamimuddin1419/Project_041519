@@ -14,7 +14,8 @@ var GetIndividualUnseenChatListByReceiverId = function () {
             var itemRender
             var result = response.data;
             $('#lblNumberOfMessage').text(result.length);
-            $('#lblSubNumberOfMessage').text(result.length);
+            $('#lblNumberOfMessageForMobile').text(result.length);
+            
             $.each(result, function (index, value) {
                 if (value.isAdmin) {
                     itemRender = `<a href="/AdminIndividualChat">
@@ -45,6 +46,7 @@ var GetIndividualUnseenChatListByReceiverId = function () {
             });
 
             $('#ChatHistory').html(ChatHistory);
+            $('#ChatHistoryForMobile').html(ChatHistory);
 
         } else {
             toastr.error(response.message);
