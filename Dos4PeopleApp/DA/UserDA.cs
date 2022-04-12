@@ -305,6 +305,39 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
+        internal async Task<List<VMUserTeam>> GetUserTeam(Guid UserId)
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("UserId", UserId);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "UserTeam_Get";
+                List<VMUserTeam> userTeam = (await conn.QueryAsync<VMUserTeam>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return userTeam;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
     }
 }

@@ -80,5 +80,25 @@ namespace Dos4PeopleApp.Controllers
             string[] TableHeader = { "FullName","UserName","Email","Mobile","Sponsored","Package","JoinDate","Duration", "Expire", "Status" };
             return TableHeader[index];
         }
+        [TypeFilter(typeof(LoginCheckActionFilter))]
+        public IActionResult MyTeam()
+        {
+            return View();
+        }
+        [TypeFilter(typeof(LoginCheckActionFilter))]
+        public async Task<JsonResult> GetUserTeam()
+        {
+            List<VMUserTeam> UserList = new List<VMUserTeam>();
+            try
+            {
+                var user = HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
+                UserList = await _objUserDa.GetUserTeam(user.UserId);
+                return Json(new { success = true, data = UserList });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = false, data = ex.Message });
+            }
+        }
     }
 }

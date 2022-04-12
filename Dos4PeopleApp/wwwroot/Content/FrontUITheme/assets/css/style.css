@@ -1329,7 +1329,9 @@ margin-top: 125px}
 ================================================== */
 .deco_wrap {
   z-index: 1;
-  position: relative; }
+  /*position: relative;*/ 
+
+}
   .deco_wrap .deco_image {
     z-index: -1;
     position: absolute; }
@@ -8478,7 +8480,7 @@ button {
 /* header section - end */
 /* banner section - start */
 .payment_banner {
-  min-height: 680px;
+  min-height: 650px;
   padding-top: 0px; }
   .payment_banner .shap_bottom path {
     fill: #ffffff; }
@@ -16008,7 +16010,7 @@ button {
 	}
 }
 .banner_image.aos-init.aos-animate {
-    height: 214px;
+    max-height: 214px;
 	Color:#000;
 }
 .banner-form-group {

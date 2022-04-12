@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
-    <title>@ViewData["Title"] - Dos4PeopleApp</title>
+    <title>dos4people</title>
     <link rel="icon" type="image/x-icon" href="~/Content/Images/favicon.jpeg">
     <link href="~/Content/Theme/app-assets/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -61,189 +61,199 @@
     @if (user != null)
     {
 
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
-    <div class="navbar-wrapper">
-        <div class="navbar-header">
-            <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
-                <li class="nav-item">
-                    <a class="navbar-brand" href="/Dashboard">
-                        <img class="brand-logo img-responsive" alt="Site logo" style="height: auto; width:60px" src="~/Content/Images/Logo.png">
-                        @*<h2 class="brand-text">DOS</h2>*@
-                    </a>
-                </li>
-                <li class="nav-item d-md-none mr-1 mt-1 dropdown dropdown-notification ">
-                    <a class="nav-link nav-link-label" data-toggle="collapse" data-target="#notificationId"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up"><label id="lblNumberOfMessageForMobile"></label></span></a>
-                    @*<ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                        <li class="dropdown-menu-header">
-                            <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span><span class="notification-tag badge badge-danger float-right m-0"><label id="lblSubNumberOfMessage"></label></span></h6>
+        <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-light navbar-border">
+            <div class="navbar-wrapper">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav flex-row">
+                        <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="/Dashboard">
+                                <img class="brand-logo img-responsive" alt="Site logo" style="height: auto; width:80px" src="~/Content/Images/Logo.png">
+                                @*<h2 class="brand-text">DOS</h2>*@
+                            </a>
                         </li>
-                        <li class="scrollable-container media-list ps">
-                            <div id="ChatHistory">
-                            </div>
-                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                        <li class="nav-item d-md-none mr-1 mt-1 dropdown dropdown-notification ">
+                            <a class="nav-link nav-link-label" data-toggle="collapse" data-target="#notificationId"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up"><label id="lblNumberOfMessageForMobile"></label></span></a>
+                            @*<ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                    <li class="dropdown-menu-header">
+                                        <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span><span class="notification-tag badge badge-danger float-right m-0"><label id="lblSubNumberOfMessage"></label></span></h6>
+                                    </li>
+                                    <li class="scrollable-container media-list ps">
+                                        <div id="ChatHistory">
+                                        </div>
+                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                    </li>
+                                    @if (user.UserName == "mdosadmin")
+                                    {
+                                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
+                                    }
+                                </ul>*@
                         </li>
-                        @if (user.UserName == "mdosadmin")
-                        {
-                            <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
-                        }
-                        else
-                        {
-                            <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
-                        }
-                    </ul>*@
-                </li>
 
-                <li class="nav-item d-md-none "><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
-            </ul>
+                        <li class="nav-item d-md-none "><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
+                    </ul>
 
-        </div>
-        <ul class="dropdown-menu  dropdown-menu-right collapse" id="notificationId" style="float:none !important">
-            <li class="dropdown-menu-header">
-                <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6>
-            </li>
-            <li class="scrollable-container media-list ps">
-                <div id="ChatHistoryForMobile">
                 </div>
-                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
-                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
-            </li>
-            @if (user.UserName == "mdosadmin")
-            {
-                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
-            }
-            else
-            {
-                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
-            }
-        </ul>
-        <div class="navbar-container content">
-            <div class="collapse navbar-collapse" id="navbar-mobile">
-                <ul class="nav navbar-nav mr-auto float-left">
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu"></i></a></li>
-
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-
-                </ul>
-                <ul class="nav navbar-nav float-right">
-                    <li class="dropdown dropdown-notification nav-item">
-                        <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up"><label id="lblNumberOfMessage"></label></span></a>
-                        <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                            <li class="dropdown-menu-header">
-                                <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6>
-                            </li>
-                            <li class="scrollable-container media-list ps">
-                                <div id="ChatHistory">
-                                </div>
-                                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
-                            </li>
-                            @if (user.UserName == "mdosadmin")
-                            {
-                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
-                            }
-                            else
-                            {
-                                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
-                            }
-                        </ul>
+                <ul class="dropdown-menu  dropdown-menu-right collapse" id="notificationId" style="float:none !important">
+                    <li class="dropdown-menu-header">
+                        <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6>
                     </li>
-                    <li class="dropdown dropdown-user nav-item">
-                        <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><i class="fa fa-user"></i>@user.UserName</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-
-                            <a class="dropdown-item" href="/ChangePassword">
-                                <i class="ft-check-square"></i> Change Password
-                            </a>
-
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" id="lblLogout">
-                                <i class="ft-power"></i> Logout
-                            </a>
+                    <li class="scrollable-container media-list ps">
+                        <div id="ChatHistoryForMobile">
                         </div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
                     </li>
+                    @if (user.UserName == "mdosadmin")
+                    {
+                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
+                    }
+                    else
+                    {
+                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
+                    }
                 </ul>
+                <div class="navbar-container content">
+                    <div class="collapse navbar-collapse" id="navbar-mobile">
+                        <ul class="nav navbar-nav mr-auto float-left">
+                            <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="ft-menu"></i></a></li>
+
+                            <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav float-right">
+                            <li class="dropdown dropdown-notification nav-item">
+                                <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up"><label id="lblNumberOfMessage"></label></span></a>
+                                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                                    <li class="dropdown-menu-header">
+                                        <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6>
+                                    </li>
+                                    <li class="scrollable-container media-list ps">
+                                        <div id="ChatHistory">
+                                        </div>
+                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                    </li>
+                                    @if (user.UserName == "mdosadmin")
+                                    {
+                                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/AdminIndividualChat">Read all notifications</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="/UserIndividualChat">Read all notifications</a></li>
+                                    }
+                                </ul>
+                            </li>
+                            <li class="dropdown dropdown-user nav-item">
+                                <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><i class="fa fa-user"></i>@user.UserName</a>
+                                <div class="dropdown-menu dropdown-menu-right">
+
+                                    <a class="dropdown-item" href="/ChangePassword">
+                                        <i class="ft-check-square"></i> Change Password
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="lblLogout">
+                                        <i class="ft-power"></i> Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</nav>
-                <div class="main-menu menu-fixed menu-light menu-accordion" data-scroll-to-active="true" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                    <div class="main-menu-content ps ps--active-y">
-                        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        </nav>
+        <div class="main-menu menu-fixed menu-light menu-accordion" data-scroll-to-active="true" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            <div class="main-menu-content ps ps--active-y">
+                <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-                            <li class=" navigation-header">
-                                <span>Menu</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Mwnu"></i>
-                            </li>
+                    <li class=" navigation-header">
+                        <span>Menu</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Mwnu"></i>
+                    </li>
 
-                            <li class=" nav-item">
-                                <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Summary</span></a>
-                            </li>
-                            @if (user.UserName == "mdosadmin")
-                            {
+                    <li class=" nav-item">
+                        <a href="/Dashboard"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+                    </li>
+                    @if (user.UserName == "mdosadmin")
+                    {
                         <li class=" nav-item">
-                            <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Admin</span></a>
+                            <a href="#"><i class="ft-gitlab"></i><span class="menu-title" data-i18n="">Admin</span></a>
                             <ul class="menu-content">
                                 <li>@Html.ActionLink("Process Daily Income", "Index", "GenerateDailyTaskIncome")</li>
                                 <li>@Html.ActionLink("Package Setup", "Index", "Package")</li>
                                 <li>@Html.ActionLink("Package Approval", "Index", "PackageApproval")</li>
                                 <li>@Html.ActionLink("Withdrawal Approval", "Index", "WithdrawalApproval")</li>
                             </ul>
-                        </li>}
-                            <li class=" nav-item">
-                                <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Earn</span></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Deposit</span></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="/Plan"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Upgrade</span></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Voucher Codes</span></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Referral</span></a>
-                                <ul class="menu-content">
-                                    <li>@Html.ActionLink("Direct Referral", "Index", "MemberList")</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Transaction</span></a>
-                                <ul class="menu-content">
-                                    <li>@Html.ActionLink("Income History", "IncomeHistory", "Transaction")</li>
-                                </ul>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Money</span></a>
-                                <ul class="menu-content">
-                                    <li>@Html.ActionLink("Withdraw", "Index", "Withdrawal")</li>
-                                </ul>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="#"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Chat</span></a>
-                                <ul class="menu-content">
-                                    @if (user.UserName == "mdosadmin")
-                                    {
-                        <li>@Html.ActionLink("Chat to Client", "Index", "AdminIndividualChat")</li> }
-                                        else
-                                        {
-                        <li>@Html.ActionLink("Chat with dos4people", "Index", "UserIndividualChat")</li>}
+                        </li>
+                    }
 
-                                </ul>
+
+
+
+
+                    <li class="nav-item">
+                        <a href="#"><i class="ft-activity"></i><span class="menu-title" data-i18n="">Transaction</span></a>
+                        <ul class="menu-content">
+                            <li>@Html.ActionLink("Income History", "IncomeHistory", "Transaction")</li>
+                        </ul>
+                    </li>
+
+
+                    <li class=" nav-item">
+                        <a href="#"><i class="ft-trending-up"></i><span class="menu-title" data-i18n="">Money</span></a>
+                        <ul class="menu-content">
+                            <li class=" nav-item">
+                                <a href="/Dashboard">Deposit</a>
+                            </li>
+                            <li class=" nav-item">
+                            <li>@Html.ActionLink("Upgrade", "Index", "Plan")</li>
+                            <li class=" nav-item">
+                                <a href="/Dashboard">Voucher</a>
                             </li>
 
-                            <li class=" nav-item">
-                                <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">People</span></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Statistics</span></a>
-                            </li>
+                            <li>@Html.ActionLink("Withdraw", "Index", "Withdrawal")</li>
+                        </ul>
+                        @*<a href="/Dashboard"><i class="ft-mail"></i><span class="menu-title" data-i18n="">Earn</span></a>*@
+                    </li>
+                    <li class=" nav-item">
+                        <a href="#"><i class="ft-users"></i><span class="menu-title" data-i18n="">Team</span></a>
+                        <ul class="menu-content">
+                            <li>@Html.ActionLink("My Team", "MyTeam", "MemberList")</li>
+                            <li>@Html.ActionLink("Direct Referral", "Index", "MemberList")</li>
+                        </ul>
+                    </li>
 
+                    <li class=" nav-item">
+                        <a href="#"><i class="ft-smartphone"></i><span class="menu-title" data-i18n="">Chat</span></a>
+                        <ul class="menu-content">
+                            @if (user.UserName == "mdosadmin")
+                            {
+                                <li>@Html.ActionLink("Chat to Client", "Index", "AdminIndividualChat")</li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Chat with dos4people", "Index", "UserIndividualChat")</li>
+                            }
 
                         </ul>
-                        <div class="ps__rail-x" style="left: 0px; bottom: -48px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 48px; height: 256px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 6px; height: 36px;"></div></div>
-                    </div>
-                </div>}
+                    </li>
+
+                    <li class=" nav-item">
+                        <a href="/Dashboard"><i class="ft-user-plus"></i><span class="menu-title" data-i18n="">People</span></a>
+                    </li>
+                    @*<li class=" nav-item">
+                            <a href="/Dashboard"><i class="ft-bar-chart-2"></i><span class="menu-title" data-i18n="">Statistics</span></a>
+                        </li>*@
+
+
+                </ul>
+                <div class="ps__rail-x" style="left: 0px; bottom: -48px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 48px; height: 256px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 6px; height: 36px;"></div></div>
+            </div>
+        </div>}
     @{var content = user != null ? "content" : "";}
     <div class="app-content @content">
         <main role="main">
@@ -330,27 +340,27 @@
                     $.each(result, function (index, value) {
                         if (value.isAdmin) {
                             itemRender = `<a href="/AdminIndividualChat">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                                                <div class="media-body">                                                   
-                                                    <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
-                                                    </small>
+                                                <div class="media">
+                                                    <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                                    <div class="media-body">
+                                                        <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
+                                                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
+                                                        </small>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>`
+                                            </a>`
                             ChatHistory = ChatHistory + itemRender;
                         } else {
                             itemRender = `<a href="/UserIndividualChat">
-                                            <div class="media">
-                                                <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                                                <div class="media-body">                                                   
-                                                    <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
-                                                        <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
-                                                    </small>
+                                                <div class="media">
+                                                    <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                                    <div class="media-body">
+                                                        <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
+                                                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
+                                                        </small>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>`
+                                            </a>`
                             ChatHistory = ChatHistory + itemRender;
                         }
 
@@ -364,7 +374,7 @@
                 }
 
             });
-            
+
         }
         $(document).ready(function () {
             GetIndividualUnseenChatListByReceiverId();
