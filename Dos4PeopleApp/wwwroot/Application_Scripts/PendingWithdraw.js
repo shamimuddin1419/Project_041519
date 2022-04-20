@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    loadInitialization();  
+    loadInitialization();
     GetWithdrawBalanceByUserId();
     GetWithdrawalListByUserId();
     GetServiceChargePercentage();
@@ -12,7 +12,7 @@ function loadInitialization() {
 function GetWithdrawBalanceByUserId() {
     $.get('/Withdrawal/GetWithdrawBalanceByUserId/', function (data) {
         $('#lblMinBalance').text(data.data.availableTaskEarn);
-        $('#lblCommission').text(data.data.availableCommissionEarn);        
+        $('#lblCommission').text(data.data.availableCommissionEarn);
     });
 }
 
@@ -23,7 +23,7 @@ function GetServiceChargePercentage() {
     });
 }
 
-function LoadPaymentMethod() {    
+function LoadPaymentMethod() {
     var Packages = []
     $.get('/BuyPlan/GetPaymentMethodTypeList', function (data) {
         Packages = data.data;
@@ -41,7 +41,7 @@ function changeicon() {
     var PaymentType = $("#ddlReceivePaymentMethod option:selected").text();
     if (PaymentType == 'Payoneer') {
         $('#IdPMImage').attr('src', '/Content/Images/Payoneer.jpeg');
-    } else if (PaymentType == 'Perfect Money') {       
+    } else if (PaymentType == 'Perfect Money') {
         $('#IdPMImage').attr('src', '/Content/Images/PerfectMoney.jpeg');
     }
     else if (PaymentType == 'Payeer') {
@@ -77,14 +77,14 @@ $("#txtWIthdrawAmount").blur(function () {
     }
     else if ($('#isMainBalance').is(":checked") == true && $('#isCommission').is(":checked") == true) {
         toastr.warning('Please Select Just Only One Withdrawal Balance Type.');
-    }    
+    }
     else if ($('#txtWIthdrawAmount').val() == null || $('#txtWIthdrawAmount').val() == '' || $('#txtWIthdrawAmount').val() == '0') {
         toastr.warning('Provide Withdraw Amount.');
         $('#lblServiceCharge').text('');
-    }    
+    }
     else {
-        var objVmWithdrawal = {            
-            WithdrawAmount: $('#txtWIthdrawAmount').val(),            
+        var objVmWithdrawal = {
+            WithdrawAmount: $('#txtWIthdrawAmount').val(),
             isMainBalance: $('#isMainBalance').is(":checked"),
             isCommission: $('#isCommission').is(":checked")
         };
@@ -93,8 +93,8 @@ $("#txtWIthdrawAmount").blur(function () {
             data: JSON.stringify(objVmWithdrawal),
             type: "POST",
             contentType: "application/json;charset=utf-8",
-            success: function (response) {       
-                $('#lblServiceCharge').text('Service charge Amount : ' + response.withdrawCharge);              
+            success: function (response) {
+                $('#lblServiceCharge').text('Service charge Amount : ' + response.withdrawCharge);
             },
             error: function (response) {
                 toastr.error("error!");
@@ -105,61 +105,106 @@ $("#txtWIthdrawAmount").blur(function () {
 });
 
 $('#btnSubmitWithdrawalInfo').click(function () {
-    if (confirm("Are you sure want to request for withdraw ?") == true) {
-      
-        if ($('#isMainBalance').is(":checked") == false && $('#isCommission').is(":checked") == false) {
-            toastr.warning('Please Select Withdrawal Balance Type.');
-        }
-        else if ($('#isMainBalance').is(":checked") == true && $('#isCommission').is(":checked") == true) {
-            toastr.warning('Please Select Just Only One Withdrawal Balance Type.');
-        }  
-        else if ($('#ddlReceivePaymentMethod').val() == null || $('#ddlReceivePaymentMethod').val() == '0') {
-            toastr.warning('Receive Payment Method.');
-        }  
-        else if ($('#txtgWalletAddress').val() == null || $('#txtgWalletAddress').val() == '') {
-            toastr.warning('Wallet Address.');
-        }
-        else if ($('#txtWIthdrawAmount').val() == null || $('#txtWIthdrawAmount').val() == '' || $('#txtWIthdrawAmount').val() == '0') {
-            toastr.warning('Provide Withdraw Amount.');
-        }
-        else if ($('#txtPassword').val() == '') {
-            toastr.warning('Provide Valid Password');
-        }              
-        else {            
-            var objVmWithdrawal = {                
-                PaymentMethod: $('#ddlReceivePaymentMethod').val(),
-                WalletAddress: $('#txtgWalletAddress').val(),
-                WithdrawAmount: $('#txtWIthdrawAmount').val(),
-                Password: $('#txtPassword').val(),
-                Remarks: $('#txtRemark').val(),
-                isMainBalance: $('#isMainBalance').is(":checked"),
-                isCommission: $('#isCommission').is(":checked")
-            };
-            $.ajax({
-                url: "/Withdrawal/WithdrawalRequest",
-                data: JSON.stringify(objVmWithdrawal),
-                type: "POST",
-                contentType: "application/json;charset=utf-8",
-                success: function (response) {
-                    debugger;
-                    if (response.status == true) {
-                        toastr.success(response.message);
-                        GetWithdrawalListByUserId();
-                        Clear();
-                    } else {
-                        toastr.error(response.message);
+    if ($('#isMainBalance').is(":checked") == false && $('#isCommission').is(":checked") == false) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please Select Withdrawal Balance Type.',
+        })
+    }
+    else if ($('#isMainBalance').is(":checked") == true && $('#isCommission').is(":checked") == true) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please Select Just Only One Withdrawal Balance Type.',
+        })
+
+    }
+    else if ($('#ddlReceivePaymentMethod').val() == null || $('#ddlReceivePaymentMethod').val() == '0') {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please Provide Receive Payment Method.',
+        })
+    }
+    else if ($('#txtgWalletAddress').val() == null || $('#txtgWalletAddress').val() == '') {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please Provide Wallet Address.',
+        })
+    }
+    else if ($('#txtWIthdrawAmount').val() == null || $('#txtWIthdrawAmount').val() == '' || $('#txtWIthdrawAmount').val() == '0') {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Please Provide Withdraw Amount.',
+        })
+    }
+    else if ($('#txtPassword').val() == '') {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: 'Provide Valid Password.',
+        })
+    }
+    else {
+        Swal.fire({
+            title: 'Are you sure want to request for withdraw ?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: `Cancel`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                var objVmWithdrawal = {
+                    PaymentMethod: $('#ddlReceivePaymentMethod').val(),
+                    WalletAddress: $('#txtgWalletAddress').val(),
+                    WithdrawAmount: $('#txtWIthdrawAmount').val(),
+                    Password: $('#txtPassword').val(),
+                    Remarks: $('#txtRemark').val(),
+                    isMainBalance: $('#isMainBalance').is(":checked"),
+                    isCommission: $('#isCommission').is(":checked")
+                };
+                $.ajax({
+                    url: "/Withdrawal/WithdrawalRequest",
+                    data: JSON.stringify(objVmWithdrawal),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        debugger;
+                        if (response.status == true) {
+                            GetWithdrawalListByUserId();
+                            Clear();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: "Your Withdraw Request Submitted Successfully"
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: response.message
+                            })
+                        }
+                    },
+                    error: function (response) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'error!',
+                        })
                     }
-                },
-                error: function (response) {
-                    toastr.error("error!");
-                }
-            });
-        }
+                });
+            }
+        })
+
     }
 });
 function isNumberKey(txt, evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode == 46) {       
+    if (charCode == 46) {
         if (txt.value.indexOf('.') === -1) {
             return true;
         } else {
@@ -174,9 +219,9 @@ function isNumberKey(txt, evt) {
 }
 $('#isMainBalance').change(function () {
     if ($(this).is(":checked")) {
-        $('#isCommission').prop('checked', false);  
+        $('#isCommission').prop('checked', false);
         $('#lblServiceCharge').text('');
-        $('#txtWIthdrawAmount').val('');  
+        $('#txtWIthdrawAmount').val('');
     }
 
 });
@@ -184,20 +229,20 @@ $('#isCommission').change(function () {
     if ($(this).is(":checked")) {
         $('#isMainBalance').prop('checked', false);
         $('#lblServiceCharge').text('');
-        $('#txtWIthdrawAmount').val('');  
+        $('#txtWIthdrawAmount').val('');
     }
 
 });
-function Clear() {      
-    $('#ddlReceivePaymentMethod').val('0');  
+function Clear() {
+    $('#ddlReceivePaymentMethod').val('0');
     $('#txtgWalletAddress').val('');
-    $('#lblServiceCharge').text(''); 
-    $('#txtWIthdrawAmount').val('');  
-    $('#txtPassword').val(''); 
-    $('#txtRemark').val(''); 
-    $('#isCommission').prop('checked', false);  
-    $('#isMainBalance').prop('checked', false);  
-    $('.select2').trigger('change'); 
+    $('#lblServiceCharge').text('');
+    $('#txtWIthdrawAmount').val('');
+    $('#txtPassword').val('');
+    $('#txtRemark').val('');
+    $('#isCommission').prop('checked', false);
+    $('#isMainBalance').prop('checked', false);
+    $('.select2').trigger('change');
 }
 
 function GetWithdrawalListByUserId() {
@@ -210,17 +255,17 @@ function GetWithdrawalListByUserId() {
             "type": "POST",
             "datatype": "json"
         },
-       // "responsive": true,
+        // "responsive": true,
         //"processing": true,
         //"serverSide": true,
         "columns":
-            [ 
+            [
                 { "data": "stringCreateDate", "autoWidth": true },
                 { "data": "withdrawBalanceType", "autoWidth": true },
                 { "data": "paymentMethod", "autoWidth": true },
                 { "data": "walletAddress", "autoWidth": true },
                 { "data": "withdrawAmount", "autoWidth": true },
-                { "data": "withdrawStatus", "autoWidth": true }               
+                { "data": "withdrawStatus", "autoWidth": true }
             ],
         "order": [1, "asc"],
         "processing": "true",
