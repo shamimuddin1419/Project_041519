@@ -4,6 +4,7 @@
 @inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html lang="en" class="loading" data-textdirection="ltr">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="~/Content/Images/favicon.jpeg">
     <link href="~/Content/Theme/app-assets/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 
     <!-- BEGIN: Vendor CSS-->
@@ -51,7 +52,18 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/toastr/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/sweetalert2.min.css" />
-    
+    <style>
+        @@media screen and (max-width: 600px) {
+            .hide-nav-mobile {
+                visibility: hidden;
+                clear: both;
+                float: left;
+                margin: 10px auto 5px 20px;
+                width: 28%;
+                display: none;
+            }
+        }
+    </style>
 
     <script src="~/Content/Theme/app-assets/js/core/libraries/jquery.min.js"></script>
     <script src="~/Content/Theme/app-assets/vendors/js/ui/jquery-ui.min.js"></script>
@@ -61,6 +73,9 @@
 </head>
 <body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
     @{ var user = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<VmUser>("VmUser"); }
+    @{ Random rnd = new Random();}
+    @{ user.ImagePath = user.ImagePath == null ? "/Content/UserImages/no-user.png" : "/Content/UserImages/" + user.ImagePath + "?rand=" + @rnd.Next(1000).ToString();}
+
     @if (user != null)
     {
 
@@ -130,7 +145,7 @@
 
                         </ul>
                         <ul class="nav navbar-nav float-right">
-                            <li class="dropdown dropdown-notification nav-item">
+                            <li class="dropdown dropdown-notification nav-item hide-nav-mobile">
                                 <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i><span class="badge badge-pill badge-danger badge-up"><label id="lblNumberOfMessage"></label></span></a>
                                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                                     <li class="dropdown-menu-header">
@@ -152,17 +167,44 @@
                                 </ul>
                             </li>
                             <li class="dropdown dropdown-user nav-item">
-                                <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><i class="fa fa-user"></i>@user.UserName</a>
+                                <a class="dropdown-toggle nav-link dropdown-user-link pt-1" href="#" data-toggle="dropdown"><span class="avatar avatar-online"><img src="@user.ImagePath" /></span><span class="user-name">@user.UserName</span></a>
                                 <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-item">
+                                        <div class="card">
+                                            <div class="text-center">
+                                                <div class="card-body">
+                                                    <img src="@user.ImagePath" class="rounded-circle  height-150" alt="Card image">
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">@user.FullName</h4>
+                                                    <h6 class="card-subtitle text-muted">Package : <strong>@user.Package</strong> </h6>
+                                                    <h6 class="text-muted text-muted pt-1">Upline User : <strong>@user.ReferrelUserName</strong></h6>
+                                                    <div class="dropdown-divider"></div>
+                                                    <div style="display:flex; flex-wrap:wrap">
+                                                        <a class="dropdown-item" href=@Url.Action("Index","ChangePassword") style="flex:50%">
+                                                            <i class="ft-check-square"></i> Change Password
+                                                        </a>
+                                                        <a class="dropdown-item" href=@Url.Action("UpdateUser","User") style="flex:50%">
+                                                            <i class="ft-user-check"></i> Update Profile
+                                                        </a>
+                                                    </div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" id="lblLogout">
+                                                        <i class="ft-power"></i> Logout
+                                                    </a>
+                                                </div>
+                                                @*<div class="text-center">
+                                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="fa fa-facebook"></span></a>
+                                                        <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="fa fa-twitter"></span></a>
+                                                        <a href="#" class="btn btn-social-icon mb-1 btn-outline-linkedin"><span class="fa fa-linkedin font-medium-4"></span></a>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <a class="dropdown-item" href="/ChangePassword">
-                                        <i class="ft-check-square"></i> Change Password
-                                    </a>
 
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" id="lblLogout">
-                                        <i class="ft-power"></i> Logout
-                                    </a>
+                                    @*<div class="dropdown-divider"></div>*@
+
                                 </div>
                             </li>
                         </ul>
@@ -171,11 +213,13 @@
             </div>
         </nav>
         <div class="main-menu menu-fixed menu-light menu-accordion" data-scroll-to-active="true" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
             <div class="main-menu-content ps ps--active-y">
                 <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
                     <li class=" navigation-header">
                         <span>Menu</span><i class=" ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Mwnu"></i>
+
                     </li>
 
                     <li class=" nav-item">
@@ -343,27 +387,27 @@
                     $.each(result, function (index, value) {
                         if (value.isAdmin) {
                             itemRender = `<a href="/AdminIndividualChat">
-                                                <div class="media">
-                                                    <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                                                    <div class="media-body">
-                                                        <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
-                                                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
-                                                        </small>
+                                                    <div class="media">
+                                                        <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                                        <div class="media-body">
+                                                            <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
+                                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
+                                                            </small>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>`
+                                                </a>`
                             ChatHistory = ChatHistory + itemRender;
                         } else {
                             itemRender = `<a href="/UserIndividualChat">
-                                                <div class="media">
-                                                    <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                                                    <div class="media-body">
-                                                        <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
-                                                            <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
-                                                        </small>
+                                                    <div class="media">
+                                                        <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                                                        <div class="media-body">
+                                                            <p class="notification-text font-small-3 text-muted"> ${value.messageBody}</p><small>
+                                                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00"> ${value.createdDateString}</time>
+                                                            </small>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>`
+                                                </a>`
                             ChatHistory = ChatHistory + itemRender;
                         }
 

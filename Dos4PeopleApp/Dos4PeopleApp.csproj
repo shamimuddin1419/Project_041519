@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Miscellinous\**" />
+    <Content Remove="Miscellinous\**" />
+    <EmbeddedResource Remove="Miscellinous\**" />
+    <None Remove="Miscellinous\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\Application_Scripts\BuyPlan.js" />
     <Content Remove="wwwroot\Application_Scripts\ChangePassword.js" />
     <Content Remove="wwwroot\Application_Scripts\GenerateDailyTaskIncome.js" />
@@ -19,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Miscellinous\UserInfoGetSP.sql" />
+    <None Include="Miscellinous\UserModify.sql" />
+    <None Include="Miscellinous\userModifySP.sql" />
+    <None Include="Miscellinous\User_AuthenticateSP.sql" />
     <None Include="wwwroot\Application_Scripts\WithdrawalApproval.js" />
     <None Include="wwwroot\Application_Scripts\PendingWithdraw.js" />
     <None Include="wwwroot\Application_Scripts\BuyPlan.js" />

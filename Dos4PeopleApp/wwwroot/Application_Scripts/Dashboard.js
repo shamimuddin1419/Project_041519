@@ -27,12 +27,12 @@ var GetDashboardFirstCardData = function () {
     $.get(url, function (data) {
         debugger;
         if (data.success) {
-            $('#ReferrelEarnValId').text(data.data.totalReferrelCommission);
-            $('#WorkCommissionValId').text(data.data.totalWorkCommission);
-            $('#TaskCommissionValId').text(data.data.totalTaskEarn);
+            $('#ReferrelEarnValId').text(parseFloat(data.data.totalReferrelCommission).toFixed(2));
+            $('#WorkCommissionValId').text(parseFloat(data.data.totalWorkCommission).toFixed(2));
+            $('#TaskCommissionValId').text(parseFloat(data.data.totalTaskEarn).toFixed(2));
 
-            $('#CurrBalValId').text(data.data.currentBalance);
-            $('#TodayEarnValId').text(data.data.todaysEarn);
+            $('#CurrBalValId').text(parseFloat(data.data.currentBalance).toFixed(2));
+            $('#TodayEarnValId').text(parseFloat(data.data.todaysEarn).toFixed(2));
             $('#CurrentPackageNameId').text(data.data.currentPackageName);
             $('#CurrPackValId').text(data.data.currentPackageValue);
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,8 @@ namespace Dos4PeopleApp.Models
         public string JoinDate { set; get; }
         public string Duration { set; get; }
         public string Expire { set; get; }
-
-
+        public string CountryId { get; set; }
+        public bool IsSendEmail { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

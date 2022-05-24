@@ -1,0 +1,108 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Dos4PeopleApp.Utility
+@using Dos4PeopleApp.Models
+@inject IHttpContextAccessor HttpContextAccessor;
+
+
+<style>
+    #uploadImageLabelId {
+        background-color: #5F5AF0;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        margin-top: 1rem;
+    }
+
+        #uploadImageLabelId:hover {
+            background-color: #342ee5;
+        }
+</style>
+@{ var loggedInUser = HttpContextAccessor.HttpContext.Session.GetObjectFromJson<VmUser>("VmUser");
+    loggedInUser.ImagePath = loggedInUser.ImagePath == null ? "/Content/UserImages/no-user.png" : "/Content/UserImages/" + loggedInUser.ImagePath;}
+<div class="content-wrapper">
+    <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+            <h3 class="content-header-title mb-0">Update User</h3>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <input type="hidden" value=@Url.Action("LoadLoggedInUser", "User") id="loadUserUrlId" />
+            <input type="hidden" value=@Url.Action("UpdateUserInfo", "User") id="submitUrlId" />
+            <input type="hidden" value=@loggedInUser.UserId id="UserId" />
+            <div class="row">
+                <div class="col-md-7 col-xs-12">
+
+                    <div class="row">
+                        <div class="col-4 pr-0">
+                            <img src="@loggedInUser.ImagePath?rand=@{new Random().Next();}" class="rounded-circle  height-100" id="UserImage" />
+                        </div>
+                        <div class="col-8 pl-md-0" style="display:flex;align-items:center;">
+                            <input type="file" class="form-control-file btn-info" accept="image/*" id="imageUploadId" hidden onchange="uploadImage(this)" />
+                            <label for="imageUploadId" actual-btn" id="uploadImageLabelId"><i class="ft-camera"></i> Upload Image</label>
+
+                        </div>
+                        <p class=" pt-1 px-2 font-weight-light font-italic">Image should be less than 1 MB in size</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-horizontal row pt-1">
+                <div class="form-group  col-md-6">
+                    <label for="UserNameId">User Name</label>
+                    <input type="text" class="form-control input-sm" id="UserNameId" disabled />
+                </div>
+                <div class="form-group col-md-6 ">
+                    <label for="FullNameId">FullName</label>
+                    <input type="text" class="form-control input-sm" id="FullNameId" required />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="EmailId">Email</label>
+                    <input type="email" class="form-control input-sm" id="EmailId" required />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="MobileId">Contact No</label>
+                    <input type="text" class="form-control input-sm" id="MobileId" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="CountryId">Country</label>
+                    <select class="form-control input-sm" id="CountryId" required>
+                        <option value="0">Select Country</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="PackageId">Package</label>
+                    <input type="text" class="form-control input-sm" id="PackageId" disabled />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="JoinDateId">Joining Date</label>
+                    <input type="text" class="form-control input-sm" id="JoinDateId" disabled />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="DurationId">Duration</label>
+                    <input type="text" class="form-control input-sm" id="DurationId" disabled />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ExpireId">Expiry At</label>
+                    <input type="text" class="form-control input-sm" id="ExpireId" disabled />
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="form-group col-12">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="IsSendEmailId">
+                        <label class="custom-control-label" for="IsSendEmailId">Get Any Update Or Notification From dos4people Via Email</label>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <button type="button" class="btn btn-success" id="submitId"><i class="ft-save"></i> Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="~/Application_Scripts/UpdateUser.js" />

@@ -175,12 +175,21 @@ $('#btnSubmitWithdrawalInfo').click(function () {
                         debugger;
                         if (response.status == true) {
                             GetWithdrawalListByUserId();
-                            Clear();
+                           
+                            let message = '';
+                            let withdrawAmt = $('#txtWIthdrawAmount').val();
+                            if ($('#isMainBalance').is(":checked") == true) {
+                                message = `Your Requested Main Balance is $${withdrawAmt} Successful For Withdrawals,Thank you for participate with us.`
+                            }
+                            else {
+                                message = `Your Requested Commission is $${withdrawAmt} Successful For Withdrawals,Thank you for participate with us.`
+                            }
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Success',
-                                text: "Your Withdraw Request Submitted Successfully"
+                                text: message
                             })
+                            Clear();
                         } else {
                             Swal.fire({
                                 icon: 'error',

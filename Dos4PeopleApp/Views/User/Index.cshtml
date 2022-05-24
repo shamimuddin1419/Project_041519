@@ -43,6 +43,11 @@
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/toastr/css/toastr.min.css" rel="stylesheet" />
     <link href="~/Content/Custom/LoginRegistation.css" rel="stylesheet" />
+    <style>
+        .flag-text {
+            margin-left: 10px;
+        }
+    </style>
     <title>dos4people</title>
 </head>
 
@@ -88,7 +93,7 @@
                         </div>
                         <label>Mobile: <span style="color:red"> *</span></label>
                         <div class="form-group">
-                            <input type="text" class="form-control-lg"  id="Mobile" placeholder="Mobile" />
+                            <input type="text" class="form-control-lg" id="Mobile" placeholder="Mobile" />
                         </div>
                         <label>Password: <span style="color:red"> *</span></label>
                         <div class="form-group">
@@ -101,6 +106,23 @@
                         <label>Referrer:</label>
                         <div class="form-group">
                             <input type="text" class="form-control-lg" id="Referrer" readonly placeholder="Referrer" />
+                        </div>
+                        <label>Country:</label>
+                        <div class="form-group">
+                            <select class="form-control-lg" id="CountryId" required>
+                                <option value="0">Select Country</option>
+                             </select>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input"  id="TermsConditionId">
+                                <label class="custom-control-label" for="TermsConditionId">I Agree with terms and conditions</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input"  id="IsSendEmailId">
+                                <label class="custom-control-label" for="IsSendEmailId">Get Any Update Or Notification From dos4people Via Email</label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <center><button type="button" class="form-control-lg btn btn-success btn-lg pl-3 pr-3" id="btnSave">Register</button></center>
@@ -118,23 +140,18 @@
     <script src="~/Content/Theme/app-assets/js/core/libraries/jquery.min.js"></script>
     <script src="~/Content/Theme/app-assets/js/core/libraries/bootstrap.min.js"></script>
     <script src="~/toastr/js/toastr.min.js"></script>
+    
     <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- BEGIN: Vendor JS-->
     <script src="~/Content/Theme/app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
     <!-- BEGIN: Page Vendor JS-->
-    <script src="~/Content/Theme/app-assets/vendors/js/charts/gmaps.min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/forms/icheck/icheck.min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/extensions/jquery.knob.min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/charts/raphael-min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/charts/morris.min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/charts/jquery.sparkline.min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/extensions/unslider-min.js"></script>
-    <script src="~/Content/Theme/app-assets/vendors/js/charts/echarts/echarts.js"></script>
+
     <!-- END: Page Vendor JS-->
     <!-- BEGIN: Theme JS-->
     <script src="~/Content/Theme/app-assets/js/core/app-menu.js"></script>
     <script src="~/Content/Theme/app-assets/js/core/app.js"></script>
+    <script src="~/Content/Theme/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
 
     <script src="~/Application_Scripts/User.js"></script>
 

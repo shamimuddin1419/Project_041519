@@ -30,6 +30,8 @@ namespace Dos4PeopleApp.DA
                 parameters.Add("Mobile", _objUser.Mobile.Trim());
                 parameters.Add("Password", _objUser.Password.Trim());
                 parameters.Add("ReferrelUserName", _objUser.ReferrelUserName == null || _objUser.ReferrelUserName == "" ? null : _objUser.ReferrelUserName.Trim());
+                parameters.Add("CountryId", _objUser.CountryId.Trim());
+                parameters.Add("IsSendEmail", _objUser.IsSendEmail);
                 parameters.Add("UserId", null, DbType.String, ParameterDirection.Output, 37);
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
@@ -198,7 +200,7 @@ namespace Dos4PeopleApp.DA
                 conn.Close();
             }
         }
-        public async Task<VmUser> GetUserInfoByUserName(VmUser _objUser)
+        public async Task<VmUser> GetUserInfoByUserId(Guid userId)
         {
             var conn = Utility.Utility.GetConnection();
             try
@@ -209,7 +211,7 @@ namespace Dos4PeopleApp.DA
                     conn.Open();
                 }
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("UserId", _objUser.UserId);
+                parameters.Add("UserId", userId);
                 parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
                 parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
                 string query = "UserInfo_Get";
@@ -328,6 +330,78 @@ namespace Dos4PeopleApp.DA
                     throw new CustomException(userMsg);
                 }
                 return userTeam;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        internal async Task<List<VMCountry>> GetCountry()
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                VmUser result = new VmUser();
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+                string query = "Country_Get";
+                List<VMCountry> userTeam = (await conn.QueryAsync<VMCountry>(query, parameters, commandType: CommandType.StoredProcedure)).ToList();
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+                return userTeam;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public async Task<bool> ModifyUserInfo(VmUser _objUser)
+        {
+            var conn = Utility.Utility.GetConnection();
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                var parameters = new DynamicParameters();
+                parameters.Add("UserId", _objUser.UserId.ToString());
+                parameters.Add("FullName", _objUser.FullName);
+                parameters.Add("Email", _objUser.Email);
+                parameters.Add("Mobile", _objUser.Mobile);
+                parameters.Add("CountryId", _objUser.CountryId);
+                parameters.Add("IsSendEmail", _objUser.IsSendEmail);
+                parameters.Add("ImagePath", _objUser.ImagePath);
+                parameters.Add("ErrCode", null, DbType.String, ParameterDirection.Output, 2);
+                parameters.Add("UserMsg", null, DbType.String, ParameterDirection.Output, 200);
+
+                string query = "UserInfo_Modify";
+                var result = await conn.ExecuteAsync(query, parameters, commandType: CommandType.StoredProcedure);
+                string errorCode = parameters.Get<string>("ErrCode");
+                string userMsg = parameters.Get<string>("UserMsg");
+                if (errorCode != null && errorCode != "00")
+                {
+                    throw new CustomException(userMsg);
+                }
+
+                return true;
             }
             catch (Exception ex)
             {
